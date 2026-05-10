@@ -69,5 +69,5 @@ Follows the official EFREI Computer Science Department design guidelines:
 ## Course
 
 **TI402 / TI402P / TI402Bdx** — Web Development  
-Instructor: Mohamed HAMIDI  
+Instructor: Amir CHACHOUI  
 EFREI Paris — 2025–2026
