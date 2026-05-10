@@ -63,10 +63,8 @@ Follows the official EFREI Computer Science Department design guidelines:
 
 | Name | Role |
 |------|------|
-| Student Name 1 | Project lead & HTML structure |
-| Student Name 2 | CSS & responsive design |
-| Student Name 3 | JavaScript & interactivity |
-| Student Name 4 | Content & pages |
+| Aaron Jehchi | Project lead & HTML structure & CSS & responsive design |
+| Artus Nonneau--Guiraud | JavaScript & interactivity & Content & pages |
 
 ## Course
 
