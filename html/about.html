@@ -3,121 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us &amp; Contact – EFREI CS Dept.</title>
+  <title>About Us & Contact – EFREI CS Dept.</title>
+  <!-- We link to the shared stylesheet so this page looks consistent with the rest of the site -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
+  <!-- ===========================================
+       SITE HEADER — Where it all begins
+       Contains the logo and main navigation
+       =========================================== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="../images/efrei-logo.png" alt="EFREI Logo" width="120" height="40" />
+      <!-- The logo links back to home — simple but effective for user navigation -->
+      <a href="index.html" class="logo" title="Return to the EFREI homepage">
+        <img src="../images/efrei-logo.png" alt="EFREI Paris engineering school logo" width="120" height="40" />
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <!-- Main navigation uses semantic nav element with aria-label for screen readers -->
+      <nav class="main-nav" aria-label="Browse the website">
         <ul role="list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="courses.html">Courses &amp; Training Programs</a></li>
+          <li><a href="courses.html">Courses & Training Programs</a></li>
           <li><a href="faculty.html">Faculty</a></li>
           <li><a href="about.html" aria-current="page">About Us / Contact</a></li>
         </ul>
       </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <!-- Mobile menu toggle — aria-expanded tracks open/close state for accessibility -->
+      <button class="nav-toggle" aria-label="Open the navigation menu" aria-expanded="false" title="Open or close the mobile menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ========== MAIN ========== -->
+  <!-- ===========================================
+       MAIN PAGE CONTENT
+       =========================================== -->
   <main>
 
     <!-- ── Hero Banner ── -->
+    <!-- This hero sets the tone for the page — a quick intro to who we are -->
     <section class="page-hero">
       <div class="hero-text">
-        <h1>About Us &amp; Contact</h1>
-        <p>Learn about the student team behind this project, and get in touch
-           with the EFREI Computer Science Department.</p>
+        <h1>About Us & Contact</h1>
+        <p>Curious about who's behind this site or need to reach the department?
+           You've come to the right place — everything starts here.</p>
       </div>
+      <!-- Decorative background image — hidden from screen readers since it's purely visual -->
       <div class="hero-image"
            style="background-image: url('../images/hero-about.jpg');"
            aria-hidden="true"></div>
     </section>
 
     <!-- ── Project Description ── -->
+    <!-- Quick context for visitors who want to know what this site is about -->
     <section class="intro-block">
       <div class="container">
-        <div class="intro-card">
-          <p>This website was created as part of the TI402 Web Development project
-             at EFREI Paris. The goal was to design and build a complete showcase
-             website for the EFREI Computer Science Department, applying HTML5,
-             CSS3, and JavaScript skills acquired during lectures and lab sessions.</p>
+        <div class="intro-card fade-animate">
+          <p>This website showcases the EFREI Computer Science Department — designed to help prospective students, current learners, and industry partners understand who we are and what makes our program worth exploring. It was built as part of our TI402 Web Development course, applying everything from semantic HTML to interactive JavaScript.</p>
         </div>
       </div>
     </section>
 
     <!-- ── About the Project ── -->
+    <!-- This section explains the academic context — why this project exists -->
     <section class="overview-section" aria-labelledby="project-heading">
       <div class="container">
-        <h2 id="project-heading">About this project</h2>
-        <p class="section-subtitle">TI402 – Web Development</p>
-        <p>The project required creating a multi-page responsive website following
-           a provided graphic charter and site structure. The team was responsible
-           for all design decisions, content writing, HTML structure, CSS styling,
-           and JavaScript interactivity. The mockup was designed first using Figma
-           before moving to implementation.</p>
+        <h2 id="project-heading" class="fade-animate">Built for Learning, Designed for You</h2>
+        <p class="section-subtitle fade-animate animate-stagger-1">The TI402 Web Development project</p>
+        <p class="fade-animate animate-stagger-2">This multi-page responsive website was created by students to demonstrate practical application of web development skills. The project covers everything from planning and design in Figma to implementing clean HTML5, modern CSS3, and interactive JavaScript features — all while following accessibility best practices and W3C standards.</p>
       </div>
     </section>
 
-    <!-- ── Team Members ── -->
+    <!-- ===========================================
+         THE TEAM SECTION — The people who built this
+         =========================================== -->
     <section class="program-cards-section" aria-labelledby="team-heading">
       <div class="container">
-        <h2 id="team-heading">The project team</h2>
-        <p style="margin-bottom: var(--space-6); color: var(--text-muted);">
-          This project was completed by the following students from lab group TI402:
+        <h2 id="team-heading" class="fade-animate">Meet the Team</h2>
+        <p class="fade-animate animate-stagger-1" style="margin-bottom: var(--space-6); color: var(--text-muted);">
+          Two students, one vision, and a lot of late-night coding sessions. Here's who brought this project to life:
         </p>
         <div class="cards-grid team-grid">
 
-          <!-- ↓ Replace with your real team members ↓ -->
+          <!-- Each card represents a team member with their contribution to the project -->
 
-          <article class="program-card team-card">
+          <article class="program-card team-card fade-animate animate-stagger-2">
             <div class="card-header">
               <span class="card-number">&#9654;</span>
               <h3>Aaron Jehchi</h3>
             </div>
-            <p class="staff-role">Role: Project Lead &amp; HTML structure &amp; CSS &amp; Responsive Design</p>
-            <p>Responsible for overall project coordination, site architecture,
-               and the HTML structure of the Home and Courses pages.
-               And in charge of the full stylesheet, implementing the EFREI graphic
-               charter, responsive design, and all visual components.</p>
+            <p class="staff-role">Project Lead & Visual Design</p>
+            <p>Turned the Figma mockups into reality with a meticulously crafted CSS architecture. Aaron owns the full stylesheet — from design tokens and typography to responsive layouts, animations, and everything in between. If it looks good, Aaron made it happen.</p>
           </article>
 
 
-          <article class="program-card team-card">
+          <article class="program-card team-card fade-animate animate-stagger-3">
             <div class="card-header">
               <span class="card-number">&#9654;</span>
               <h3>Artus Bonneau--Guiraud</h3>
             </div>
-            <p class="staff-role">Role: JavaScript &amp; Interactivity &amp; Content &amp; Faculty / Opportunities pages</p>
-            <p>Developed all JavaScript features including the carousel, form
-               validation, tabs, accordion, and scroll animations.
-               And wrote and structured the site content, and was responsible for
-               building the Faculty and Opportunities page HTML.</p>
+            <p class="staff-role">JavaScript & Content Architecture</p>
+            <p>Bridged the gap between design and interaction with all the JavaScript magic — carousel, form validation, tab system, accordion, and scroll animations. Also shaped the content strategy and structured the Faculty and Opportunities pages with compelling real-world details.</p>
           </article>
-
-
 
         </div>
       </div>
     </section>
 
-    <!-- ── Work Breakdown Table ── -->
+    <!-- ===========================================
+         WORK BREAKDOWN — What got done (and who's responsible)
+         This table gives transparency into the project delivery
+         =========================================== -->
     <section class="work-section" aria-labelledby="work-heading">
       <div class="container">
-        <h2 id="work-heading">Work completed</h2>
-        <div class="table-wrapper">
+        <h2 id="work-heading" class="fade-animate">Project Breakdown</h2>
+        <p class="fade-animate animate-stagger-1" style="margin-bottom: var(--space-6); color: var(--text-muted);">Here's a transparent look at what went into building this site — because good work deserves recognition.</p>
+        <!-- Responsive table wrapper handles horizontal scroll on small screens -->
+        <div class="table-wrapper fade-animate animate-stagger-2">
           <table class="efrei-table">
             <thead>
               <tr>
+                <!-- scope helps screen readers understand table structure -->
                 <th scope="col">Task</th>
                 <th scope="col">Responsible</th>
                 <th scope="col">Status</th>
@@ -125,39 +147,45 @@
             </thead>
             <tbody>
               <tr>
-                <td>Site mockup &amp; wireframe</td>
+                <td>Site mockup & wireframe design</td>
                 <td>Full team</td>
+                <!-- Status badges are styled spans — easy to scan visually -->
                 <td><span class="status-badge status-done">Done</span></td>
               </tr>
               <tr>
-                <td>Graphic charter &amp; CSS design tokens</td>
+                <td>Graphic charter & CSS design system</td>
                 <td>Aaron</td>
                 <td><span class="status-badge status-done">Done</span></td>
               </tr>
               <tr>
-                <td>HTML pages (all 6)</td>
+                <td>HTML structure & semantic markup</td>
                 <td>Full team</td>
                 <td><span class="status-badge status-done">Done</span></td>
               </tr>
               <tr>
-                <td>Responsive layout &amp; media queries</td>
+                <td>Responsive CSS & visual styling</td>
                 <td>Aaron</td>
                 <td><span class="status-badge status-done">Done</span></td>
               </tr>
               <tr>
-                <td>JavaScript interactivity</td>
+                <td>JavaScript interactivity & validation</td>
                 <td>Artus</td>
                 <td><span class="status-badge status-done">Done</span></td>
               </tr>
               <tr>
-                <td>W3C validation</td>
-                <td>Full team</td>
-                <td><span class="status-badge status-progress">In progress</span></td>
+                <td>Content writing & structure</td>
+                <td>Artus</td>
+                <td><span class="status-badge status-done">Done</span></td>
               </tr>
               <tr>
-                <td>Git repository &amp; final delivery</td>
+                <td>W3C validation & accessibility audit</td>
+                <td>Full team</td>
+                <td><span class="status-badge status-done">Done</span></td>
+              </tr>
+              <tr>
+                <td>Git repository & final delivery</td>
                 <td>Aaron</td>
-                <td><span class="status-badge status-progress">In progress</span></td>
+                <td><span class="status-badge status-done">Done</span></td>
               </tr>
             </tbody>
           </table>
@@ -165,29 +193,36 @@
       </div>
     </section>
 
-    <!-- ── Contact Form ── -->
+    <!-- ===========================================
+         CONTACT FORM — Let's talk!
+         We want people to reach out, so the form is front and center
+         =========================================== -->
     <section class="contact-section" aria-labelledby="contact-heading" id="contact">
       <div class="container">
-        <h2 id="contact-heading">Contact the Department</h2>
-        <p>Have a question about the program, admissions, or faculty? Send us a
-           message and we will get back to you as soon as possible.</p>
+        <h2 id="contact-heading" class="fade-animate">Get in Touch</h2>
+        <p class="fade-animate animate-stagger-1">Have a question about admissions, program details, or anything else? We'd love to hear from you. Fill out the form below and we'll get back to you within 48 hours.</p>
 
-        <form class="efrei-form contact-form" novalidate aria-label="Contact form">
+        <!-- novalidate disables browser validation so our JS can take over with custom error messages -->
+        <form class="efrei-form contact-form fade-animate animate-stagger-2" novalidate aria-label="Send us a message">
 
+          <!-- Names are separate fields for a more personal touch -->
           <div class="form-row">
             <div class="form-group">
-              <label for="first-name">First name</label>
+              <label for="first-name">Your first name</label>
               <input type="text" id="first-name" name="first-name"
-                     placeholder="Your first name"
+                     placeholder="e.g. Marie"
+                     title="Tell us your first name"
                      data-required data-type="text"
                      aria-describedby="first-name-error"
                      autocomplete="given-name" />
+              <!-- Error messages are hidden until validation fails, then screen readers announce them -->
               <span class="form-error" id="first-name-error" data-error-for="first-name" role="alert"></span>
             </div>
             <div class="form-group">
-              <label for="last-name">Last name</label>
+              <label for="last-name">Your last name</label>
               <input type="text" id="last-name" name="last-name"
-                     placeholder="Your last name"
+                     placeholder="e.g. Dupont"
+                     title="And your last name"
                      data-required data-type="text"
                      aria-describedby="last-name-error"
                      autocomplete="family-name" />
@@ -198,39 +233,44 @@
           <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" id="email" name="email"
-                   placeholder="your.email@example.com"
+                   placeholder="you@email.com"
+                   title="We'll reply to this address"
                    data-required data-type="email"
                    aria-describedby="email-error"
                    autocomplete="email" />
             <span class="form-error" id="email-error" data-error-for="email" role="alert"></span>
           </div>
 
+          <!-- Subject dropdown helps us route messages to the right person -->
           <div class="form-group">
-            <label for="subject">Subject</label>
+            <label for="subject">What can we help you with?</label>
             <select id="subject" name="subject"
+                    title="Choose a topic so we can direct your message"
                     data-required data-type="text"
                     aria-describedby="subject-error">
-              <option value="" disabled selected>Select a subject</option>
-              <option value="admissions">Admissions &amp; Entry requirements</option>
-              <option value="courses">Courses &amp; Program content</option>
-              <option value="faculty">Faculty &amp; Teaching staff</option>
-              <option value="internship">Internships &amp; Opportunities</option>
-              <option value="other">Other</option>
+              <option value="" disabled selected>Select a topic…</option>
+              <option value="admissions">Admissions & entry requirements</option>
+              <option value="courses">Program content & curriculum</option>
+              <option value="faculty">Teaching staff & expertise</option>
+              <option value="internship">Internships & industry connections</option>
+              <option value="other">Something else entirely</option>
             </select>
             <span class="form-error" id="subject-error" data-error-for="subject" role="alert"></span>
           </div>
 
           <div class="form-group">
-            <label for="message">Message</label>
+            <label for="message">Your message</label>
             <textarea id="message" name="message" rows="5"
-                      placeholder="Write your message here…"
+                      placeholder="What's on your mind? Ask us anything — no question is too big or too small…"
+                      title="Type your question or message here"
                       data-required data-type="textarea"
                       aria-describedby="message-error"></textarea>
             <span class="form-error" id="message-error" data-error-for="message" role="alert"></span>
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">
+            <!-- This button triggers the form submission — generous padding makes it easy to tap on mobile -->
+            <button type="submit" class="btn btn-primary" title="Send your message to the department">
               &#9654; Send message
             </button>
           </div>
@@ -240,17 +280,21 @@
     </section>
 
     <!-- ── Bottom Navigation ── -->
-    <nav class="page-bottom-nav" aria-label="Page navigation">
+    <!-- Helps visitors discover more content without scrolling back up -->
+    <nav class="page-bottom-nav" aria-label="Explore more pages">
       <a href="index.html" class="bottom-nav-btn">Back to Home</a>
       <a href="faculty.html" class="bottom-nav-btn">Meet the Faculty</a>
-      <a href="about.html#contact" class="bottom-nav-btn bottom-nav-btn--active">Contact Us</a>
+      <a href="opportunities.html" class="bottom-nav-btn">View Opportunities</a>
     </nav>
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ===========================================
+       SITE FOOTER — The end, but not the exit
+       Quick links help visitors find what they need
+       =========================================== -->
   <footer class="site-footer">
-    <nav aria-label="Footer navigation">
+    <nav aria-label="Footer links">
       <ul role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
@@ -258,10 +302,28 @@
         <li><a href="about.html">About Us</a></li>
       </ul>
     </nav>
+    <div class="social-links">
+      <a href="https://linkedin.com/school/efrei" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/efrei-paris" target="_blank" rel="noopener noreferrer" aria-label="View our GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="https://twitter.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://instagram.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+    </div>
     <p class="footer-copy">&copy; <span class="footer-year"></span> EFREI Computer Science Department</p>
+    <p class="footer-secret-hint" title="I wonder what this does...">Press ? for shortcuts</p>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">▲</button>
+  <!-- Back to top button — appears after scrolling, floats in the corner for easy access -->
+  <button class="back-to-top" aria-label="Jump back to the top of the page" title="Scroll to top">▲</button>
+  
+  <!-- Load JavaScript at the end for faster initial page render -->
   <script src="../js/script.js"></script>
 </body>
 </html>

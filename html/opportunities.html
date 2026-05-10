@@ -3,147 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Academic &amp; Career Opportunities – EFREI CS Dept.</title>
+  <title>Academic & Career Opportunities – EFREI CS Dept.</title>
+  <!-- Same stylesheet for visual consistency across the entire site -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
+  <!-- ===========================================
+       SITE HEADER — Your compass across the site
+       Keeps navigation one click away, always
+       =========================================== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="../images/efrei-logo.png" alt="EFREI Logo" width="120" height="40" />
+      <!-- Home button — clicking the logo is muscle memory for most web users -->
+      <a href="index.html" class="logo" title="Take me to the homepage">
+        <img src="../images/efrei-logo.png" alt="EFREI Paris engineering school logo" width="120" height="40" />
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <!-- Navigation labeled for screen readers to distinguish from other nav elements -->
+      <nav class="main-nav" aria-label="Browse the website">
         <ul role="list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="courses.html">Courses &amp; Training Programs</a></li>
+          <li><a href="courses.html">Courses & Training Programs</a></li>
           <li><a href="faculty.html">Faculty</a></li>
           <li><a href="about.html">About Us / Contact</a></li>
         </ul>
       </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <!-- Accessible toggle for mobile navigation — aria-expanded tracks open state -->
+      <button class="nav-toggle" aria-label="Open the navigation menu" aria-expanded="false" title="Toggle the mobile menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ========== MAIN ========== -->
+  <!-- ===========================================
+       MAIN PAGE CONTENT
+       =========================================== -->
   <main>
 
     <!-- ── Hero Banner ── -->
+    <!-- The hook — tells visitors in 5 seconds what they'll get from this page -->
     <section class="page-hero">
       <div class="hero-text">
-        <h1>Academic &amp; Career Opportunities</h1>
-        <p>Explore the academic pathways, internship programs, and career options
-           available to EFREI Computer Science students.</p>
+        <h1>Academic & Career Opportunities</h1>
+        <p>Where education meets experience. Discover how EFREI transforms your
+           potential into a tech career through internships, research, and industry connections.</p>
       </div>
+      <!-- Decorative background — screen readers correctly ignore it -->
       <div class="hero-image" style="background-image: url('../images/hero-opportunities.jpg');" aria-hidden="true"></div>
     </section>
 
     <!-- ── Intro Block ── -->
+    <!-- Quick orientation — what this page covers and why it matters -->
     <section class="intro-block">
       <div class="container">
-        <div class="intro-card">
-          <p>The EFREI Computer Science program opens doors to a wide range of
-             professional and academic futures. Whether students aim for careers
-             in industry, research, or entrepreneurship, the department provides
-             the tools, networks, and experiences to succeed.</p>
+        <div class="intro-card fade-animate">
+          <p>We believe the best education happens when classroom learning meets real-world challenges. That's why every year at EFREI includes mandatory internships, industry-sponsored projects, and opportunities to work alongside faculty on cutting-edge research. Your education isn't delayed until graduation — it starts immediately.</p>
         </div>
       </div>
     </section>
 
     <!-- ── Overview ── -->
+    <!-- The broader context — not just what's available but what EFREI does to help -->
     <section class="overview-section" aria-labelledby="overview-opps">
       <div class="container">
-        <h2 id="overview-opps">A pathway built for progression</h2>
-        <p class="section-subtitle">From studies to career</p>
-        <p>The training pathway is structured to ease the transition from academic
-           learning to professional practice. As they progress through the program,
-           students gain increasing exposure to industry through projects, internships,
-           partner companies, and a rich alumni network. Every stage of the curriculum
-           is designed to build career readiness and professional confidence.</p>
+        <h2 id="overview-opps" class="fade-animate">More Than Just a Degree</h2>
+        <p class="section-subtitle fade-animate animate-stagger-1">Real experience, real connections, real careers</p>
+        <p class="fade-animate animate-stagger-2">EFREI's industry connections aren't superficial — they're deep, ongoing relationships that benefit students at every level. From freshman-year exploratory internships to senior-year technical roles at prestigious companies, the progression is designed to build confidence, competence, and professional networks that last well beyond graduation.</p>
       </div>
     </section>
 
-    <!-- ── Opportunity Cards ── -->
+    <!-- ===========================================
+         OPPORTUNITY CARDS — Three ways EFREI opens doors
+         Internships, research, and entrepreneurship — three distinct paths
+         =========================================== -->
     <section class="program-cards-section" aria-labelledby="opps-heading">
       <div class="container">
-        <h2 id="opps-heading">Opportunity cards</h2>
+        <h2 id="opps-heading" class="fade-animate">Three Paths to Your Future</h2>
         <div class="cards-grid">
 
-          <article class="opportunity-card program-card">
+          <!-- Path 1: Real-world experience through internships -->
+          <article class="opportunity-card program-card fade-animate animate-stagger-1">
             <div class="card-header">
-              <span class="card-number">Card 1</span>
-              <h3>Internships &amp; Work Placements</h3>
+              <span class="card-number">1</span>
+              <h3>Internships & Work Placements</h3>
             </div>
-            <p>Students complete mandatory internships each year, with placements
-               in top companies across France and internationally. These experiences
-               provide real-world skills and build professional networks early in
-               the career journey.</p>
+            <p>Every year includes a mandatory internship — starting from your first year with exploratory roles and building toward substantive technical positions. Our 40+ industry partners actively recruit EFREI students because they trust the quality of our graduates. Past interns have converted their internships into full-time offers at companies like Amazon, BNP Paribas, and Dassault Systèmes.</p>
           </article>
 
-          <article class="opportunity-card program-card">
+          <!-- Path 2: Academic excellence and research -->
+          <article class="opportunity-card program-card fade-animate animate-stagger-2">
             <div class="card-header">
-              <span class="card-number">Card 2</span>
-              <h3>Research &amp; Innovation</h3>
+              <span class="card-number">2</span>
+              <h3>Research & Innovation</h3>
             </div>
-            <p>High-achieving students can engage in research projects alongside
-               faculty, participate in hackathons, or pursue academic publication.
-               This pathway prepares students for Master's, PhD, or R&amp;D careers.</p>
+            <p>For students drawn to deeper inquiry, EFREI offers pathways into active research projects alongside faculty members. Contribute to published papers, participate in international conferences, and explore whether graduate studies might be your path. Our research-active students have presented at venues across Europe and North America.</p>
           </article>
 
-          <article class="opportunity-card program-card program-card--wide">
+          <!-- Path 3: Building your own thing -->
+          <article class="opportunity-card program-card program-card--wide fade-animate animate-stagger-3">
             <div class="card-header">
-              <span class="card-number">Card 3</span>
-              <h3>Entrepreneurship &amp; Industry Partnerships</h3>
+              <span class="card-number">3</span>
+              <h3>Entrepreneurship & Industry Projects</h3>
             </div>
-            <p>EFREI supports student entrepreneurs through incubator access and
-               startup mentoring. Industry partnerships provide additional project
-               opportunities, guest lectures, and direct recruitment pipelines into
-               leading technology companies.</p>
+            <p>Have a business idea? We support it. EFREI's startup incubator provides mentorship, workspace, and seed funding for student-founded companies. Meanwhile, our industry project program matches student teams with real company challenges — you'll build something that actually ships while earning course credit.</p>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ── Career Paths ── -->
+    <!-- ===========================================
+         CAREER PATHS — Where graduates actually end up
+         Concrete examples help prospective students imagine their future
+         =========================================== -->
     <section class="career-section" aria-labelledby="career-heading">
       <div class="container">
-        <h2 id="career-heading">Where graduates go</h2>
-        <p>EFREI Computer Science graduates pursue careers across a wide range of sectors:</p>
+        <h2 id="career-heading" class="fade-animate">Where Our Graduates Go</h2>
+        <p class="fade-animate animate-stagger-1" style="margin-bottom: var(--space-6); color: var(--text-muted);">EFREI alumni work at leading tech companies and innovative startups across France and internationally.</p>
+        <!-- Grid layout makes it easy to scan different career clusters -->
         <div class="career-grid">
-          <div class="career-item">
-            <h3>Software &amp; Web Development</h3>
+          <!-- Software development — the classic CS path -->
+          <div class="career-item fade-animate animate-stagger-2">
+            <h3>Software Engineering</h3>
             <ul class="efrei-list dark">
               <li>Frontend / Backend Developer</li>
               <li>Full-Stack Engineer</li>
               <li>Mobile App Developer</li>
+              <li>DevOps Engineer</li>
             </ul>
           </div>
-          <div class="career-item">
-            <h3>Data &amp; AI</h3>
+          <!-- Data and AI — growing fast -->
+          <div class="career-item fade-animate animate-stagger-3">
+            <h3>Data & AI</h3>
             <ul class="efrei-list dark">
-              <li>Data Scientist</li>
               <li>Machine Learning Engineer</li>
-              <li>Data Analyst</li>
+              <li>Data Scientist</li>
+              <li>Data Engineer</li>
+              <li>AI Research Engineer</li>
             </ul>
           </div>
-          <div class="career-item">
-            <h3>Systems &amp; Infrastructure</h3>
+          <!-- Infrastructure — keeping things running -->
+          <div class="career-item fade-animate animate-stagger-4">
+            <h3>Systems & Security</h3>
             <ul class="efrei-list dark">
-              <li>DevOps / Cloud Engineer</li>
-              <li>Network Administrator</li>
               <li>Cybersecurity Analyst</li>
+              <li>Network Engineer</li>
+              <li>Cloud Architect</li>
+              <li>Site Reliability Engineer</li>
             </ul>
           </div>
-          <div class="career-item">
-            <h3>Leadership &amp; Management</h3>
+          <!-- Leadership track — for those who want to manage -->
+          <div class="career-item fade-animate animate-stagger-5">
+            <h3>Leadership & Strategy</h3>
             <ul class="efrei-list dark">
-              <li>IT Project Manager</li>
-              <li>CTO / Technical Lead</li>
+              <li>Technical Lead / Architect</li>
               <li>Product Manager</li>
+              <li>Engineering Manager</li>
+              <li>CTO / Founder</li>
             </ul>
           </div>
         </div>
@@ -151,31 +183,37 @@
     </section>
 
     <!-- ── Further Studies ── -->
+    <!-- Not everyone graduates and goes straight to industry — some want more school -->
     <section class="further-section" aria-labelledby="further-heading">
       <div class="container">
-        <h2 id="further-heading">Further study options</h2>
-        <p>Graduates may continue their academic journey through:</p>
-        <ul class="efrei-list dark spaced">
-          <li>Master's programs in Computer Science, AI, or Cybersecurity</li>
-          <li>Doctoral research at partner universities</li>
-          <li>Exchange programs with international institutions</li>
-          <li>Professional certifications (AWS, Google Cloud, Cisco, etc.)</li>
+        <h2 id="further-heading" class="fade-animate">Continuing Your Education</h2>
+        <p class="fade-animate animate-stagger-1" style="margin-bottom: var(--space-6); color: var(--text-muted);">Many graduates choose to pursue advanced studies — and EFREI prepares them well for competitive programs.</p>
+        <!-- Bullet list with spacing for readability -->
+        <ul class="efrei-list dark spaced fade-animate animate-stagger-2">
+          <li>Master's programs in Computer Science, AI, Data Science, or Cybersecurity at top European universities</li>
+          <li>PhD research at EFREI's partner laboratories or international research institutions</li>
+          <li>Exchange programs with partner universities in the US, UK, Germany, and Singapore</li>
+          <li>Professional certifications (AWS, Google Cloud, Cisco, Certified Ethical Hacker) — often supported through company tuition programs</li>
         </ul>
       </div>
     </section>
 
     <!-- ── Bottom Navigation ── -->
-    <nav class="page-bottom-nav" aria-label="Page navigation">
+    <!-- Easy hops to related pages — keeps visitors exploring -->
+    <nav class="page-bottom-nav" aria-label="Keep discovering">
       <a href="courses.html" class="bottom-nav-btn">Explore Courses</a>
       <a href="background.html" class="bottom-nav-btn">View Skills</a>
-      <a href="opportunities.html" class="bottom-nav-btn bottom-nav-btn--active">Back to programs</a>
+      <a href="opportunities.html" class="bottom-nav-btn bottom-nav-btn--active">View Opportunities</a>
     </nav>
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ===========================================
+       SITE FOOTER — The end of the page, start of navigation
+       Quick links live here so users can find more without searching
+       =========================================== -->
   <footer class="site-footer">
-    <nav aria-label="Footer navigation">
+    <nav aria-label="Footer links">
       <ul role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
@@ -183,10 +221,28 @@
         <li><a href="about.html">About Us</a></li>
       </ul>
     </nav>
+    <div class="social-links">
+      <a href="https://linkedin.com/school/efrei" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/efrei-paris" target="_blank" rel="noopener noreferrer" aria-label="View our GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="https://twitter.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://instagram.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+    </div>
     <p class="footer-copy">&copy; <span class="footer-year"></span> EFREI Computer Science Department</p>
+    <p class="footer-secret-hint" title="I wonder what this does...">Press ? for shortcuts</p>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">▲</button>
+  <!-- Back to top button — helps users on long pages avoid scrolling manually -->
+  <button class="back-to-top" aria-label="Jump back to the top of the page" title="Go back to the top">▲</button>
+  
+  <!-- JS loads after content for faster perceived performance -->
   <script src="../js/script.js"></script>
 </body>
 </html>

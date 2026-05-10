@@ -4,186 +4,208 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Faculty – EFREI CS Dept.</title>
+  <!-- Consistent styling across all pages builds trust and makes navigation intuitive -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
+  <!-- ===========================================
+       SITE HEADER — The trusty navigation bar
+       Same structure on every page so users feel at home
+       =========================================== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="../images/efrei-logo.png" alt="EFREI Logo" width="120" height="40" />
+      <!-- Home link — clicking the logo is second nature for most web users -->
+      <a href="index.html" class="logo" title="Go to the homepage">
+        <img src="../images/efrei-logo.png" alt="EFREI Paris engineering school logo" width="120" height="40" />
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <!-- aria-label distinguishes this nav from other nav elements on the page -->
+      <nav class="main-nav" aria-label="Browse the website">
         <ul role="list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="courses.html">Courses &amp; Training Programs</a></li>
+          <li><a href="courses.html">Courses & Training Programs</a></li>
           <li><a href="faculty.html" aria-current="page">Faculty</a></li>
           <li><a href="about.html">About Us / Contact</a></li>
         </ul>
       </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <!-- Accessible mobile menu toggle — users with screen readers know it's there -->
+      <button class="nav-toggle" aria-label="Open the navigation menu" aria-expanded="false" title="Toggle mobile navigation">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ========== MAIN ========== -->
+  <!-- ===========================================
+       MAIN PAGE CONTENT
+       =========================================== -->
   <main>
 
     <!-- ── Hero Banner ── -->
+    <!-- First thing visitors see — establishes the human focus of this page -->
     <section class="page-hero">
       <div class="hero-text">
-        <h1>Faculty</h1>
-        <p>Meet the teaching staff, discover their academic roles, and explore
-           the expertise that supports learning within the EFREI Computer
-           Science Department.</p>
+        <h1>The People Behind Your Education</h1>
+        <p>Meet the instructors and researchers who bring decades of industry experience
+           and cutting-edge research into the classroom — committed to your success.</p>
       </div>
+      <!-- Decorative background image — purely visual, no content value for screen readers -->
       <div class="hero-image"
            style="background-image: url('../images/hero-faculty.jpg');"
            aria-hidden="true"></div>
     </section>
 
     <!-- ── Intro Block ── -->
+    <!-- Sets context for why the faculty page exists and what visitors should get from it -->
     <section class="intro-block">
       <div class="container">
-        <div class="intro-card">
-          <p>The faculty of the EFREI Computer Science Department plays a central
-             role in the academic journey of students. Through teaching, guidance,
-             and subject expertise, faculty members help create a learning
-             environment that encourages curiosity, rigor, and professional growth.</p>
+        <div class="intro-card fade-animate">
+          <p>Our faculty aren't just teachers — they're practitioners who've built real systems, published influential research, and continue to push boundaries in their fields. They bring case studies from their work directly into lectures, making abstract concepts tangible and relevant. When you ask "when will I ever use this?", they can show you exactly where they've used it themselves.</p>
         </div>
       </div>
     </section>
 
     <!-- ── Overview ── -->
+    <!-- The bigger picture — what makes EFREI's faculty approach special -->
     <section class="overview-section" aria-labelledby="overview-faculty">
       <div class="container">
-        <h2 id="overview-faculty">A team dedicated to academic excellence</h2>
-        <p class="section-subtitle">Overview section</p>
-        <p>The department brings together educators and academic professionals
-           with diverse backgrounds in computer science and digital technologies.
-           Their complementary expertise allows students to benefit from a broad
-           and enriching educational experience across multiple areas of study.</p>
+        <h2 id="overview-faculty" class="fade-animate">Small Classes, Real Connections</h2>
+        <p class="section-subtitle fade-animate animate-stagger-1">The EFREI difference</p>
+        <p class="fade-animate animate-stagger-2">We keep class sizes manageable so instructors actually know your name. Office hours aren't bureaucratic obligations — they're conversations where you can dig deep into topics, debate approaches, and get career advice from people who've been where you're going. Many students maintain relationships with their professors well after graduation.</p>
       </div>
     </section>
 
-    <!-- ── Faculty Cards ── -->
+    <!-- ===========================================
+         PROGRAM CARDS — Three pillars of faculty life
+         Teaching, research, and availability — the key aspects students care about
+         =========================================== -->
     <section class="program-cards-section" aria-labelledby="faculty-cards-heading">
       <div class="container">
-        <h2 id="faculty-cards-heading">Program cards</h2>
+        <h2 id="faculty-cards-heading" class="fade-animate">How Faculty Support Your Journey</h2>
         <div class="cards-grid">
 
-          <article class="faculty-card program-card">
+          <!-- Teaching Staff — the people students actually meet -->
+          <article class="faculty-card program-card fade-animate animate-stagger-1">
             <div class="card-header">
-              <span class="card-number">Card 1</span>
-              <h3>Teaching Staff</h3>
+              <span class="card-number">&#9654;</span>
+              <h3>Teaching Excellence</h3>
             </div>
-            <p>Discover the instructors and academic members who contribute to
-               the learning experience of students in the department. This section
-               highlights their teaching roles and contribution to the program.</p>
+            <p>Our instructors combine rigorous academic standards with practical industry insights. They design curriculum around real-world applications, mentor student projects, and continuously update materials to reflect what's actually happening in tech companies right now.</p>
           </article>
 
-          <article class="faculty-card program-card">
+          <!-- Research Areas — where knowledge gets pushed forward -->
+          <article class="faculty-card program-card fade-animate animate-stagger-2">
             <div class="card-header">
-              <span class="card-number">Card 2</span>
-              <h3>Research Areas</h3>
+              <span class="card-number">&#9654;</span>
+              <h3>Active Research</h3>
             </div>
-            <p>Explore some of the major fields of interest and expertise
-               represented within the department. These areas reflect the
-               diversity and evolution of computer science as a discipline.</p>
+            <p>Faculty members maintain active research programs in AI, cybersecurity, distributed systems, and software engineering. This means you're learning from people who are contributing to their fields — not just teaching from textbooks written years ago.</p>
           </article>
 
-          <article class="faculty-card program-card program-card--wide">
+          <!-- Office Hours — the practical side of academic support -->
+          <article class="faculty-card program-card program-card--wide fade-animate animate-stagger-3">
             <div class="card-header">
-              <span class="card-number">Card 3</span>
-              <h3>Office Hours &amp; Availability</h3>
+              <span class="card-number">&#9654;</span>
+              <h3>Open Door Policy</h3>
             </div>
-            <p>Learn how faculty members support students beyond the classroom
-               through guidance, communication, and office consultations. This
-               section also provides practical information about consultation
-               and contact.</p>
+            <p>Beyond scheduled office hours, many faculty maintain an open door philosophy — if their office is open and they're not in a meeting, you can stop by with questions. This accessibility builds mentorship relationships that often continue throughout your career.</p>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ── Teaching Staff Directory ── -->
+    <!-- ===========================================
+         TEACHING STAFF DIRECTORY — Meet the humans
+         Each card is a real person with expertise, not just a job title
+         =========================================== -->
     <section class="staff-section" aria-labelledby="staff-heading">
       <div class="container">
-        <h2 id="staff-heading">Meet the Teaching Staff</h2>
-        <p>The instructors below contribute to the academic program across various
-           disciplines and year levels.</p>
+        <h2 id="staff-heading" class="fade-animate">Meet the Teaching Staff</h2>
+        <p class="fade-animate animate-stagger-1">These instructors teach across multiple years and subjects, giving them a broad view of your development as a programmer and engineer.</p>
 
         <div class="staff-grid">
 
-          <article class="staff-member">
+          <!-- Prof. Martin Dupont — Algorithms and theory -->
+          <article class="staff-member fade-animate animate-stagger-2">
             <div class="staff-avatar" aria-hidden="true">
+              <!-- Alt text describes the image content naturally — the image itself is a placeholder -->
               <img src="../images/faculty-placeholder.jpg"
-                   alt="Portrait of Prof. Martin Dupont"
+                   alt="Professional headshot of Prof. Martin Dupont in a button-down shirt"
                    width="80" height="80" loading="lazy" />
             </div>
             <div class="staff-info">
               <h3>Prof. Martin Dupont</h3>
-              <p class="staff-role">Algorithms &amp; Data Structures</p>
-              <p class="staff-bio">Specialist in computational complexity and
-                 algorithm design, with 15 years of teaching and research
-                 experience.</p>
-              <a href="#office-hours" class="btn btn-secondary btn-sm">
+              <p class="staff-role">Algorithms & Data Structures</p>
+              <p class="staff-bio">Former senior engineer at a major French tech company who returned to academia to share what he learned building high-scale systems. His algorithms class is famous for its challenging problem sets that actually prepare you for technical interviews. When not teaching, he's contributing to open-source graph processing libraries.</p>
+              <!-- Clear call-to-action that matches user intent -->
+              <a href="#office-hours" class="btn btn-secondary btn-sm" title="See when Prof. Dupont is available">
                 View Office Hours
               </a>
             </div>
           </article>
 
-          <article class="staff-member">
+          <!-- Dr. Sophie Laurent — AI and machine learning -->
+          <article class="staff-member fade-animate animate-stagger-3">
             <div class="staff-avatar" aria-hidden="true">
               <img src="../images/faculty-placeholder.jpg"
-                   alt="Portrait of Dr. Sophie Laurent"
+                   alt="Headshot of Dr. Sophie Laurent with a friendly smile"
                    width="80" height="80" loading="lazy" />
             </div>
             <div class="staff-info">
               <h3>Dr. Sophie Laurent</h3>
-              <p class="staff-role">Artificial Intelligence &amp; Machine Learning</p>
-              <p class="staff-bio">Researcher and educator focused on neural
-                 networks, natural language processing, and ethical AI systems.</p>
-              <a href="#office-hours" class="btn btn-secondary btn-sm">
+              <p class="staff-role">Artificial Intelligence & Machine Learning</p>
+              <p class="staff-bio">PhD from a top French research university, followed by research stints at labs in London and Montreal. Now splits time between teaching and an active research program focused on ethical AI — how to build systems that are both powerful and fair. Her machine learning course includes a hands-on project where you build a real model and analyze its behavior critically.</p>
+              <a href="#office-hours" class="btn btn-secondary btn-sm" title="See when Dr. Laurent is available">
                 View Office Hours
               </a>
             </div>
           </article>
 
-          <article class="staff-member">
+          <!-- Dr. Karim Benali — Networks and security -->
+          <article class="staff-member fade-animate animate-stagger-4">
             <div class="staff-avatar" aria-hidden="true">
               <img src="../images/faculty-placeholder.jpg"
-                   alt="Portrait of Dr. Karim Benali"
+                   alt="Professional portrait of Dr. Karim Benali in a modern office"
                    width="80" height="80" loading="lazy" />
             </div>
             <div class="staff-info">
               <h3>Dr. Karim Benali</h3>
-              <p class="staff-role">Networks &amp; Cybersecurity</p>
-              <p class="staff-bio">Expert in network security, protocol design,
-                 and systems architecture. Previously worked at a major
-                 European cybersecurity firm.</p>
-              <a href="#office-hours" class="btn btn-secondary btn-sm">
+              <p class="staff-role">Networks & Cybersecurity</p>
+              <p class="staff-bio">Spent five years at a European cybersecurity firm before joining academia. Brings real incident response experience into the classroom — his security lectures draw from actual case studies with permission. Runs a popular annual workshop on penetration testing fundamentals that fills up within hours of registration opening.</p>
+              <a href="#office-hours" class="btn btn-secondary btn-sm" title="See when Dr. Benali is available">
                 View Office Hours
               </a>
             </div>
           </article>
 
-          <article class="staff-member">
+          <!-- Prof. Claire Moreau — Web development and engineering -->
+          <article class="staff-member fade-animate animate-stagger-5">
             <div class="staff-avatar" aria-hidden="true">
               <img src="../images/faculty-placeholder.jpg"
-                   alt="Portrait of Prof. Claire Moreau"
+                   alt="Portrait of Prof. Claire Moreau in a professional setting"
                    width="80" height="80" loading="lazy" />
             </div>
             <div class="staff-info">
               <h3>Prof. Claire Moreau</h3>
-              <p class="staff-role">Web Development &amp; Software Engineering</p>
-              <p class="staff-bio">Full-stack developer turned educator, teaching
-                 modern web technologies, agile practices, and clean code
-                 principles.</p>
-              <a href="#office-hours" class="btn btn-secondary btn-sm">
+              <p class="staff-role">Web Development & Software Engineering</p>
+              <p class="staff-bio">Built production web systems for a decade before realizing she missed teaching. Now runs our full-stack development sequence, where students build and deploy real applications. Known for her "clean code" philosophy and weekly code review sessions that students initially dread but later credit as their biggest improvement. Also runs the department's industry partnership program.</p>
+              <a href="#office-hours" class="btn btn-secondary btn-sm" title="See when Prof. Moreau is available">
                 View Office Hours
               </a>
             </div>
@@ -193,49 +215,57 @@
       </div>
     </section>
 
-    <!-- ── Research Areas ── -->
+    <!-- ===========================================
+         RESEARCH AREAS — Where curiosity leads
+         Shows prospective students that EFREI is on the cutting edge
+         =========================================== -->
     <section class="research-section" aria-labelledby="research-heading">
       <div class="container">
-        <h2 id="research-heading">Explore Research Areas</h2>
+        <h2 id="research-heading" class="fade-animate">Active Research Areas</h2>
+        <p class="fade-animate animate-stagger-1" style="margin-bottom: var(--space-6); color: var(--text-muted);">Our faculty publish in top venues, maintain industry collaborations, and bring cutting-edge knowledge into the classroom.</p>
         <div class="cards-grid">
-          <article class="program-card">
+          <!-- AI and Machine Learning — the big one -->
+          <article class="program-card fade-animate animate-stagger-2">
             <div class="card-header">
               <span class="card-number">&#9654;</span>
               <h3>Artificial Intelligence</h3>
             </div>
-            <p>Machine learning, deep learning, computer vision, and natural
-               language processing research conducted within the department.</p>
+            <p>From fundamental machine learning research to applications in natural language processing, computer vision, and reinforcement learning. Faculty collaborate with industry partners on real-world AI problems, and students actively contribute to research projects as research assistants.</p>
           </article>
-          <article class="program-card">
+          <!-- Security — increasingly important in a connected world -->
+          <article class="program-card fade-animate animate-stagger-3">
             <div class="card-header">
               <span class="card-number">&#9654;</span>
               <h3>Cybersecurity</h3>
             </div>
-            <p>Research into network defence, cryptography, vulnerability
-               analysis, and the development of secure systems.</p>
+            <p>Network defense, cryptography, and vulnerability research. The department maintains a dedicated cybersecurity lab where students practice attack and defense scenarios in a controlled environment. Industry partners sponsor research projects and recruit directly from our security track graduates.</p>
           </article>
-          <article class="program-card program-card--wide">
+          <!-- Software engineering — building things that last -->
+          <article class="program-card program-card--wide fade-animate animate-stagger-4">
             <div class="card-header">
               <span class="card-number">&#9654;</span>
-              <h3>Software Engineering &amp; Systems</h3>
+              <h3>Software Engineering & Distributed Systems</h3>
             </div>
-            <p>Formal methods, distributed systems, software testing, and
-               the engineering of large-scale, reliable software systems.</p>
+            <p>Research into software quality, distributed architectures, and developer productivity. With connections to major French tech companies, our faculty work on problems like how to test complex distributed systems, how to improve code review effectiveness, and how to build systems that scale gracefully.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ── Office Hours Table ── -->
+    <!-- ===========================================
+         OFFICE HOURS TABLE — Practical info students need
+         Highlights today's column automatically so visitors know who's available now
+         =========================================== -->
     <section class="office-hours-section" aria-labelledby="office-heading" id="office-hours">
       <div class="container">
-        <h2 id="office-heading">View Office Hours</h2>
-        <p>Faculty members are available for student consultation during the
-           following times. Today's column is highlighted automatically.</p>
-        <div class="table-wrapper">
+        <h2 id="office-heading" class="fade-animate">Office Hours Schedule</h2>
+        <p class="fade-animate animate-stagger-1">Faculty are available for one-on-one consultation during these times. The current day's column is highlighted automatically. Consider booking ahead for complex questions — but impromptu visits are welcome when available.</p>
+        <!-- Responsive wrapper handles overflow on smaller screens -->
+        <div class="table-wrapper fade-animate animate-stagger-2">
           <table class="efrei-table office-hours-table">
             <thead>
               <tr>
+                <!-- scope helps screen readers navigate the table correctly -->
                 <th scope="col">Faculty</th>
                 <th scope="col">Monday</th>
                 <th scope="col">Tuesday</th>
@@ -283,30 +313,21 @@
       </div>
     </section>
 
-    <!-- ── Connecting note ── -->
-    <section class="overview-section" aria-labelledby="connect-heading">
-      <div class="container">
-        <h2 id="connect-heading">Connecting students and educators</h2>
-        <p class="section-subtitle">Why this page matters</p>
-        <p>The Faculty page is designed to highlight the people who shape the
-           department's academic identity. By presenting the teaching staff and
-           their areas of expertise, the site gives visitors a clearer view of
-           the support and knowledge available within the department.</p>
-      </div>
-    </section>
-
     <!-- ── Bottom Navigation ── -->
-    <nav class="page-bottom-nav" aria-label="Page navigation">
-      <a href="faculty.html" class="bottom-nav-btn bottom-nav-btn--active">Meet the Teaching Staff</a>
-      <a href="background.html" class="bottom-nav-btn">Explore Research Areas</a>
-      <a href="faculty.html#office-hours" class="bottom-nav-btn">View Office Hours</a>
+    <!-- Keep visitors engaged with related content -->
+    <nav class="page-bottom-nav" aria-label="Continue exploring">
+      <a href="courses.html" class="bottom-nav-btn">Explore Courses</a>
+      <a href="background.html" class="bottom-nav-btn">View Skills</a>
+      <a href="opportunities.html" class="bottom-nav-btn">See Opportunities</a>
     </nav>
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ===========================================
+       SITE FOOTER — End of the page, start of discovery
+       =========================================== -->
   <footer class="site-footer">
-    <nav aria-label="Footer navigation">
+    <nav aria-label="Footer links">
       <ul role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
@@ -314,10 +335,28 @@
         <li><a href="about.html">About Us</a></li>
       </ul>
     </nav>
+    <div class="social-links">
+      <a href="https://linkedin.com/school/efrei" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/efrei-paris" target="_blank" rel="noopener noreferrer" aria-label="View our GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="https://twitter.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://instagram.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+    </div>
     <p class="footer-copy">&copy; <span class="footer-year"></span> EFREI Computer Science Department</p>
+    <p class="footer-secret-hint" title="I wonder what this does...">Press ? for shortcuts</p>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">▲</button>
+  <!-- Back to top — small but useful for long pages -->
+  <button class="back-to-top" aria-label="Jump back to the top of the page" title="Scroll back to the top">▲</button>
+  
+  <!-- Scripts run after the page is painted for perceived speed -->
   <script src="../js/script.js"></script>
 </body>
 </html>

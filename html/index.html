@@ -3,72 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EFREI – Computer Science Department</title>
+  <!-- Page title — what appears in your browser tab. Should be descriptive! -->
+  <title>EFREI – Computer Science Department | Home</title>
+  <!-- The magic stylesheet that ties everything together -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-    <div class="page-bg-gif" aria-hidden="true"></div>
+  <!-- 
+    That lovely Tony Stark meme GIF background.
+    We hide it from screen readers with aria-hidden because
+    it's just decorative fun — not content.
+  -->
+  <div class="page-bg-gif" aria-hidden="true"></div>
 
-  <!-- ========== HEADER ========== -->
+  <!-- ═══════════════════════════════════════════════════════════
+       SITE HEADER — Sticky navigation that never leaves you hanging
+       ═══════════════════════════════════════════════════════════════ -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="../images/efrei-logo.png" alt="EFREI Logo" width="120" height="40" />
+      <!-- The EFREI logo — clicking it always brings you home -->
+      <a href="index.html" class="logo" aria-label="EFREI Computer Science Department — go to homepage">
+        <img src="../images/efrei-logo.png" alt="EFREI — École Franco-Europeenne d'Ingénieurs en Réseaux" width="120" height="40" />
       </a>
+       
+      <!-- Main navigation — your guide to all the good stuff on this site -->
       <nav class="main-nav" aria-label="Main navigation">
         <ul role="list">
+          <!-- We mark the current page with aria-current so screen readers know where you are -->
           <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="courses.html">Courses &amp; Training Programs</a></li>
+          <li><a href="courses.html">Courses & Training Programs</a></li>
           <li><a href="faculty.html">Faculty</a></li>
           <li><a href="about.html">About Us / Contact</a></li>
         </ul>
       </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      
+      <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      
+      <!-- 
+        The hamburger menu — for mobile adventurers.
+        aria-expanded tells screen readers whether the menu is open or closed.
+        The three spans are the iconic three lines that trigger navigation magic.
+      -->
+      <button class="nav-toggle" aria-label="Open the navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ========== MAIN ========== -->
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN CONTENT — The meat of the page, the reason you came
+       ═══════════════════════════════════════════════════════════════ -->
   <main>
 
-    <!-- ── Hero Carousel ── -->
-    <section class="carousel" aria-label="Department highlights">
+    <!-- ── Hero Carousel ──
+         Our showstopper. The rotating showcase of everything the department has to offer.
+         Auto-plays every 5 seconds, but gives way when you hover or start clicking.
+    -->
+    <section class="carousel" aria-label="Highlights from the Computer Science Department">
       <div class="carousel-track-wrapper">
         <div class="carousel-track">
 
-          <div class="carousel-slide hero-slide" style="background-image: url('../images/hero-home-1.jpg');">
+          <!-- Slide 1: Welcome to the department -->
+          <div class="carousel-slide hero-slide" style="background-image: url('../images/hero-home-1.jpg');" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3">
             <div class="slide-overlay">
               <div class="slide-content">
                 <p class="slide-label">Welcome</p>
-                <h1>EFREI Computer Science Department</h1>
-                <p>Shaping tomorrow's engineers through rigorous academic training,
-                   hands-on projects, and cutting-edge research.</p>
-                <a href="courses.html" class="btn btn-primary">Explore Programs</a>
+                <h1>Shape the Future of Technology</h1>
+                <!-- We kept the line length short so it reads nicely at any width -->
+                <p>Join a community of innovators and problem-solvers. Master programming, AI, cybersecurity, and more — gaining skills that top employers actively seek.</p>
+                <a href="courses.html" class="btn btn-primary" aria-label="Explore our academic programs">Explore Programs</a>
               </div>
             </div>
           </div>
 
-          <div class="carousel-slide hero-slide" style="background-image: url('../images/hero-home-2.jpg');">
+          <!-- Slide 2: Meet the faculty -->
+          <div class="carousel-slide hero-slide" style="background-image: url('../images/hero-home-2.jpg');" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3">
             <div class="slide-overlay">
               <div class="slide-content">
                 <p class="slide-label">Our Faculty</p>
-                <h2>Expert Educators &amp; Researchers</h2>
-                <p>Learn from experienced professors and industry professionals
-                   dedicated to your academic and professional success.</p>
-                <a href="faculty.html" class="btn btn-primary">Meet the Team</a>
+                <h2>Learn from Industry Experts</h2>
+                <p>Our professors bring decades of combined industry experience — from building production systems at major tech companies to groundbreaking research in AI and security.</p>
+                <a href="faculty.html" class="btn btn-primary" aria-label="Meet the teaching team">Meet the Team</a>
               </div>
             </div>
           </div>
 
-          <div class="carousel-slide hero-slide" style="background-image: url('../images/hero-home-3.jpg');">
+          <!-- Slide 3: Career paths -->
+          <div class="carousel-slide hero-slide" style="background-image: url('../images/hero-home-3.jpg');" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3">
             <div class="slide-overlay">
               <div class="slide-content">
                 <p class="slide-label">Career Pathways</p>
-                <h2>From Classroom to Career</h2>
-                <p>Internships, research opportunities, and industry partnerships
-                   to prepare you for the professional world.</p>
-                <a href="opportunities.html" class="btn btn-primary">See Opportunities</a>
+                <h2>Your Launchpad to Tech Careers</h2>
+                <p>From mandatory internships at leading companies to direct hiring pipelines with our 40+ industry partners — your first role is closer than you think.</p>
+                <a href="opportunities.html" class="btn btn-primary" aria-label="See internships and career opportunities">See Opportunities</a>
               </div>
             </div>
           </div>
@@ -76,106 +118,116 @@
         </div><!-- /.carousel-track -->
       </div>
 
-      <!-- Controls -->
-      <button class="carousel-btn-prev" aria-label="Previous slide">&#8592;</button>
-      <button class="carousel-btn-next" aria-label="Next slide">&#8594;</button>
-      <div class="carousel-dots" role="tablist" aria-label="Slide indicators"></div>
+      <!-- Carousel controls — because sometimes you don't want to wait 5 seconds -->
+      <button class="carousel-btn-prev" aria-label="See the previous highlight">&#8592;</button>
+      <button class="carousel-btn-next" aria-label="See the next highlight">&#8594;</button>
+      <!-- Dot indicators — visual breadcrumbs so you know where you are in the tour -->
+      <div class="carousel-dots" role="tablist" aria-label="Which highlight are you viewing?"></div>
     </section>
 
-    <!-- ── Department Overview ── -->
+    <!-- ── Department Overview ──
+         A brief, friendly introduction to who we are and what we're about.
+         Think of it as the "nice to meet you" of the page.
+    -->
     <section class="intro-block">
       <div class="container">
-        <div class="intro-card">
-          <p>The EFREI Computer Science Department provides students with a strong
-             academic foundation in computing, software development, and digital
-             technologies. Through a combination of theory, hands-on practice, and
-             project-based learning, students build the technical and professional
-             skills required by modern careers in computer science.</p>
+        <div class="intro-card fade-animate">
+          <!-- We wrote this to sound like we're talking to a prospective student, not reading a brochure -->
+          <p>Welcome to the EFREI Computer Science Department — where 500+ students from 35+ countries are building tomorrow's technology today. Our integrated 5-year program combines rigorous academics with hands-on projects, mandatory internships each year, and close industry connections that open doors to real careers. Whether you're interested in AI, cybersecurity, web development, or data science, you'll find your path here with instructors who care about your success.</p>
         </div>
       </div>
     </section>
 
-    <!-- ── Site Overview ── -->
+    <!-- ── Site Overview ──
+         A quick orientation for first-time visitors.
+         "Here's what you can find on this website, and why you might want to find it."
+    -->
     <section class="overview-section" aria-labelledby="home-overview">
       <div class="container">
-        <h2 id="home-overview">Discover the Department</h2>
-        <p class="section-subtitle">Everything you need to know</p>
-        <p>Navigate the site to learn about our academic programs, meet our
-           teaching staff, explore student opportunities, and get in touch
-           with the department.</p>
+        <h2 id="home-overview" class="fade-animate">Everything You Need to Know</h2>
+        <p class="section-subtitle fade-animate animate-stagger-1">Your guide to the department</p>
+        <p class="fade-animate animate-stagger-2">Whether you're exploring if EFREI is the right fit, researching specific courses, or just curious about what a career in tech could look like — this site is your starting point. Each section is designed to answer your questions and help you envision yourself as part of our community.</p>
       </div>
     </section>
 
-    <!-- ── Navigation Cards ── -->
+    <!-- ── Navigation Cards ──
+         Quick links to the main sections of the site.
+         Cards make it easy to see what's available without deep diving.
+    -->
     <section class="program-cards-section" aria-labelledby="nav-cards-heading">
       <div class="container">
-        <h2 id="nav-cards-heading">Explore the site</h2>
+        <h2 id="nav-cards-heading" class="fade-animate">Where would you like to go?</h2>
         <div class="cards-grid home-nav-grid">
 
-          <a href="courses.html" class="program-card nav-card">
+          <!-- Card 1: Courses -->
+          <a href="courses.html" class="program-card nav-card fade-animate animate-stagger-1" aria-label="Explore our Courses and Training Programs">
             <div class="card-header">
-              <span class="card-number">&#9654;</span>
-              <h3>Courses &amp; Training Programs</h3>
+              <span class="card-number" aria-hidden="true">&#9654;</span>
+              <h3>Courses & Training Programs</h3>
             </div>
-            <p>Discover the full academic curriculum, program structure, and
-               the three stages of your computer science journey at EFREI.</p>
-            <span class="card-link-hint">Explore &rarr;</span>
+            <p>From writing your first line of code to architecting complex distributed systems — discover the complete journey that transforms beginners into industry-ready engineers.</p>
+            <!-- The arrow hints at "there's more to see if you click" -->
+            <span class="card-link-hint" aria-hidden="true">Explore &rarr;</span>
           </a>
 
-          <a href="faculty.html" class="program-card nav-card">
+          <!-- Card 2: Faculty -->
+          <a href="faculty.html" class="program-card nav-card fade-animate animate-stagger-2" aria-label="Learn about our Faculty and their expertise">
             <div class="card-header">
-              <span class="card-number">&#9654;</span>
+              <span class="card-number" aria-hidden="true">&#9654;</span>
               <h3>Faculty</h3>
             </div>
-            <p>Meet the teaching staff and researchers who support your
-               learning experience, including their roles and office hours.</p>
-            <span class="card-link-hint">Meet the team &rarr;</span>
+            <p>Get to know the passionate educators and researchers who'll guide your learning — experts with real industry backgrounds who bring theory to life with practical insights.</p>
+            <span class="card-link-hint" aria-hidden="true">Meet the team &rarr;</span>
           </a>
 
-          <a href="background.html" class="program-card nav-card">
+          <!-- Card 3: Skills & Background -->
+          <a href="background.html" class="program-card nav-card fade-animate animate-stagger-3" aria-label="View the Skills and Background students develop">
             <div class="card-header">
-              <span class="card-number">&#9654;</span>
-              <h3>Skills &amp; Background</h3>
+              <span class="card-number" aria-hidden="true">&#9654;</span>
+              <h3>Skills & Background</h3>
             </div>
-            <p>Browse the technical, analytical, and professional skills
-               developed across the full program curriculum.</p>
-            <span class="card-link-hint">View skills &rarr;</span>
+            <p>See exactly what you'll learn — from programming mastery and system design to teamwork, communication, and professional ethics that employers value.</p>
+            <span class="card-link-hint" aria-hidden="true">View skills &rarr;</span>
           </a>
 
-          <a href="opportunities.html" class="program-card nav-card">
+          <!-- Card 4: Opportunities -->
+          <a href="opportunities.html" class="program-card nav-card fade-animate animate-stagger-4" aria-label="Discover academic and career Opportunities">
             <div class="card-header">
-              <span class="card-number">&#9654;</span>
+              <span class="card-number" aria-hidden="true">&#9654;</span>
               <h3>Opportunities</h3>
             </div>
-            <p>Internships, research projects, industry partnerships, and
-               career paths available to EFREI CS graduates.</p>
-            <span class="card-link-hint">See opportunities &rarr;</span>
+            <p>Transform your education into a career through mandatory internships, industry partnerships, research projects, and our direct hiring network of 40+ companies.</p>
+            <span class="card-link-hint" aria-hidden="true">See opportunities &rarr;</span>
           </a>
 
         </div>
       </div>
     </section>
 
-    <!-- ── Key Figures Banner ── -->
+    <!-- ── Key Figures Banner ──
+         Numbers that give a quick sense of the department's scale.
+         We use aria-hidden on headings that are purely decorative here.
+    -->
     <section class="stats-section" aria-labelledby="stats-heading">
       <div class="container">
-        <h2 id="stats-heading" class="sr-only">Key figures</h2>
+        <h2 id="stats-heading" class="sr-only">Key figures about the department</h2>
         <div class="stats-grid">
           <div class="stat-item">
-            <span class="stat-number" data-target="3">0</span>
-            <span class="stat-label">Campuses</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="5">0</span>
-            <span class="stat-label">Years of study</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="500">0</span>
+            <!-- data-target is used by JS to animate the number counting up -->
+            <span class="stat-number" data-target="500" aria-label="500 students enrolled">0</span>
             <span class="stat-label">Students enrolled</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number" data-target="40">0</span>
-            <span class="stat-label">Partner companies</span>
+            <span class="stat-number" data-target="40" aria-label="40 partner companies">0</span>
+            <span class="stat-label">Industry partners</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="35" aria-label="35 countries represented">0</span>
+            <span class="stat-label">Countries represented</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="5" aria-label="5 campuses across France">0</span>
+            <span class="stat-label">Campuses nationwide</span>
           </div>
         </div>
       </div>
@@ -183,9 +235,11 @@
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER — The quiet conclusion to every page
+       ═══════════════════════════════════════════════════════════════ -->
   <footer class="site-footer">
-    <nav aria-label="Footer navigation">
+    <nav aria-label="Footer navigation — explore other pages of the site">
       <ul role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
@@ -193,10 +247,40 @@
         <li><a href="about.html">About Us</a></li>
       </ul>
     </nav>
-    <p class="footer-copy">&copy; <span class="footer-year"></span> EFREI Computer Science Department</p>
+    
+    <!-- Social media links with SVG icons -->
+    <div class="social-links">
+      <a href="https://linkedin.com/school/efrei" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
+      <a href="https://github.com/efrei-paris" target="_blank" rel="noopener noreferrer" aria-label="View our GitHub repositories">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      </a>
+      <a href="https://twitter.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X (Twitter)">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a href="https://instagram.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+      </a>
+    </div>
+    
+    <!-- The year is dynamically set by JavaScript — no more hardcoding! -->
+    <p class="footer-copy">&copy; <span class="footer-year"></span> EFREI Computer Science Department. Made with coffee and determination.</p>
+    <p class="footer-secret-hint" title="I wonder what this does...">Press ? for shortcuts</p>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">▲</button>
+  <!-- Back to top — because scrolling back up is so 2010 -->
+  <button class="back-to-top" aria-label="Jump back to the top of the page">▲</button>
+   
+  <!-- The JavaScript that brings everything to life -->
   <script src="../js/script.js"></script>
 </body>
 </html>

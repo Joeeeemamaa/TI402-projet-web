@@ -4,162 +4,184 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skills & Background – EFREI CS Dept.</title>
+  <!-- Shared stylesheet ensures visual consistency across all pages -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
+  <!-- ===========================================
+       SITE HEADER — Where navigation begins
+       Same header across all pages for familiarity
+       =========================================== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="../images/efrei-logo.png" alt="EFREI Logo" width="120" height="40" />
+      <!-- Logo links home — intuitive for users who want to start over -->
+      <a href="index.html" class="logo" title="Go back to the homepage">
+        <img src="../images/efrei-logo.png" alt="EFREI Paris engineering school logo" width="120" height="40" />
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="main-nav" aria-label="Browse the website">
         <ul role="list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="courses.html">Courses &amp; Training Programs</a></li>
+          <li><a href="courses.html">Courses & Training Programs</a></li>
           <li><a href="faculty.html">Faculty</a></li>
           <li><a href="about.html">About Us / Contact</a></li>
         </ul>
       </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <!-- Mobile toggle — aria-expanded tracks state for screen readers -->
+      <button class="nav-toggle" aria-label="Open the navigation menu" aria-expanded="false" title="Toggle mobile navigation">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ========== MAIN ========== -->
+  <!-- ===========================================
+       MAIN PAGE CONTENT
+       =========================================== -->
   <main>
 
     <!-- ── Hero Banner ── -->
+    <!-- First impression matters — tells visitors what this page is about at a glance -->
     <section class="page-hero">
       <div class="hero-text">
-        <h1>Skills &amp; Background</h1>
-        <p>Explore the technical, analytical, and professional skills students
-           develop throughout the EFREI Computer Science program.</p>
+        <h1>Skills & Background</h1>
+        <p>Explore the technical, analytical, and professional competencies
+           that EFREI graduates develop — the skills that open doors.</p>
       </div>
+      <!-- Purely decorative — no meaningful content to announce -->
       <div class="hero-image" style="background-image: url('../images/hero-skills.jpg');" aria-hidden="true"></div>
     </section>
 
     <!-- ── Intro Block ── -->
+    <!-- Sets context for what follows — the "why" behind this page -->
     <section class="intro-block">
       <div class="container">
-        <div class="intro-card">
-          <p>The department focuses on building both hard and soft skills to prepare
-             students for real-world challenges. This page presents the main areas of
-             competency developed across the curriculum, from core programming to
-             advanced applied domains.</p>
+        <div class="intro-card fade-animate">
+          <p>The difference between a good engineer and a great one isn't just knowing how to code — it's knowing when to use which tool, how to communicate your decisions, and how to keep learning when technologies change. Our program builds the complete professional: technical excellence combined with the soft skills that make you genuinely enjoyable to work with.</p>
         </div>
       </div>
     </section>
 
     <!-- ── Overview ── -->
+    <!-- Explains the bigger picture — not just what students learn but why it matters -->
     <section class="overview-section" aria-labelledby="overview-skills">
       <div class="container">
-        <h2 id="overview-skills">A combination of technical and professional growth</h2>
-        <p class="section-subtitle">What students learn</p>
-        <p>The program is designed not only to teach tools and concepts, but also to develop the habits of a professional engineer: rigorous thinking, clean communication, and the ability to learn and adapt in a fast-changing digital world. Students learn to approach problems logically, communicate clearly with both technical and non-technical audiences, and collaborate effectively in teams.</p>
+        <h2 id="overview-skills" class="fade-animate">Built for Real Engineering Work</h2>
+        <p class="section-subtitle fade-animate animate-stagger-1">Technical depth meets professional breadth</p>
+        <p class="fade-animate animate-stagger-2">Our curriculum is designed based on what actually works in industry. We don't teach theoretical concepts in isolation — we show how they connect to real tools, real workflows, and real team dynamics. By graduation, you'll have a portfolio of working projects, experience with industry-standard tools, and the confidence to contribute from day one.</p>
       </div>
     </section>
 
-    <!-- ── Tabs Navigation ── -->
+    <!-- ===========================================
+         SKILLS TABS — Three categories of ability
+         Tabbed interface lets visitors focus on what interests them most
+         =========================================== -->
     <section class="skills-tabs-section" aria-labelledby="skills-heading">
       <div class="container">
-        <h2 id="skills-heading">Skills categories</h2>
+        <h2 id="skills-heading" class="fade-animate">Skills Categories</h2>
 
+        <!-- Tab navigation uses role="tablist" for proper ARIA semantics -->
         <div class="tabs-container">
-          <div class="tabs-nav" role="tablist" aria-label="Skill categories">
-            <button class="tab-btn" role="tab" data-tab="technical" aria-selected="true">Technical</button>
-            <button class="tab-btn" role="tab" data-tab="analytical" aria-selected="false">Analytical</button>
-            <button class="tab-btn" role="tab" data-tab="professional" aria-selected="false">Professional</button>
+          <div class="tabs-nav" role="tablist" aria-label="Browse skill categories">
+            <!-- aria-selected tells screen readers which tab is active -->
+            <button class="tab-btn" role="tab" data-tab="technical" aria-selected="true" title="See technical skills we teach">Technical</button>
+            <button class="tab-btn" role="tab" data-tab="analytical" aria-selected="false" title="See analytical and logical skills">Analytical</button>
+            <button class="tab-btn" role="tab" data-tab="professional" aria-selected="false" title="See professional and teamwork skills">Professional</button>
           </div>
 
-          <!-- Technical -->
+          <!-- Technical tab panel — the foundation of CS education -->
           <div class="tab-panel" data-panel="technical" role="tabpanel">
             <div class="cards-grid">
-              <article class="skill-card">
+              <article class="skill-card program-card fade-animate">
                 <div class="card-header">
-                  <span class="card-number">Card 1</span>
-                  <h3>Programming &amp; Algorithms</h3>
+                  <!-- Card numbers are visual markers, not descriptive — kept minimal -->
+                  <span class="card-number">1</span>
+                  <h3>Programming & Development</h3>
                 </div>
-                <p>Proficiency in multiple languages (Python, Java, C, JavaScript),
-                   algorithmic thinking, complexity analysis, and data structures.</p>
+                <p>From first programs to production deployments: Python, Java, C, JavaScript, and more. You'll master multiple languages, understand language paradigms deeply, write tests, debug effectively, and use version control like a professional. Not just "knowing how to code" but being able to architect solutions and evaluate trade-offs.</p>
               </article>
-              <article class="skill-card">
+              <article class="skill-card program-card fade-animate animate-stagger-1">
                 <div class="card-header">
-                  <span class="card-number">Card 2</span>
-                  <h3>Systems &amp; Networks</h3>
+                  <span class="card-number">2</span>
+                  <h3>Systems & Infrastructure</h3>
                 </div>
-                <p>Understanding of operating systems, computer architecture,
-                   network protocols, and security fundamentals.</p>
+                <p>Operating systems, computer networks, and cloud infrastructure. You'll understand how computers actually work — memory management, process scheduling, TCP/IP protocols, containerization — giving you the foundation to debug production issues and design scalable systems.</p>
               </article>
-              <article class="skill-card program-card--wide">
+              <article class="skill-card program-card program-card--wide fade-animate animate-stagger-2">
                 <div class="card-header">
-                  <span class="card-number">Card 3</span>
-                  <h3>Web &amp; Software Development</h3>
+                  <span class="card-number">3</span>
+                  <h3>Web & Full-Stack Engineering</h3>
                 </div>
-                <p>Full-stack web development, software engineering practices,
-                   version control, testing, and agile methodologies.</p>
+                <p>Complete web development: frontend frameworks, RESTful APIs, database design, authentication, deployment pipelines, and monitoring. You'll build and launch real applications, not toy projects — handling real users, real data, and the operational challenges that come with production systems.</p>
               </article>
             </div>
           </div>
 
-          <!-- Analytical -->
+          <!-- Analytical tab panel — thinking skills that apply everywhere -->
           <div class="tab-panel" data-panel="analytical" role="tabpanel" hidden>
             <div class="cards-grid">
-              <article class="skill-card">
+              <article class="skill-card program-card fade-animate">
                 <div class="card-header">
-                  <span class="card-number">Card 1</span>
-                  <h3>Mathematics &amp; Logic</h3>
+                  <span class="card-number">1</span>
+                  <h3>Mathematics & Logical Reasoning</h3>
                 </div>
-                <p>Discrete mathematics, linear algebra, probability and statistics,
-                   and formal reasoning for computer science applications.</p>
+                <p>Discrete mathematics, linear algebra, and formal logic — the language of precise reasoning. You'll develop the ability to prove correctness, analyze algorithm complexity rigorously, and translate real-world problems into mathematical models. Not math for its own sake, but math that makes you a better engineer.</p>
               </article>
-              <article class="skill-card">
+              <article class="skill-card program-card fade-animate animate-stagger-1">
                 <div class="card-header">
-                  <span class="card-number">Card 2</span>
-                  <h3>Data Analysis</h3>
+                  <span class="card-number">2</span>
+                  <h3>Data & Information Management</h3>
                 </div>
-                <p>Database design, SQL, data modelling, and an introduction to
-                   data science and machine learning techniques.</p>
+                <p>Database design principles, SQL mastery, data modeling, and introduction to data science. You'll understand how to structure data for problems, write efficient queries, and make informed decisions about when to use relational versus document versus graph databases.</p>
               </article>
-              <article class="skill-card program-card--wide">
+              <article class="skill-card program-card program-card--wide fade-animate animate-stagger-2">
                 <div class="card-header">
-                  <span class="card-number">Card 3</span>
-                  <h3>Problem Solving</h3>
+                  <span class="card-number">3</span>
+                  <h3>Problem Decomposition</h3>
                 </div>
-                <p>Structured approaches to decomposing complex problems, designing
-                   solutions, and evaluating trade-offs in real engineering contexts.</p>
+                <p>The skill that separates good engineers from great ones: breaking complex problems into manageable pieces, identifying the right level of abstraction, and designing solutions that remain maintainable over time. You'll practice structured approaches to problem-solving using real engineering scenarios.</p>
               </article>
             </div>
           </div>
 
-          <!-- Professional -->
+          <!-- Professional tab panel — the soft skills that make great engineers -->
           <div class="tab-panel" data-panel="professional" role="tabpanel" hidden>
             <div class="cards-grid">
-              <article class="skill-card">
+              <article class="skill-card program-card fade-animate">
                 <div class="card-header">
-                  <span class="card-number">Card 1</span>
-                  <h3>Communication</h3>
+                  <span class="card-number">1</span>
+                  <h3>Technical Communication</h3>
                 </div>
-                <p>Technical writing, oral presentations, project reporting, and
-                   the ability to convey complex ideas to diverse audiences.</p>
+                <p>Writing clear technical documentation, presenting complex concepts to non-technical audiences, and participating effectively in code reviews. You'll learn to justify design decisions, write meaningful commit messages, and explain your reasoning — the daily communication that makes teams effective.</p>
               </article>
-              <article class="skill-card">
+              <article class="skill-card program-card fade-animate animate-stagger-1">
                 <div class="card-header">
-                  <span class="card-number">Card 2</span>
-                  <h3>Teamwork &amp; Project Management</h3>
+                  <span class="card-number">2</span>
+                  <h3>Teamwork & Project Management</h3>
                 </div>
-                <p>Agile collaboration, task planning, version control workflows,
-                   and hands-on experience in group software projects.</p>
+                <p>Agile methodologies, task estimation, sprint planning, and code collaboration workflows. You'll have extensive experience working in team settings — including dealing with merge conflicts, managing competing priorities, and delivering under deadlines. Real projects, real team dynamics, real accountability.</p>
               </article>
-              <article class="skill-card program-card--wide">
+              <article class="skill-card program-card program-card--wide fade-animate animate-stagger-2">
                 <div class="card-header">
-                  <span class="card-number">Card 3</span>
-                  <h3>Ethics &amp; Professional Conduct</h3>
+                  <span class="card-number">3</span>
+                  <h3>Ethics & Professional Responsibility</h3>
                 </div>
-                <p>Understanding of digital ethics, intellectual property, GDPR,
-                   professional responsibility, and the social impact of technology.</p>
+                <p>Understanding the social impact of technology — privacy, security, accessibility, and digital equity. You'll grapple with real scenarios like data ethics dilemmas, the responsibilities of AI systems, and how to make decisions when multiple stakeholder interests conflict. Preparing you to be a Technologist who thinks beyond code.</p>
               </article>
             </div>
           </div>
@@ -168,56 +190,69 @@
       </div>
     </section>
 
-    <!-- ── Main Areas of Study ── -->
+    <!-- ===========================================
+         MAIN AREAS OF STUDY — What we actually teach
+         Broken into 5 categories to show progression from basics to advanced topics
+         =========================================== -->
     <section class="areas-section" aria-labelledby="areas-heading">
       <div class="container">
-        <h2 id="areas-heading">Main areas of study</h2>
-        <p>We continuously design our study topics that reflect the diversity and evolution of computer science as a discipline.</p>
+        <h2 id="areas-heading" class="fade-animate">Curriculum by Year</h2>
+        <p class="fade-animate animate-stagger-1" style="margin-bottom: var(--space-6); color: var(--text-muted);">Each year builds on the previous, adding depth and complexity as your skills grow.</p>
 
         <div class="areas-grid">
-          <div class="area-group">
-            <h3>Category 1 – Fundamentals</h3>
+          <!-- Fundamentals — everything starts here -->
+          <div class="area-group fade-animate animate-stagger-2">
+            <h3>Years 1–2: Foundations</h3>
             <ul class="efrei-list dark">
-              <li>Introduction to programming (Python, C)</li>
+              <li>Programming fundamentals (Python, C)</li>
               <li>Data structures and algorithms</li>
-              <li>Computer architecture</li>
+              <li>Computer architecture basics</li>
               <li>Discrete mathematics</li>
+              <li>Introduction to databases</li>
             </ul>
           </div>
-          <div class="area-group">
-            <h3>Category 2 – Core CS</h3>
+          <!-- Core CS — the building blocks of computer science -->
+          <div class="area-group fade-animate animate-stagger-3">
+            <h3>Years 2–3: Core CS</h3>
             <ul class="efrei-list dark">
               <li>Object-oriented programming (Java)</li>
-              <li>Databases and SQL</li>
-              <li>Operating systems</li>
-              <li>Computer networks</li>
+              <li>Operating systems & concurrency</li>
+              <li>Computer networks & protocols</li>
+              <li>Software engineering fundamentals</li>
+              <li>Web development basics</li>
             </ul>
           </div>
-          <div class="area-group">
-            <h3>Category 3 – Applied Computing</h3>
+          <!-- Applied Computing — making things that work -->
+          <div class="area-group fade-animate animate-stagger-4">
+            <h3>Years 3–4: Applied Engineering</h3>
             <ul class="efrei-list dark">
-              <li>Web development (HTML, CSS, JS)</li>
-              <li>Software engineering</li>
+              <li>Advanced web architectures</li>
+              <li>Cloud computing & DevOps</li>
               <li>Mobile development</li>
-              <li>Cloud computing</li>
+              <li>Security fundamentals</li>
+              <li>Agile development cycles</li>
             </ul>
           </div>
-          <div class="area-group">
-            <h3>Category 4 – Advanced Topics</h3>
+          <!-- Advanced Topics — pushing boundaries -->
+          <div class="area-group fade-animate animate-stagger-5">
+            <h3>Years 4–5: Specialization</h3>
             <ul class="efrei-list dark">
-              <li>Artificial intelligence &amp; machine learning</li>
-              <li>Cybersecurity</li>
-              <li>Data science</li>
-              <li>Distributed systems</li>
+              <li>Machine learning & AI applications</li>
+              <li>Distributed systems architecture</li>
+              <li>Cybersecurity & penetration testing</li>
+              <li>Advanced database systems</li>
+              <li>Research methods</li>
             </ul>
           </div>
-          <div class="area-group">
-            <h3>Category 5 – Professional Practice</h3>
+          <!-- Professional Practice — ready for the real world -->
+          <div class="area-group fade-animate animate-stagger-6">
+            <h3>Every Year: Professional Growth</h3>
             <ul class="efrei-list dark">
-              <li>Internship &amp; industry projects</li>
-              <li>Agile &amp; DevOps practices</li>
-              <li>Technical English</li>
-              <li>Career preparation</li>
+              <li>Annual mandatory internships</li>
+              <li>Industry project collaborations</li>
+              <li>Technical English & communication</li>
+              <li>Career development workshops</li>
+              <li>Professional networking events</li>
             </ul>
           </div>
         </div>
@@ -225,28 +260,33 @@
     </section>
 
     <!-- ── How Curriculum Progresses ── -->
+    <!-- Timeline style shows the journey, not just a list of courses -->
     <section class="curriculum-section" aria-labelledby="curriculum-heading">
       <div class="container">
-        <h2 id="curriculum-heading">How the curriculum progresses</h2>
-        <p>The academic pathway is structured so that the foundation is built first, with increasing complexity each year:</p>
-        <ol class="curriculum-steps">
-          <li><strong>Year 1–2:</strong> core concepts and programming basics</li>
-          <li><strong>Year 3:</strong> advanced theory, projects, and teamwork</li>
-          <li><strong>Year 4–5:</strong> specialisation and professional readiness</li>
+        <h2 id="curriculum-heading" class="fade-animate">The EFREI Progression Model</h2>
+        <p class="fade-animate animate-stagger-1" style="margin-bottom: var(--space-6); color: var(--text-muted);">Our curriculum follows a deliberate progression — each phase prepares you for the next.</p>
+        <!-- Ordered list implies sequence and progression — important context for students -->
+        <ol class="curriculum-steps fade-animate animate-stagger-2">
+          <li><strong>Years 1–2 — Build the foundation:</strong> Learn to code fluently, understand how computers work, develop mathematical rigor. These years transform you from a beginner into someone who can implement solutions independently.</li>
+          <li><strong>Year 3 — Expand and apply:</strong> Tackle more complex systems, work extensively in teams, and start making architectural decisions. You'll build real applications that people actually use — not just assignments that get graded.</li>
+          <li><strong>Years 4–5 — Specialize and launch:</strong> Choose your focus area, work on cutting-edge problems, and emerge as a specialist ready for industry or research. The combination of depth and real-world experience makes you immediately valuable.</li>
         </ol>
       </div>
     </section>
 
     <!-- ── Bottom Navigation ── -->
-    <nav class="page-bottom-nav" aria-label="Page navigation">
+    <!-- Keeps visitors moving through the site without needing to scroll back up -->
+    <nav class="page-bottom-nav" aria-label="Continue exploring">
       <a href="courses.html" class="bottom-nav-btn">Explore Courses</a>
-      <a href="background.html" class="bottom-nav-btn bottom-nav-btn--active">Back to programs</a>
+      <a href="background.html" class="bottom-nav-btn bottom-nav-btn--active">View Skills</a>
       <a href="opportunities.html" class="bottom-nav-btn">See Opportunities</a>
     </nav>
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ===========================================
+       SITE FOOTER — Wraps up the page with quick links
+       =========================================== -->
   <footer class="site-footer">
     <nav aria-label="Footer navigation">
       <ul role="list">
@@ -256,10 +296,28 @@
         <li><a href="about.html">About Us</a></li>
       </ul>
     </nav>
+    <div class="social-links">
+      <a href="https://linkedin.com/school/efrei" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/efrei-paris" target="_blank" rel="noopener noreferrer" aria-label="View our GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="https://twitter.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://instagram.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+    </div>
     <p class="footer-copy">&copy; <span class="footer-year"></span> EFREI Computer Science Department</p>
+    <p class="footer-secret-hint" title="I wonder what this does...">Press ? for shortcuts</p>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">▲</button>
+  <!-- Back to top button — appears after scrolling so users don't have to hunt -->
+  <button class="back-to-top" aria-label="Jump back to the top of the page" title="Scroll back up">▲</button>
+  
+  <!-- JS loaded at end for performance — page renders first, interactivity second -->
   <script src="../js/script.js"></script>
 </body>
 </html>

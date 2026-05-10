@@ -4,17 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Courses & Training Programs – EFREI CS Dept.</title>
+  <!-- Linking the shared stylesheet keeps all pages visually consistent -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
-  <!-- ========== HEADER / NAV ========== -->
+  <!-- ===========================================
+       SITE HEADER — The consistent navigation bar
+       Appears on every page so users always know where they are
+       =========================================== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="../images/efrei-logo.png" alt="EFREI Logo" width="120" height="40" />
+      <!-- Logo acts as home button — most users expect this behavior -->
+      <a href="index.html" class="logo" title="Take me back to the homepage">
+        <img src="../images/efrei-logo.png" alt="EFREI Paris engineering school logo" width="120" height="40" />
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <!-- Main navigation is wrapped in nav with aria-label for screen reader users -->
+      <nav class="main-nav" aria-label="Browse the site">
         <ul role="list">
           <li><a href="index.html">Home</a></li>
           <li><a href="courses.html" aria-current="page">Courses & Training Programs</a></li>
@@ -22,97 +28,178 @@
           <li><a href="about.html">About Us / Contact</a></li>
         </ul>
       </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <!-- Mobile navigation toggle — accessible button that reveals the menu on small screens -->
+      <button class="nav-toggle" aria-label="Open the navigation menu" aria-expanded="false" title="Toggle mobile navigation">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ========== MAIN ========== -->
+  <!-- ===========================================
+       MAIN PAGE CONTENT
+       =========================================== -->
   <main>
 
     <!-- ── Hero Banner ── -->
+    <!-- Sets the scene — visitors immediately know what this page covers -->
     <section class="page-hero">
       <div class="hero-text">
-        <h1>Courses &amp; Training Programs</h1>
-        <p>Discover the academic pathways, key subjects, and practical learning
-           opportunities offered by the EFREI Computer Science Department.</p>
+        <h1>Courses & Training Programs</h1>
+        <p>A comprehensive 5-year journey from fundamentals to professional readiness.
+           Designed for curious minds who want to build the technology of tomorrow.</p>
       </div>
+      <!-- Decorative only — screen readers don't need to announce it -->
       <div class="hero-image" aria-hidden="true"></div>
     </section>
 
     <!-- ── Department Intro ── -->
+    <!-- Brief context for visitors who are new to EFREI or this department -->
     <section class="intro-block" aria-labelledby="intro-heading">
       <div class="container">
-        <div class="intro-card">
-          <p>The EFREI Computer Science Department provides students with a strong
-             academic foundation in computing, software development, and digital
-             technologies. Through a combination of theory, hands-on practice, and
-             project-based learning, students build the technical and professional
-             skills required by modern careers in computer science.</p>
+        <div class="intro-card fade-animate">
+          <p>Our program isn't about memorizing syntax or chasing trends. It's about building a deep understanding of computing principles that stay relevant as technology evolves. We combine strong theoretical foundations with intensive hands-on practice — because knowing something and being able to apply it are two very different skills.</p>
         </div>
       </div>
     </section>
 
     <!-- ── Overview Section ── -->
+    <!-- The "big picture" view — what students can expect overall -->
     <section class="overview-section" aria-labelledby="overview-heading">
       <div class="container">
-        <h2 id="overview-heading">Overview section</h2>
-        <p class="section-subtitle">A complete learning journey</p>
-        <p>Our programs are designed to guide students from fundamental concepts to
-           advanced specialisation. Throughout their studies, learners explore
-           programming, data structures, databases, networks, web technologies,
-           software engineering, and emerging fields such as artificial intelligence
-           and cybersecurity.</p>
+        <h2 id="overview-heading" class="fade-animate">Five Years of Transformation</h2>
+        <p class="section-subtitle fade-animate animate-stagger-1">From curious beginner to industry-ready professional</p>
+        <p class="fade-animate animate-stagger-2">The EFREI curriculum is carefully structured to build complexity progressively. You'll start with the building blocks of programming and mathematics, then gradually tackle advanced topics like AI, distributed systems, and cybersecurity — all while developing the professional skills that make you valuable to employers from day one.</p>
       </div>
     </section>
 
-    <!-- ── Program Cards ── -->
+    <!-- ===========================================
+         PROGRAM CARDS — Three stages of the journey
+         Visual cards show the arc of learning from start to finish
+         =========================================== -->
     <section class="program-cards-section" aria-labelledby="program-heading">
       <div class="container">
-        <h2 id="program-heading">Program cards</h2>
+        <h2 id="program-heading" class="fade-animate">Your Learning Journey</h2>
         <div class="cards-grid">
 
-          <article class="program-card">
+          <!-- Card 1: The foundation — where every CS student begins -->
+          <article class="program-card fade-animate animate-stagger-1">
             <header class="card-header">
-              <span class="card-number">Card 1</span>
+              <span class="card-number">1</span>
               <h3>Undergraduate Foundations</h3>
             </header>
-            <p>Students begin by developing essential skills in programming,
-               algorithms, mathematics for computing, and computer systems.
-               This stage helps them understand the core principles that support
-               all later technical learning.</p>
+            <p>Build a rock-solid foundation in programming, algorithms, discrete mathematics, and computer architecture. These early years transform you from someone who's never coded into someone who can design and implement solutions independently. Expect challenging problem sets, pair programming sessions, and your first hands-on projects that actually work.</p>
           </article>
 
-          <article class="program-card">
+          <!-- Card 2: Building complexity — applying foundations to real problems -->
+          <article class="program-card fade-animate animate-stagger-2">
             <header class="card-header">
-              <span class="card-number">Card 2</span>
+              <span class="card-number">2</span>
               <h3>Advanced Computer Science</h3>
             </header>
-            <p>As students progress, they address more advanced topics such as
-               object-oriented design, databases, human-computer interaction,
-               operating systems, web development, and application architecture.
-               These courses prepare them for real-world problem solving and
-               team-based development.</p>
+            <p>Tackle the meat of computer science — object-oriented design patterns, database systems, operating systems, computer networks, and human-computer interaction. You'll work on team projects that mirror real industry workflows, learning to use version control, write tests, and collaborate effectively. By the end, you'll have built and deployed working applications.</p>
           </article>
 
-          <article class="program-card program-card--wide">
+          <!-- Card 3: Specialization — finding your focus before graduation -->
+          <article class="program-card program-card--wide fade-animate animate-stagger-3">
             <header class="card-header">
-              <span class="card-number">Card 3</span>
-              <h3>Specialisation &amp; Professional Growth</h3>
+              <span class="card-number">3</span>
+              <h3>Specialization & Professional Growth</h3>
             </header>
-            <p>In the final stage of the program, students deepen their expertise
-               through projects, internships, and specialisation modules. They
-               strengthen both their technical mastery and professional readiness
-               for careers in industry or further study.</p>
+            <p>This is where you become an expert. Choose your specialization path — whether that's AI and machine learning, cybersecurity, full-stack development, or data engineering. Combine advanced coursework with mandatory industry internships and a significant capstone project. Graduate knowing exactly what kind of work you want to do and having the skills to do it.</p>
           </article>
 
         </div>
       </div>
     </section>
 
+    <!-- ===========================================
+         ACCORDION: Detailed Course Information
+         Expandable sections for curious students
+         =========================================== -->
+    <section class="program-cards-section" aria-labelledby="courses-detail-heading">
+      <div class="container">
+        <h2 id="courses-detail-heading" class="fade-animate">What You'll Actually Learn</h2>
+        <p class="fade-animate animate-stagger-1" style="margin-bottom: var(--space-6); color: var(--text-muted);">Click on any topic to learn more about what's covered in that area.</p>
+        
+        <div class="accordion fade-animate animate-stagger-2">
+          
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Core Programming & Development
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Master multiple programming paradigms from procedural to object-oriented to functional. Languages you'll work with include Python, Java, C, and JavaScript — each chosen for specific problem domains. You'll learn proper code organization, testing strategies, debugging techniques, and how to write maintainable code that others can actually understand.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Algorithms & Data Structures
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Beyond just knowing algorithms — you'll develop the intuition to choose the right approach for any problem. From basic sorting and searching to graph algorithms, dynamic programming, and complexity analysis. You'll implement these from scratch and understand when to use built-in libraries versus custom solutions.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Web & Cloud Technologies
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Full-stack web development covering frontend (HTML, CSS, JavaScript, modern frameworks), backend (server architecture, APIs, databases), and cloud deployment (AWS, Azure, containerization). You'll build and deploy complete web applications that handle real users and scale appropriately.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Artificial Intelligence & Machine Learning
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>From the fundamentals of neural networks to practical applications in natural language processing and computer vision. You'll implement ML pipelines, understand model training and evaluation, and grapple with the ethical considerations of AI systems. Hands-on projects include building chatbots, image classifiers, and recommendation systems.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Cybersecurity & Systems
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Learn to think like an attacker — and then defend against them. Topics include network security, cryptography, vulnerability assessment, secure coding practices, and incident response. You'll work in our dedicated cybersecurity lab with real attack/defense scenarios. Graduates are well-prepared for security analyst and penetration testing roles.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Professional Skills & Career Prep
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Technical skills alone aren't enough. You'll develop professional communication, project management, Agile methodologies, and technical presentation skills. Career workshops cover resume building, interview preparation, and building your professional network. By graduation, you'll have a polished portfolio and real interview experience.</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
     <!-- ── Bottom Navigation ── -->
-    <nav class="page-bottom-nav" aria-label="Page navigation">
+    <!-- Keeps visitors engaged — they can easily jump to related pages without searching -->
+    <nav class="page-bottom-nav" aria-label="Keep exploring">
       <a href="courses.html" class="bottom-nav-btn bottom-nav-btn--active">Explore Courses</a>
       <a href="background.html" class="bottom-nav-btn">View Skills</a>
       <a href="opportunities.html" class="bottom-nav-btn">See Opportunities</a>
@@ -120,9 +207,12 @@
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ===========================================
+       SITE FOOTER — The landing zone at the bottom
+       Quick links and copyright for closure
+       =========================================== -->
   <footer class="site-footer">
-    <nav aria-label="Footer navigation">
+    <nav aria-label="Footer links">
       <ul role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
@@ -130,9 +220,25 @@
         <li><a href="about.html">About Us</a></li>
       </ul>
     </nav>
-    <p class="footer-copy">&copy; 2026 EFREI Computer Science Department</p>
+    <div class="social-links">
+      <a href="https://linkedin.com/school/efrei" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/efrei-paris" target="_blank" rel="noopener noreferrer" aria-label="View our GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="https://twitter.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://instagram.com/efrei_paris" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy">&copy; <span class="footer-year"></span> EFREI Computer Science Department</p>
+    <p class="footer-secret-hint" title="I wonder what this does...">Press ? for shortcuts</p>
   </footer>
 
+  <!-- JavaScript loaded at the end so the page renders before interactivity kicks in -->
   <script src="../js/script.js"></script>
 </body>
 </html>

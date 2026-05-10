@@ -1,153 +1,710 @@
-/* ==========================================================
-   EFREI Computer Science Department — style.css
-   Charte graphique: Academic Blue #0A316C | Cyan #81ECEC | Yellow #FDCB6E
-   ========================================================== */
+/**
+ * ===========================================================
+ * EFREI Computer Science Department — style.css
+ * "Where design meets academic ambition"
+ * ===========================================================
+ * 
+ * This stylesheet brings the EFREI graphic charter to life.
+ * Think of it as our visual DNA — every color, spacing decision,
+ * and animation has been crafted to make the department look
+ * professional, modern, and trustworthy.
+ * 
+ * COLORS (our signature palette):
+ *   - Academic Blue #0A316C   — The main event. Used for headers, backgrounds, trust.
+ *   - Tech Cyan #81ECEC       — The accent that says "we're modern, we promise"
+ *   - Electric Yellow #FDCB6E  — Calls to action that demand attention
+ * 
+ * TYPOGRAPHY:
+ *   - Montserrat for headings (bold, confident, modern)
+ *   - Open Sans for body (readable, friendly, approachable)
+ * 
+ * We use CSS custom properties (design tokens) for everything
+ * so if the charter ever changes (heaven forbid), we only
+ * need to update the values here. DRY as a desert.
+ */
 
 /* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap');
 
-/* ── Design Tokens ── */
+/* ── Design Tokens (our building blocks) ── */
 :root {
-  /* Colors */
-  --academic-blue:   #0A316C;
-  --pure-white:      #FFFFFF;
-  --tech-cyan:       #81ECEC;
-  --electric-yellow: #FDCB6E;
-  --blue-dark:       #071f47;
-  --blue-mid:        #0d3f85;
-  --surface-light:   #f4f6fb;
-  --text-dark:       #1a1a2e;
-  --text-muted:      #555e7a;
-  --border-subtle:   rgba(10, 49, 108, 0.12);
+  /* ═══════════════════════════════════════════
+   * COLORS
+   * Each color has a purpose — no random hex codes here!
+   * ═══════════════════════════════════════════ */
+  
+  /* Primary brand colors — used everywhere */
+  --academic-blue:   #0A316C;  /* The big blue — trust, academia, stability */
+  --pure-white:      #FFFFFF;  /* Clean backgrounds, text on dark */
+  --tech-cyan:       #81ECEC; /* The accent that pops — modern, techy, alive */
+  --electric-yellow: #FDCB6E; /* CTAs and calls to action — "look at me!" */
 
-  /* Typography */
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body:    'Open Sans', sans-serif;
+  /* Supporting blues — we needed variety, okay? */
+  --blue-dark:       #071f47;  /* Footer and dark areas — adds depth */
+  --blue-mid:        #0d3f85;  /* Hero images and hover states */
 
-  /* Type scale (matches the charter) */
-  --text-h1:   2.5rem;   /* 40px */
-  --text-h2:   2rem;     /* 32px */
-  --text-h3:   1.25rem;  /* 20px */
-  --text-base: 1rem;     /* 16px */
-  --text-sm:   0.875rem; /* 14px */
+  /* Neutral tones — for backgrounds and text that isn't important */
+  --surface-light:   #f4f6fb;  /* Section backgrounds — subtle, not distracting */
+  --text-dark:       #1a1a2e;  /* Main body text — easy on the eyes */
+  --text-muted:      #555e7a;  /* Secondary text — less important but still readable */
+  --border-subtle:   rgba(10, 49, 108, 0.12); /* Card borders — visible but not aggressive */
 
-  /* Spacing (4px base) */
-  --space-1:  0.25rem;
-  --space-2:  0.5rem;
-  --space-3:  0.75rem;
-  --space-4:  1rem;
-  --space-6:  1.5rem;
-  --space-8:  2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
+  /* ═══════════════════════════════════════════
+   * TYPOGRAPHY
+   * We only load two fonts — keep it simple, keep it fast
+   * ═══════════════════════════════════════════ */
+  --font-heading: 'Montserrat', sans-serif;  /* Bold headlines that demand attention */
+  --font-body:    'Open Sans', sans-serif;   /* Long-form text that doesn't fatigue */
 
-  /* Layout */
-  --container-max: 1100px;
-  --header-height: 68px;
+  /* ═══════════════════════════════════════════
+   * TYPE SCALE (following a minor third ratio)
+   * Because sizing text randomly is a crime against humanity
+   * ═══════════════════════════════════════════ */
+  --text-h1:   2.5rem;   /* 40px — page titles, big moments */
+  --text-h2:   2rem;     /* 32px — section headers */
+  --text-h3:   1.25rem;  /* 20px — card titles, subsections */
+  --text-base: 1rem;     /* 16px — body text, the real workhorse */
+  --text-sm:   0.875rem; /* 14px — captions, labels, metadata */
 
-  /* Border radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 1rem;
+  /* ═══════════════════════════════════════════
+   * SPACING SYSTEM (4px base unit)
+   * Using multiples of 4 keeps everything aligned and rhythmic
+   * Like a well-behaved music score, if scores were made of padding
+   * ═══════════════════════════════════════════ */
+  --space-1:  0.25rem;  /* 4px  — tight spaces, icon padding */
+  --space-2:  0.5rem;   /* 8px  — small gaps, label margins */
+  --space-3:  0.75rem;  /* 12px — medium padding, compact areas */
+  --space-4:  1rem;     /* 16px — standard padding, our go-to */
+  --space-6:  1.5rem;   /* 24px — section padding, card padding */
+  --space-8:  2rem;     /* 32px — large gaps, section margins */
+  --space-10: 2.5rem;   /* 40px — big sections */
+  --space-12: 3rem;      /* 48px — hero areas, major spacing */
+  --space-16: 4rem;     /* 64px — between major page sections */
 
-  /* Shadows */
-  --shadow-card: 0 2px 8px rgba(10, 49, 108, 0.10),
-                 0 6px 24px rgba(10, 49, 108, 0.06);
-  --shadow-card-hover: 0 4px 16px rgba(10, 49, 108, 0.18),
-                       0 12px 40px rgba(10, 49, 108, 0.10);
+  /* ═══════════════════════════════════════════
+   * LAYOUT
+   * These keep our containers consistent across pages
+   * ═══════════════════════════════════════════ */
+  --container-max: 1100px; /* Max width for content — keeps lines readable */
+  --header-height: 68px;   /* Fixed header height — used for scroll offsets */
 
-  /* Transitions */
+  /* ═══════════════════════════════════════════
+   * BORDER RADIUS
+   * Soft corners everywhere — nobody likes sharp edges
+   * (except maybe some mathematicians, but they're not our audience)
+   * ═══════════════════════════════════════════ */
+  --radius-sm: 0.375rem; /* 6px  — buttons, inputs, small elements */
+  --radius-md: 0.625rem; /* 10px — cards, containers, medium elements */
+  --radius-lg: 1rem;     /* 16px — large panels, hero elements */
+
+  /* ═══════════════════════════════════════════
+   * SHADOWS
+   * Layered shadows create depth without being heavy
+   * We use two levels: default for resting, hover for interaction
+   * ═══════════════════════════════════════════ */
+  --shadow-card: 0 2px 8px rgba(10, 49, 108, 0.10),  /* Subtle lift — the everyday shadow */
+                 0 6px 24px rgba(10, 49, 108, 0.06); /* Wider spread for larger elements */
+  --shadow-card-hover: 0 4px 16px rgba(10, 49, 108, 0.18),   /* Deeper lift on hover */
+                       0 12px 40px rgba(10, 49, 108, 0.10); /* More presence when interactive */
+
+  /* ═══════════════════════════════════════════
+   * TRANSITIONS
+   * Using a custom cubic-bezier for smooth, natural movement
+   * Feels responsive but not snappy — like a confident handshake
+   * ═══════════════════════════════════════════ */
   --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── Animated GIF background (index only) ── */
+/* ── Fun background for the homepage ──
+   The Tony Stark meme GIF — because why not bring personality to academia?
+   We use a pseudo-element overlay to tint the GIF with Academic Blue
+   so text remains readable. Nobody wants to read white text on a meme.
+ */
 .page-bg-gif {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -1; /* Behind everything — content is king */
   background-image: url('../images/tony-stark-meme.gif'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Dark overlay on top of the gif */
+/* The blue tint overlay — sits on top of the GIF, not the content */
 .page-bg-gif::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(24, 93, 197, 0.75); /* Academic Blue tint at 75% opacity */
+  /* Academic Blue at 75% opacity — keeps things readable while showing personality */
+  background-color: rgba(24, 93, 197, 0.75);
 }
-/* ==========================================================
+
+/* Dark mode: darker overlay for better contrast */
+[data-theme="dark"] .page-bg-gif::after {
+  background-color: rgba(10, 22, 40, 0.85);
+}
+
+
+/* ===========================================================
+   PAGE TRANSITIONS — Subtle fade-in when navigating
+   Makes the site feel more polished and less jarring
+   =========================================================== */
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: pageFadeIn 300ms ease-out;
+}
+
+
+/* ===========================================================
+   DARK MODE — CSS Variables for theme switching
+   Respects prefers-color-scheme as default, stored in localStorage
+   =========================================================== */
+
+/* Dark mode color palette */
+[data-theme="dark"] {
+  --academic-blue:   #1a4a8a;
+  --pure-white:      #f0f2f5;
+  --tech-cyan:       #6ee7f7;
+  --electric-yellow: #fdd87a;
+
+  --blue-dark:       #0a1628;
+  --blue-mid:        #1d3d6b;
+
+  --surface-light:   #1a2438;
+  --text-dark:       #e8eaed;
+  --text-muted:      #9aa0a8;
+  --border-subtle:   rgba(255, 255, 255, 0.1);
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3),
+                 0 6px 24px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.4),
+                       0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Dark Mode: Body and Core ── */
+[data-theme="dark"] body {
+  background-color: #0f1520;
+  color: var(--text-dark);
+}
+
+/* ── Dark Mode: Cards (program-card, staff, nav-card, area-group, career-item, intro-card) ── */
+[data-theme="dark"] .program-card,
+[data-theme="dark"] .staff-member,
+[data-theme="dark"] .nav-card,
+[data-theme="dark"] .area-group,
+[data-theme="dark"] .career-item,
+[data-theme="dark"] .intro-card,
+[data-theme="dark"] .accordion-item {
+  background: #1a2438;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .program-card h3,
+[data-theme="dark"] .area-group h3,
+[data-theme="dark"] .career-item h3 {
+  color: var(--tech-cyan);
+}
+
+[data-theme="dark"] .program-card p,
+[data-theme="dark"] .staff-bio,
+[data-theme="dark"] .area-group p,
+[data-theme="dark"] .career-item p {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .card-number {
+  color: var(--tech-cyan);
+}
+
+[data-theme="dark"] .card-link-hint {
+  color: var(--tech-cyan);
+}
+
+/* ── Dark Mode: Form Elements ── */
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea,
+[data-theme="dark"] .form-group select {
+  background: #1a2438;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus,
+[data-theme="dark"] .form-group select:focus {
+  border-color: var(--tech-cyan);
+  box-shadow: 0 0 0 3px rgba(110, 231, 247, 0.25);
+}
+
+[data-theme="dark"] .form-group label {
+  color: var(--tech-cyan);
+}
+
+[data-theme="dark"] .form-success {
+  background: #1a2438;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .form-success h3 {
+  color: var(--tech-cyan);
+}
+
+/* ── Dark Mode: Tables ── */
+[data-theme="dark"] .efrei-table td {
+  background: #1a2438;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .efrei-table tbody tr:hover td {
+  background: #232d42;
+}
+
+[data-theme="dark"] .table-wrapper {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Dark Mode: Accordion ── */
+[data-theme="dark"] .accordion-trigger {
+  background: #1a2438;
+  color: var(--tech-cyan);
+}
+
+[data-theme="dark"] .accordion-trigger:hover {
+  background: #232d42;
+}
+
+[data-theme="dark"] .accordion-panel {
+  color: var(--text-muted);
+}
+
+/* ── Dark Mode: Tabs ── */
+[data-theme="dark"] .tabs-nav {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .tab-btn {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .tab-btn:hover {
+  color: var(--tech-cyan);
+  background: rgba(110, 231, 247, 0.1);
+}
+
+[data-theme="dark"] .tab-btn.active,
+[data-theme="dark"] .tab-btn[aria-selected="true"] {
+  color: var(--tech-cyan);
+  background: #1a2438;
+  border-bottom-color: var(--tech-cyan);
+}
+
+/* ── Dark Mode: Status Badges ── */
+[data-theme="dark"] .status-done {
+  background: rgba(26, 102, 48, 0.4);
+  color: #6ee7a0;
+}
+
+[data-theme="dark"] .status-progress {
+  background: rgba(133, 100, 4, 0.4);
+  color: #fdd87a;
+}
+
+/* ── Dark Mode: Stats Section ── */
+[data-theme="dark"] .stats-section {
+  background: linear-gradient(135deg, #0a1628 0%, #1d3d6b 100%);
+}
+
+[data-theme="dark"] .stat-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── Dark Mode: Overview Section ── */
+[data-theme="dark"] .overview-section h2 {
+  color: var(--tech-cyan);
+}
+
+[data-theme="dark"] .section-subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .overview-section > .container > p:last-child {
+  color: var(--text-muted);
+}
+
+/* ── Dark Mode: Navigation Cards Section ── */
+[data-theme="dark"] .program-cards-section {
+  background-color: #0f1520;
+}
+
+[data-theme="dark"] .program-cards-section h2 {
+  color: var(--tech-cyan);
+}
+
+/* ── Dark Mode: Buttons ── */
+[data-theme="dark"] .btn-secondary {
+  color: var(--tech-cyan);
+  border-color: var(--tech-cyan);
+}
+
+[data-theme="dark"] .btn-secondary:hover,
+[data-theme="dark"] .btn-secondary:focus-visible {
+  background: var(--tech-cyan);
+  color: #0a1628;
+}
+
+/* ── Dark Mode: Carousel ── */
+[data-theme="dark"] .carousel {
+  background: #0a1628;
+}
+
+[data-theme="dark"] .slide-content p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Dark Mode: Modal ── */
+[data-theme="dark"] .shortcuts-modal {
+  background: rgba(10, 22, 40, 0.9);
+}
+
+[data-theme="dark"] .shortcuts-modal-content {
+  background: #1a2438;
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .shortcuts-modal h2 {
+  color: var(--tech-cyan);
+}
+
+[data-theme="dark"] .shortcuts-modal kbd {
+  background: #0f1520;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--tech-cyan);
+}
+
+/* ── Dark Mode: Toast ── */
+[data-theme="dark"] .toast {
+  background: #1d3d6b;
+  border-color: var(--tech-cyan);
+}
+
+/* ── Dark Mode: Back to Top ── */
+[data-theme="dark"] .back-to-top {
+  background: #1d3d6b;
+}
+
+[data-theme="dark"] .back-to-top:hover {
+  background: #2a4d82;
+}
+
+/* ── Dark Mode: Keyboard Hint ── */
+[data-theme="dark"] .keyboard-hint {
+  background: #0a1628;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Theme toggle button in header */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--pure-white);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition),
+              border-color var(--transition);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--tech-cyan);
+  outline-offset: 2px;
+}
+
+/* Sun icon SVG */
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+/* Moon icon SVG */
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+/* Show sun icon when dark mode is active */
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+/* Smooth transition for theme changes */
+body,
+.site-header,
+.site-footer,
+.program-card,
+.accordion-item,
+.staff-member,
+.career-item,
+.area-group {
+  transition: background-color var(--transition-slow),
+              color var(--transition-slow),
+              border-color var(--transition-slow),
+              box-shadow var(--transition-slow);
+}
+
+
+/* ===========================================================
+   RAINBOW MODE — Easter egg activated by Konami code
+   Cycling hues on various elements for 10 seconds
+   =========================================================== */
+
+@keyframes rainbowHue {
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.rainbow-mode {
+  animation: rainbowHue 2s linear infinite;
+}
+
+.rainbow-mode .site-header,
+.rainbow-mode .back-to-top {
+  animation: rainbowHue 2s linear infinite;
+}
+
+
+/* ===========================================================
+   TOAST NOTIFICATIONS — Easter egg messages
+   =========================================================== */
+
+.toast-container {
+  position: fixed;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--academic-blue);
+  color: var(--pure-white);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: toastSlideUp 300ms ease-out;
+  border: 2px solid var(--tech-cyan);
+}
+
+@keyframes toastSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast.hide {
+  animation: toastSlideDown 300ms ease-out forwards;
+}
+
+@keyframes toastSlideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+
+/* ===========================================================
+   SOCIAL MEDIA LINKS IN FOOTER
+   SVG icons with proper accessibility
+   =========================================================== */
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+  transition: background var(--transition), color var(--transition),
+              transform var(--transition);
+}
+
+.social-links a:hover {
+  background: rgba(129, 236, 236, 0.2);
+  color: var(--tech-cyan);
+  transform: translateY(-3px);
+}
+
+.social-links a:focus-visible {
+  outline: 2px solid var(--tech-cyan);
+  outline-offset: 2px;
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+
+/* ===========================================================
+   SECRET HINT IN FOOTER
+   =========================================================== */
+
+.footer-secret-hint {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: help;
+  transition: color var(--transition);
+}
+
+.footer-secret-hint:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===========================================================
    BASE RESET
-   ========================================================== */
+   "Undo what browsers do by default" — a love letter to consistency
+   =========================================================== */
 
 *, *::before, *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Padding and borders included in element's total width — finally */
   margin: 0;
   padding: 0;
 }
 
+/* ═══════════════════════════════════════════
+   HTML & BODY
+   The foundation of everything
+   ═══════════════════════════════════════════ */
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height);
-  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth; /* Finally, smooth scrolling without JS! */
+  scroll-padding-top: var(--header-height); /* Anchor links don't hide behind sticky header */
+  -webkit-font-smoothing: antialiased; /* Crisp text on Mac — you're welcome */
 }
 
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.6; /* Slightly relaxed — easier to read long text */
   color: var(--text-dark);
   background-color: var(--pure-white);
-  min-height: 100dvh;
+  min-height: 100dvh; /* Works on mobile browsers that support dvh */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Footer always at the bottom, even with little content */
 }
 
 main {
-  flex: 1;
+  flex: 1; /* Takes up all available space, pushing footer down */
 }
 
+/* Media defaults — responsive images, no overflow */
 img, picture, video { display: block; max-width: 100%; height: auto; }
+
+/* Accessibility: remove list styles on semantic lists but keep them usable */
 ul[role="list"], ol[role="list"] { list-style: none; }
+
+/* Reset links and buttons — they have their own styles */
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
 
+/* Headings — we define these globally because they're used everywhere */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  line-height: 1.2;
-  text-wrap: balance;
+  line-height: 1.2; /* Tight headlines — classic editorial style */
+  text-wrap: balance; /* Prevents orphan words on their own line */
 }
 
-p { max-width: 72ch; text-wrap: pretty; }
+p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal readability */
 
+/* Focus indicator — visible but not ugly */
 :focus-visible {
   outline: 2px solid var(--tech-cyan);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
 
+/* ═══════════════════════════════════════════
+   ACCESSIBILITY: Reduced Motion
+   For folks who prefer less animation (or have vestibular disorders)
+   ═══════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important; /* Essentially instant */
     transition-duration: 0.01ms !important;
   }
 }
 
 
-/* ==========================================================
+/* ===========================================================
    LAYOUT UTILITIES
-   ========================================================== */
+   Reusable patterns that appear throughout the site
+   =========================================================== */
 
+/* The container — keeps content centered and at a readable width
+   We use max-width + margin auto instead of flexbox for simplicity */
 .container {
   max-width: var(--container-max);
-  margin-inline: auto;
+  margin-inline: auto; /* Centers horizontally — modern shorthand */
   padding-inline: var(--space-6);
 }
 
+/* Screen reader only — visible to assistive tech, invisible on screen
+   Used for labels that are visually apparent elsewhere */
 .sr-only {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
@@ -155,19 +712,85 @@ p { max-width: 72ch; text-wrap: pretty; }
 }
 
 
-/* ==========================================================
-   HEADER
-   ========================================================== */
+/* ===========================================================
+   ENTRANCE ANIMATIONS
+   Subtle fade-in and slide-up effects for elements as they enter the viewport
+   Creates a polished, modern feel without being distracting
+   =========================================================== */
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: var(--academic-blue);
-  height: var(--header-height);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Staggered animation delays for cascading reveals */
+.animate-stagger-1 { animation-delay: 60ms; }
+.animate-stagger-2 { animation-delay: 120ms; }
+.animate-stagger-3 { animation-delay: 180ms; }
+.animate-stagger-4 { animation-delay: 240ms; }
+.animate-stagger-5 { animation-delay: 300ms; }
+.animate-stagger-6 { animation-delay: 360ms; }
+
+/* Base animation class - elements start hidden and animate in via JS */
+.fade-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ===========================================================
+   HEADER
+   The sticky navigation bar that follows you everywhere
+   =========================================================== */
+
+/* The main header bar — always visible, always blue, always ready */
+.site-header {
+  position: sticky; /* Stays at top when scrolling — users hate losing navigation */
+  top: 0;
+  z-index: 100; /* Above most content — except modals would be higher */
+  background-color: var(--academic-blue);
+  height: var(--header-height);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25); /* Soft drop shadow for depth */
+}
+
+/* Inner header layout — logo left, nav right, everything centered vertically */
 .header-inner {
   max-width: var(--container-max);
   margin-inline: auto;
@@ -178,34 +801,40 @@ p { max-width: 72ch; text-wrap: pretty; }
   gap: var(--space-8);
 }
 
-/* Logo */
+/* Logo area — needs breathing room around the icon */
 .logo {
-  flex-shrink: 0;
-  /* Clearance area: equivalent to dome icon size on all sides */
-  padding: var(--space-2);
+  flex-shrink: 0; /* Don't let the logo shrink when space gets tight */
+  padding: var(--space-2); /* Clearance area around the logo equivalent to icon size */
   display: flex;
   align-items: center;
+  transition: transform var(--transition);
 }
 
+.logo:hover {
+  transform: scale(1.03);
+}
+
+/* The logo image — white on blue, always */
 .logo img {
-  /* White logo on Academic Blue — charter rule */
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1); /* Turns any colored logo into white — flexible! */
   height: 36px;
   width: auto;
 }
 
-/* Main nav */
+/* Main navigation — pushes to the right side of the header */
 .main-nav {
-  margin-left: auto;
+  margin-left: auto; /* Pushes nav to the right of logo */
 }
 
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-1); /* Tight gaps between nav items */
   list-style: none;
 }
 
+/* Navigation links — uppercase, letter-spaced, bold
+   We use uppercase because it's a navigation convention users understand */
 .main-nav a {
   display: block;
   padding: var(--space-2) var(--space-4);
@@ -217,33 +846,39 @@ p { max-width: 72ch; text-wrap: pretty; }
   letter-spacing: 0.06em;
   border-radius: var(--radius-sm);
   transition: background var(--transition), color var(--transition);
-  white-space: nowrap;
+  white-space: nowrap; /* Keep text on one line — no wrapping in nav */
 }
 
+/* Hover and focus states — subtle highlight to show interactivity */
 .main-nav a:hover,
 .main-nav a:focus-visible {
-  background-color: rgba(129, 236, 236, 0.15);
+  background-color: rgba(129, 236, 236, 0.15); /* Cyan at 15% opacity — subtle glow */
   color: var(--tech-cyan);
 }
 
+/* Current page indicator — the link to the page you're viewing
+   We use aria-current="page" in HTML, styled here */
 .main-nav a[aria-current="page"] {
   background-color: rgba(129, 236, 236, 0.2);
   color: var(--tech-cyan);
-  border-bottom: 2px solid var(--tech-cyan);
+  border-bottom: 2px solid var(--tech-cyan); /* Underline effect — shows it's active */
 }
 
-/* Hamburger toggle (mobile) */
+/* ── Hamburger toggle (mobile only) ──
+   Three lines stacked vertically — the universal symbol for "there's a menu in here"
+   Hidden by default on desktop, shown via media queries on mobile */
 .nav-toggle {
-  display: none;
+  display: none; /* Hidden until mobile kicks in */
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
+  gap: 5px; /* Space between the lines */
   width: 40px;
   height: 40px;
   padding: var(--space-2);
-  margin-left: auto;
+  margin-left: auto; /* Push to the right side of the header */
 }
 
+/* The three lines of the hamburger — white rectangles */
 .nav-toggle span {
   display: block;
   height: 2px;
@@ -252,39 +887,51 @@ p { max-width: 72ch; text-wrap: pretty; }
   transition: transform var(--transition), opacity var(--transition);
 }
 
-/* Hamburger → X animation */
+/* ═══════════════════════════════════════════
+   ANIMATED HAMBURGER → X
+   When the menu is open (aria-expanded="true"), 
+   we transform the three lines into an X
+   ═══════════════════════════════════════════ */
 .nav-toggle[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg); /* Top line rotates to form the X */
 }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) {
-  opacity: 0;
+  opacity: 0; /* Middle line disappears */
 }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg); /* Bottom line completes the X */
 }
 
 
-/* ==========================================================
+/* ===========================================================
    HERO BANNER
-   Diagonal composition — charter rule: diagonal geometric cut
-   ========================================================== */
+   The big, diagonal, visual statement at the top of inner pages
+   Diagonal cut is a charter rule — consistency is key
+   =========================================================== */
 
 .page-hero {
   position: relative;
-  min-height: 320px;
+  min-height: 320px; /* Enough height to make an impact */
   background-color: var(--academic-blue);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
+  grid-template-columns: 1fr 1fr; /* Text on left, image on right */
+  overflow: hidden; /* Hides anything that overflows during the diagonal cut */
 }
 
+/* Subtle parallax effect on hero image */
+.page-hero .hero-image {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Text side of the hero — where we put the headline and intro */
 .hero-text {
   position: relative;
-  z-index: 2;
+  z-index: 2; /* Above the diagonal accent line */
   padding: var(--space-12) var(--space-8) var(--space-12) var(--space-10);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Vertically centered */
   gap: var(--space-4);
 }
 
@@ -297,43 +944,46 @@ p { max-width: 72ch; text-wrap: pretty; }
 
 .hero-text p {
   font-size: var(--text-base);
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 300;
-  max-width: 50ch;
+  color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
+  font-weight: 300; /* Light weight for contrast with headline */
+  max-width: 50ch; /* Shorter lines for readability */
 }
 
-/* Diagonal cut — the right photographic area */
+/* Right side of hero — the photographic area with diagonal cut
+   The diagonal clip-path is the charter's signature move */
 .hero-image {
   position: relative;
   background-color: var(--blue-mid);
   background-size: cover;
   background-position: center;
-  /* Diagonal clip matching charter layout direction */
+  /* Diagonal clip — 8% from left edge creates the angled cut we see */
   clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
   /* Override per page with a class + background-image in page CSS or inline */
 }
 
-/* Cyan diagonal accent line */
+/* Cyan diagonal accent line — the subtle charter detail
+   It's a gradient line that runs vertically through the hero */
 .page-hero::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-8%) skewX(-3deg);
+  left: 50%; /* Center horizontally */
+  transform: translateX(-8%) skewX(-3deg); /* Slight skew for dynamic feel */
   width: 3px;
   height: 100%;
   background: linear-gradient(to bottom, var(--tech-cyan), transparent);
-  z-index: 3;
-  pointer-events: none;
+  z-index: 3; /* Above both text and image */
+  pointer-events: none; /* Click through — it's decorative only */
 }
 
 
-/* ==========================================================
+/* ===========================================================
    INTRO BLOCK (boxed description)
-   ========================================================== */
+   A subtle background for introducing sections
+   =========================================================== */
 
 .intro-block {
-  padding-block: var(--space-10);
+  padding-block: var(--space-10); /* Vertical padding — breathes easy */
   background-color: var(--surface-light);
 }
 
@@ -342,24 +992,31 @@ p { max-width: 72ch; text-wrap: pretty; }
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-8);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card); /* Subtle lift from the page */
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.intro-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
 }
 
 .intro-card p {
   font-size: var(--text-base);
-  line-height: 1.7;
+  line-height: 1.7; /* More generous for intro text */
   color: var(--text-muted);
-  max-width: 80ch;
+  max-width: 80ch; /* Slightly longer lines for this context */
 }
 
 
-/* ==========================================================
+/* ===========================================================
    OVERVIEW / SECTION TITLE BLOCK
-   ========================================================== */
+   Where we announce what the section is about
+   =========================================================== */
 
 .overview-section {
   padding-block: var(--space-10);
-  text-align: center;
+  text-align: center; /* Headings centered, body text left-aligned via container */
 }
 
 .overview-section h2 {
@@ -369,6 +1026,7 @@ p { max-width: 72ch; text-wrap: pretty; }
   margin-bottom: var(--space-2);
 }
 
+/* Small uppercase label above the section title */
 .section-subtitle {
   font-size: var(--text-sm);
   text-transform: uppercase;
@@ -378,30 +1036,33 @@ p { max-width: 72ch; text-wrap: pretty; }
   margin-bottom: var(--space-6);
 }
 
+/* The paragraph after section headers — left-aligned within centered container */
 .overview-section > .container > p:last-child {
-  margin-inline: auto;
+  margin-inline: auto; /* Center it like the heading, but left-aligned text */
   color: var(--text-muted);
   line-height: 1.7;
 }
 
-/* Horizontal rule under section titles */
+/* The decorative underline beneath section titles
+   It's the cyan line that adds a splash of color to the heading */
 .overview-section h2::after {
   content: '';
   display: block;
   width: 60px;
   height: 3px;
   background: var(--tech-cyan);
-  margin: var(--space-3) auto 0;
+  margin: var(--space-3) auto 0; /* Centered below the heading */
   border-radius: 2px;
 }
 
 
-/* ==========================================================
+/* ===========================================================
    PROGRAM / CONTENT CARDS
-   ========================================================== */
+   The workhorses of our content display
+   =========================================================== */
 
 .program-cards-section {
-  padding-block: var(--space-8) var(--space-12);
+  padding-block: var(--space-8) var(--space-12); /* Extra space at bottom for breathing room */
   background-color: var(--surface-light);
 }
 
@@ -412,43 +1073,52 @@ p { max-width: 72ch; text-wrap: pretty; }
   margin-bottom: var(--space-8);
 }
 
+/* The grid that holds our cards — 2 columns by default
+   Perfect for showing 3 cards with the 3rd spanning full width */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
   gap: var(--space-6);
 }
 
-/* Third card spans full width — matching mockup */
+/* The wide card variant — spans full width
+   Used for the 3rd card in a set, creating visual balance */
 .program-card--wide {
-  grid-column: 1 / -1;
-  max-width: 600px;
-  margin-inline: auto;
+  grid-column: 1 / -1; /* Span all columns */
+  max-width: 600px; /* But limit width so it doesn't get absurd */
+  margin-inline: auto; /* Center it */
   width: 100%;
 }
 
+/* The card itself — white, bordered, padded, shadowed
+   The classic container for grouped information */
 .program-card {
   background: var(--pure-white);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-6);
   box-shadow: var(--shadow-card);
-  transition: box-shadow var(--transition), transform var(--transition);
+  transition: box-shadow var(--transition), transform var(--transition); /* Smooth hover effects */
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
 }
 
+/* Card hover state — lifts up and shadow deepens
+   Subtle feedback that says "you can click on this" */
 .program-card:hover {
   box-shadow: var(--shadow-card-hover);
   transform: translateY(-3px);
 }
 
+/* Card header area — number + title stacked */
 .card-header {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
 }
 
+/* Card number — small, uppercase, the accent before the title */
 .card-number {
   font-family: var(--font-heading);
   font-size: var(--text-sm);
@@ -464,7 +1134,8 @@ p { max-width: 72ch; text-wrap: pretty; }
   color: var(--academic-blue);
 }
 
-/* Cyan underline accent on card header */
+/* The cyan underline accent on the card header
+   Adds a touch of brand color to each card */
 .card-header::after {
   content: '';
   display: block;
@@ -482,20 +1153,53 @@ p { max-width: 72ch; text-wrap: pretty; }
 }
 
 
-/* ==========================================================
-   LISTS — charter rule: ▶ triangle bullets, white on blue
-   ========================================================== */
+/* ===========================================================
+   DECORATIVE DIVIDERS
+   Subtle visual separators that add polish without distraction
+   =========================================================== */
 
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+  color: var(--tech-cyan);
+  opacity: 0.6;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 100px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--tech-cyan), transparent);
+}
+
+.section-divider-icon {
+  font-size: 1.25rem;
+}
+
+
+/* ===========================================================
+   LISTS — EFREI custom bullets
+   Charter rule: ▶ triangle bullets, white on blue backgrounds
+   These are used for the category lists on Skills and other pages
+   =========================================================== */
+
+/* The list container — no bullets, flexbox for alignment */
 .efrei-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-2); /* Tight spacing between items */
 }
 
+/* List items — uppercase, letter-spaced, white text on dark backgrounds */
 .efrei-list li {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; /* Top-align for longer items */
   gap: var(--space-3);
   font-size: var(--text-sm);
   text-transform: uppercase;
@@ -504,52 +1208,59 @@ p { max-width: 72ch; text-wrap: pretty; }
   color: var(--pure-white);
 }
 
-/* ▶ triangle bullet — charter rule */
+/* The ▶ triangle bullet — white, small, positioned before text
+   The flex-shrink: 0 keeps the bullet from getting squished */
 .efrei-list li::before {
   content: '▶';
-  font-size: 0.6em;
+  font-size: 0.6em; /* Smaller than the text — decorative, not dominant */
   color: var(--pure-white);
   flex-shrink: 0;
-  margin-top: 0.2em;
+  margin-top: 0.2em; /* Aligns better with uppercase text */
 }
 
 
-/* ==========================================================
+/* ===========================================================
    BUTTONS
-   ========================================================== */
+   The interactive calls-to-action that drive user behavior
+   =========================================================== */
 
+/* Base button styles — shared across all button variants */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-2); /* Space between icon and text */
   padding: var(--space-3) var(--space-6);
   font-family: var(--font-heading);
   font-size: var(--text-sm);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.08em; /* Slightly increased for that authoritative feel */
   border-radius: var(--radius-sm);
   border: 2px solid transparent;
   transition: background var(--transition), color var(--transition),
-              border-color var(--transition), transform var(--transition);
-  white-space: nowrap;
-  cursor: pointer;
+              border-color var(--transition), transform var(--transition),
+              box-shadow var(--transition);
+  white-space: nowrap; /* Buttons don't wrap text */
+  cursor: pointer; /* Changes to pointer on hover — universal sign for "clickable" */
 }
 
-/* Primary — Electric Yellow on Blue (CTA) */
+/* PRIMARY BUTTON — Electric Yellow on Blue
+   The attention-grabber. Use sparingly — when everything is loud, nothing is. */
 .btn-primary {
   background-color: var(--electric-yellow);
   color: var(--academic-blue);
   border-color: var(--electric-yellow);
 }
 .btn-primary:hover, .btn-primary:focus-visible {
-  background-color: #f0b94a;
+  background-color: #f0b94a; /* Slightly darker for hover state */
   border-color: #f0b94a;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(253, 203, 110, 0.3);
 }
 
-/* Secondary — Cyan outline */
+/* SECONDARY BUTTON — Cyan outline
+   The supportive actor. Used for secondary actions. */
 .btn-secondary {
   background-color: transparent;
   color: var(--tech-cyan);
@@ -557,11 +1268,12 @@ p { max-width: 72ch; text-wrap: pretty; }
 }
 .btn-secondary:hover, .btn-secondary:focus-visible {
   background-color: var(--tech-cyan);
-  color: var(--academic-blue);
-  transform: translateY(-1px);
+  color: var(--academic-blue); /* Inverts on hover — clear feedback */
+  transform: translateY(-2px);
 }
 
-/* Ghost — white outline on blue backgrounds */
+/* GHOST BUTTON — White outline on blue backgrounds
+   For use on dark backgrounds where primary would be too much */
 .btn-ghost {
   background-color: transparent;
   color: var(--pure-white);
@@ -569,19 +1281,68 @@ p { max-width: 72ch; text-wrap: pretty; }
 }
 .btn-ghost:hover, .btn-ghost:focus-visible {
   border-color: var(--pure-white);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle white overlay */
+}
+
+/* Loading state for buttons */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--academic-blue);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.btn-primary.btn-loading::after {
+  border-color: var(--academic-blue);
+  border-top-color: transparent;
+}
+
+/* Ripple effect on button click */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn:active::before {
+  width: 200px;
+  height: 200px;
 }
 
 
-/* ==========================================================
-   BOTTOM PAGE NAVIGATION (the 3-button row at page bottom)
-   ========================================================== */
+/* ===========================================================
+   BOTTOM PAGE NAVIGATION
+   The 3-button row at the bottom of inner pages
+   Helps users navigate to adjacent sections without going back to top
+   =========================================================== */
 
 .page-bottom-nav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
   background-color: var(--academic-blue);
-  border-top: 3px solid var(--tech-cyan);
+  border-top: 3px solid var(--tech-cyan); /* Brand accent at top */
 }
 
 .bottom-nav-btn {
@@ -594,34 +1355,39 @@ p { max-width: 72ch; text-wrap: pretty; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.75); /* Muted white — less prominent than active */
   text-align: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1); /* Vertical dividers between buttons */
   transition: background var(--transition), color var(--transition);
 }
 
-.bottom-nav-btn:last-child { border-right: none; }
-
-.bottom-nav-btn:hover, .bottom-nav-btn:focus-visible {
-  background-color: rgba(129, 236, 236, 0.15);
+.bottom-nav-btn:hover {
+  background-color: rgba(129, 236, 236, 0.15); /* Cyan highlight on hover */
   color: var(--tech-cyan);
 }
 
+/* The active/current page button — more prominent styling */
 .bottom-nav-btn--active {
+  color: var(--pure-white); /* Full white, not muted */
+  background-color: rgba(129, 236, 236, 0.12); /* Subtle cyan background */
+  border-bottom: 3px solid var(--electric-yellow); /* Yellow accent line */
+}
+
+.bottom-nav-btn--active:hover {
+  background-color: rgba(129, 236, 236, 0.2);
   color: var(--pure-white);
-  background-color: rgba(129, 236, 236, 0.12);
-  border-bottom: 3px solid var(--electric-yellow);
 }
 
 
-/* ==========================================================
+/* ===========================================================
    FOOTER
-   ========================================================== */
+   The quiet end of every page — still styled, still on-brand
+   =========================================================== */
 
 .site-footer {
-  background-color: var(--blue-dark);
+  background-color: var(--blue-dark); /* Darker blue than header for contrast */
   padding-block: var(--space-8);
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7); /* Muted white — doesn't compete with content */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -631,7 +1397,7 @@ p { max-width: 72ch; text-wrap: pretty; }
 
 .site-footer nav ul {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Wrap on small screens */
   justify-content: center;
   gap: var(--space-2);
   list-style: none;
@@ -643,27 +1409,29 @@ p { max-width: 72ch; text-wrap: pretty; }
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6); /* Even more muted than the footer text */
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-sm);
   transition: color var(--transition), background var(--transition);
 }
 
 .site-footer nav a:hover, .site-footer nav a:focus-visible {
-  color: var(--tech-cyan);
+  color: var(--tech-cyan); /* Cyan on hover — brand accent */
   background-color: rgba(129, 236, 236, 0.1);
 }
 
 .footer-copy {
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.35); /* Very muted — it's just copyright info */
 }
 
 
-/* ==========================================================
+/* ===========================================================
    FORMS (contact / about page)
-   ========================================================== */
+   Where users get to talk to us — needs to feel trustworthy
+   =========================================================== */
 
+/* Form group — label stacked above input, clean and simple */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -677,8 +1445,14 @@ p { max-width: 72ch; text-wrap: pretty; }
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--academic-blue);
+  transition: color var(--transition);
 }
 
+.form-group:focus-within label {
+  color: var(--blue-mid);
+}
+
+/* Text inputs, textareas, and selects — all share these base styles */
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -689,41 +1463,153 @@ p { max-width: 72ch; text-wrap: pretty; }
   font-size: var(--text-base);
   color: var(--text-dark);
   background: var(--pure-white);
-  transition: border-color var(--transition), box-shadow var(--transition);
-  width: 100%;
+  transition: border-color var(--transition), box-shadow var(--transition),
+              background var(--transition);
+  width: 100%; /* Full width within their container */
 }
 
+/* Focus state — blue border and cyan glow
+   The cyan glow is our signature interaction feedback */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  outline: none;
+  outline: none; /* Remove default — we style our own */
   border-color: var(--academic-blue);
-  box-shadow: 0 0 0 3px rgba(129, 236, 236, 0.35);
+  box-shadow: 0 0 0 3px rgba(129, 236, 236, 0.35); /* Cyan shadow, like a halo */
 }
 
+/* Error messages — red and hidden by default */
 .form-error {
   font-size: var(--text-sm);
-  color: #c0392b;
-  display: none;
+  color: #c0392b; /* Red — universal color for errors */
+  display: none; /* Hidden until there's an actual error */
 }
 
 .form-error.visible {
+  display: block; /* Show when the visible class is added */
+  animation: fadeSlideUp 200ms ease;
+}
+
+/* Success message styling */
+.form-success {
+  text-align: center;
+  padding: var(--space-8);
+  background: var(--pure-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  animation: fadeSlideUp 300ms ease;
+}
+
+.form-success-icon {
   display: block;
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+}
+
+.form-success h3 {
+  color: var(--academic-blue);
+  margin-bottom: var(--space-2);
+}
+
+.form-success p {
+  color: var(--text-muted);
+  max-width: none;
 }
 
 
-/* ==========================================================
-   TABLES (charter: used for faculty / timetable data)
-   ========================================================== */
+/* ===========================================================
+   ACCORDION (expandable content blocks)
+   Great for内容量 content without overwhelming the user
+   =========================================================== */
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.accordion-item {
+  background: var(--pure-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+
+.accordion-item:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.accordion-item.is-open {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-6);
+  background: var(--pure-white);
+  border: none;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--academic-blue);
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.accordion-trigger:hover {
+  background: var(--surface-light);
+}
+
+.accordion-trigger::after {
+  content: '▼';
+  font-size: var(--text-sm);
+  color: var(--tech-cyan);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+  margin-left: var(--space-4);
+}
+
+.accordion-item.is-open .accordion-trigger::after {
+  transform: rotate(180deg);
+}
+
+.accordion-trigger:focus-visible {
+  outline: 2px solid var(--tech-cyan);
+  outline-offset: -2px;
+}
+
+.accordion-panel {
+  padding: 0 var(--space-6) var(--space-6);
+  color: var(--text-muted);
+  line-height: 1.7;
+  animation: fadeSlideUp 200ms ease;
+}
+
+.accordion-panel[hidden] {
+  display: none;
+}
+
+
+/* ===========================================================
+   TABLES (used for faculty / timetable / work breakdown)
+   Charter: professional, readable, with light header row
+   =========================================================== */
 
 .efrei-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /* Borders merge instead of stack */
   font-size: var(--text-sm);
 }
 
 .efrei-table thead {
-  background-color: var(--academic-blue);
+  background-color: var(--academic-blue); /* Blue header row — consistent with brand */
   color: var(--pure-white);
 }
 
@@ -733,46 +1619,231 @@ p { max-width: 72ch; text-wrap: pretty; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  text-align: left;
+  text-align: left; /* Left-align headers — more readable */
 }
 
 .efrei-table td {
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle); /* Horizontal dividers between rows */
   color: var(--text-muted);
+  transition: background var(--transition);
+}
+
+.efrei-table tbody tr {
+  transition: background var(--transition);
 }
 
 .efrei-table tbody tr:hover {
-  background-color: var(--surface-light);
+  background-color: var(--surface-light); /* Subtle highlight on hover */
 }
 
 
-/* ==========================================================
-   RESPONSIVE — MOBILE FIRST
-   ========================================================== */
+/* ===========================================================
+   KEYBOARD SHORTCUTS HELP MODAL
+   Press ? to see available keyboard shortcuts
+   =========================================================== */
 
-/* ── Tablet (768px) ── */
+.keyboard-hint {
+  position: fixed;
+  bottom: var(--space-6);
+  left: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--blue-dark);
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  opacity: 0.6;
+  transition: opacity var(--transition);
+  z-index: 50;
+}
+
+.keyboard-hint:hover {
+  opacity: 1;
+}
+
+.keyboard-hint kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 var(--space-2);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.shortcuts-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 49, 108, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.shortcuts-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.shortcuts-modal-content {
+  background: var(--pure-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  transition: transform var(--transition);
+}
+
+.shortcuts-modal.is-open .shortcuts-modal-content {
+  transform: translateY(0);
+}
+
+.shortcuts-modal h2 {
+  color: var(--academic-blue);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.shortcuts-modal ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.shortcuts-modal li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.shortcuts-modal li:last-child {
+  border-bottom: none;
+}
+
+.shortcuts-modal kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 28px;
+  padding: 0 var(--space-3);
+  background: var(--surface-light);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--academic-blue);
+}
+
+.shortcuts-modal-close {
+  margin-top: var(--space-6);
+  width: 100%;
+}
+
+
+/* ===========================================================
+   FUN FACT ROTATING BANNER
+   A subtle animated banner with interesting facts about the department
+   =========================================================== */
+
+.fun-fact-banner {
+  background: linear-gradient(135deg, var(--academic-blue), var(--blue-mid));
+  padding: var(--space-4) var(--space-6);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.fun-fact-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--tech-cyan), var(--electric-yellow), var(--tech-cyan));
+}
+
+.fun-fact-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  color: var(--pure-white);
+  font-size: var(--text-sm);
+}
+
+.fun-fact-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--tech-cyan);
+}
+
+.fun-fact-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fun-fact-icon {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+
+/* ===========================================================
+   RESPONSIVE DESIGN — MOBILE FIRST
+   "Mobile first" means we write styles for small screens first,
+   then add bigger-screen styles in media queries below.
+   The logic: everyone supports mobile, not everyone has a desktop.
+   =========================================================== */
+
+/* ── TABLET breakpoint (768px) ──
+   When the screen gets wider, we start adjusting layouts.
+   Below this width = phone. Above = tablet or desktop.
+*/
 @media (max-width: 768px) {
 
-  /* Nav becomes hamburger */
+  /* Nav becomes hamburger menu on mobile
+     It slides down from the header like a friendly reveal */
   .main-nav {
     position: fixed;
-    top: var(--header-height);
+    top: var(--header-height); /* Directly below the header */
     left: 0;
     right: 0;
     background-color: var(--academic-blue);
     padding: var(--space-4);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    /* Hidden by default */
-    max-height: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3); /* Strong shadow for elevation */
+    max-height: 0; /* Collapsed by default */
     overflow: hidden;
-    transition: max-height var(--transition);
+    transition: max-height var(--transition); /* Smooth expand/collapse */
   }
 
+  /* When nav is open (via .is-open class), expand it */
   .main-nav.is-open {
-    max-height: 400px;
+    max-height: 400px; /* Enough to show all links — could be more if needed */
   }
 
+  /* Stack nav links vertically instead of horizontally */
   .main-nav ul {
     flex-direction: column;
     gap: var(--space-1);
@@ -780,14 +1851,16 @@ p { max-width: 72ch; text-wrap: pretty; }
 
   .main-nav a {
     display: block;
-    padding: var(--space-3) var(--space-4);
+    padding: var(--space-3) var(--space-4); /* Larger touch targets */
   }
 
+  /* Show the hamburger button on mobile */
   .nav-toggle {
     display: flex;
   }
 
-  /* Hero stacks vertically */
+  /* Hero stacks vertically — text only on mobile, no image
+     Diagonal cut removed because it doesn't work with a single column */
   .page-hero {
     grid-template-columns: 1fr;
     min-height: 240px;
@@ -798,44 +1871,46 @@ p { max-width: 72ch; text-wrap: pretty; }
   }
 
   .hero-text h1 {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    font-size: clamp(1.75rem, 6vw, 2.5rem); /* Fluid font size — grows with viewport */
   }
 
   .hero-image {
-    display: none; /* hide photo area on mobile, text hero only */
+    display: none; /* Hide image on mobile — text is more important anyway */
   }
 
   .page-hero::after {
-    display: none;
+    display: none; /* Remove diagonal accent on mobile */
   }
 
-  /* Cards stack */
+  /* Cards stack in a single column — easier to scroll vertically */
   .cards-grid {
     grid-template-columns: 1fr;
   }
 
   .program-card--wide {
-    grid-column: 1;
-    max-width: 100%;
+    grid-column: 1; /* Reset span */
+    max-width: 100%; /* Full width */
   }
 
-  /* Bottom nav stacks */
+  /* Bottom nav stacks vertically on mobile */
   .page-bottom-nav {
     grid-template-columns: 1fr;
   }
 
   .bottom-nav-btn {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: none; /* No vertical dividers when stacked */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Horizontal dividers instead */
   }
 
   .bottom-nav-btn:last-child { border-bottom: none; }
 }
 
-/* ── Mobile (480px) ── */
+/* ── MOBILE SMALL (480px) ──
+   Even smaller screens need even more adjustments
+*/
 @media (max-width: 480px) {
   .container {
-    padding-inline: var(--space-4);
+    padding-inline: var(--space-4); /* Tighter padding on small screens */
   }
 
   .hero-text {
@@ -843,330 +1918,406 @@ p { max-width: 72ch; text-wrap: pretty; }
   }
 
   .site-footer nav ul {
-    flex-direction: column;
+    flex-direction: column; /* Stack footer links */
     align-items: center;
   }
-  
-/* ── Status Badges (about page) ── */
-.status-badge {
-  display: inline-block;
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.status-done     { background: #d4edda; color: #1a6630; }
-.status-progress { background: #fff3cd; color: #856404; }
+   
+  /* ── Status Badges (about page) ──
+     Small pills that show task status at a glance
+  */
+  .status-badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full); /* Fully rounded — pill shape */
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .status-done     { background: #d4edda; color: #1a6630; } /* Green — done! */
+  .status-progress { background: #fff3cd; color: #856404; } /* Yellow — in progress */
 
-/* ── Contact Form layout ── */
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
-}
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  max-width: 680px;
-  margin-top: var(--space-8);
-}
-.form-actions { display: flex; justify-content: flex-start; }
+  /* ── Contact Form layout ──
+     Name fields side by side on desktop, stacked on mobile
+  */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: var(--space-4);
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    max-width: 680px;
+    margin-top: var(--space-8);
+  }
+  .form-actions { display: flex; justify-content: flex-start; }
 
-/* ── Staff grid ── */
-.staff-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-6);
-  margin-top: var(--space-8);
-}
-.staff-member {
-  display: flex;
-  gap: var(--space-4);
-  background: var(--pure-white);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-card);
-}
-.staff-avatar img {
-  width: 80px;
-  height: 80px;
-  border-radius: var(--radius-full);
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 3px solid var(--tech-cyan);
-}
-.staff-info { display: flex; flex-direction: column; gap: var(--space-2); }
-.staff-role {
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--academic-blue);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.staff-bio { font-size: var(--text-sm); color: var(--text-muted); }
-.btn-sm { padding: var(--space-2) var(--space-4); font-size: var(--text-sm); }
+  /* ── Staff grid ──
+     The faculty cards on the about page — 2 columns on desktop, stacked on mobile
+  */
+  .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+  .staff-member {
+    display: flex;
+    gap: var(--space-4);
+    background: var(--pure-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .staff-member:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+  .staff-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full); /* Circular avatar */
+    object-fit: cover; /* Image fills the circle without distortion */
+    flex-shrink: 0;
+    border: 3px solid var(--tech-cyan); /* Brand-colored border */
+    transition: border-color var(--transition);
+  }
+  .staff-member:hover .staff-avatar img {
+    border-color: var(--electric-yellow);
+  }
+  .staff-info { display: flex; flex-direction: column; gap: var(--space-2); }
+  .staff-role {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--academic-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .staff-bio { font-size: var(--text-sm); color: var(--text-muted); }
+  .btn-sm { padding: var(--space-2) var(--space-4); font-size: var(--text-sm); }
 
-/* ── Team grid ── */
-.team-grid { grid-template-columns: repeat(2, 1fr); }
+  /* ── Team grid ──
+     Same as staff grid, keeps it consistent
+  */
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
 
-/* ── Table wrapper (horizontal scroll on mobile) ── */
-.table-wrapper { overflow-x: auto; margin-top: var(--space-6); }
+  /* ── Table wrapper (horizontal scroll on mobile) ──
+     Tables that are too wide get a horizontal scrollbar on mobile
+     instead of breaking the layout
+  */
+  .table-wrapper { overflow-x: auto; margin-top: var(--space-6); }
 
-/* ── Today highlight on office hours table ── */
-.office-hours-table th.today,
-.office-hours-table td.today {
-  background-color: rgba(129, 236, 236, 0.15);
-  color: var(--academic-blue);
-  font-weight: 700;
-}
+  /* ── Today highlight on office hours table ──
+     The current day gets a subtle cyan background in the schedule
+  */
+  .office-hours-table th.today,
+  .office-hours-table td.today {
+    background-color: rgba(129, 236, 236, 0.15); /* Cyan tint */
+    color: var(--academic-blue);
+    font-weight: 700;
+  }
 
-/* ── Areas / Career grids ── */
-.areas-grid, .career-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: var(--space-6);
-  margin-top: var(--space-8);
-}
-.area-group, .career-item {
-  background: var(--pure-white);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-card);
-}
-.area-group h3, .career-item h3 {
-  font-size: var(--text-h3);
-  color: var(--academic-blue);
-  margin-bottom: var(--space-4);
-}
+  /* ── Areas / Career grids ──
+     Responsive grids for skill categories and career paths
+     auto-fill + minmax creates a responsive grid without media queries
+  */
+  .areas-grid, .career-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+  .area-group, .career-item {
+    background: var(--pure-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .area-group:hover, .career-item:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+  .area-group h3, .career-item h3 {
+    font-size: var(--text-h3);
+    color: var(--academic-blue);
+    margin-bottom: var(--space-4);
+  }
 
-/* ── Curriculum steps ── */
-.curriculum-steps {
-  margin-top: var(--space-6);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  padding-left: var(--space-6);
-}
-.curriculum-steps li { color: var(--text-muted); font-size: var(--text-base); }
+  /* ── Curriculum steps ──
+     The numbered list showing how the program progresses
+  */
+  .curriculum-steps {
+    margin-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-left: var(--space-6);
+  }
+  .curriculum-steps li { color: var(--text-muted); font-size: var(--text-base); }
 
-/* ── Stats section (index) ── */
-.stats-section {
-  background-color: var(--academic-blue);
-  padding-block: var(--space-12);
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-6);
-  text-align: center;
-}
-.stat-item { display: flex; flex-direction: column; gap: var(--space-2); }
-.stat-number {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  color: var(--tech-cyan);
-}
-.stat-label {
-  font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 300;
-}
+  /* ── Stats section (index) ──
+     The 4-figure banner showing key numbers about the department
+  */
+  .stats-section {
+    background-color: var(--academic-blue);
+    padding-block: var(--space-12);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    gap: var(--space-6);
+    text-align: center;
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    animation: fadeSlideUp 400ms ease backwards;
+  }
+  .stat-item:nth-child(1) { animation-delay: 0ms; }
+  .stat-item:nth-child(2) { animation-delay: 60ms; }
+  .stat-item:nth-child(3) { animation-delay: 120ms; }
+  .stat-item:nth-child(4) { animation-delay: 180ms; }
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Fluid size — big on desktop, reasonable on mobile */
+    font-weight: 700;
+    color: var(--tech-cyan); /* Cyan numbers on blue background = high contrast */
+  }
+  .stat-label {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+  }
 
-/* ── Carousel (index) ── */
-.carousel {
-  position: relative;
-  overflow: hidden;
-  background: var(--academic-blue);
-}
-.carousel-track-wrapper { overflow: hidden; }
-.carousel-track {
-  display: flex;
-  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.hero-slide {
-  min-width: 100%;
-  min-height: 520px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  flex-shrink: 0;
-}
-.slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right,
-    rgba(10,49,108,0.92) 0%,
-    rgba(10,49,108,0.6) 55%,
-    rgba(10,49,108,0.1) 100%);
-  display: flex;
-  align-items: center;
-}
-.slide-content {
-  max-width: 560px;
-  padding: var(--space-12) var(--space-10);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-.slide-label {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--tech-cyan);
-  font-weight: 500;
-}
-.slide-content h1,
-.slide-content h2 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
-  color: var(--pure-white);
-}
-.slide-content p { color: rgba(255,255,255,0.85); font-weight: 300; }
+  /* ── Carousel (index) ──
+     The hero slider that showcases different aspects of the department
+  */
+  .carousel {
+    position: relative;
+    overflow: hidden; /* Hide slides that are off-screen */
+    background: var(--academic-blue);
+  }
+  .carousel-track-wrapper { overflow: hidden; }
+  .carousel-track {
+    display: flex;
+    /* The track slides horizontally — CSS transform handles the movement */
+    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1); /* Smooth, slightly bouncy */
+  }
+  .hero-slide {
+    min-width: 100%; /* Each slide takes full width */
+    min-height: 520px;
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Allows overlay to be positioned absolutely */
+    flex-shrink: 0; /* Don't let slides shrink */
+  }
+  .slide-overlay {
+    position: absolute;
+    inset: 0; /* Cover the whole slide */
+    /* Gradient from dark blue on left (text area) to transparent on right (image area) */
+    background: linear-gradient(to right,
+      rgba(10,49,108,0.92) 0%,
+      rgba(10,49,108,0.6) 55%,
+      rgba(10,49,108,0.1) 100%);
+    display: flex;
+    align-items: center; /* Vertically center content */
+  }
+  .slide-content {
+    max-width: 560px;
+    padding: var(--space-12) var(--space-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .slide-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--tech-cyan);
+    font-weight: 500;
+  }
+  .slide-content h1,
+  .slide-content h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--pure-white);
+  }
+  .slide-content p { color: rgba(255,255,255,0.85); font-weight: 300; }
 
-.carousel-btn-prev,
-.carousel-btn-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(10, 49, 108, 0.6);
-  color: var(--pure-white);
-  border: 1px solid rgba(255,255,255,0.2);
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background var(--transition);
-  z-index: 10;
-}
-.carousel-btn-prev { left: var(--space-4); }
-.carousel-btn-next { right: var(--space-4); }
-.carousel-btn-prev:hover,
-.carousel-btn-next:hover { background: var(--academic-blue); }
+  /* Carousel prev/next buttons — semi-transparent until hover */
+  .carousel-btn-prev,
+  .carousel-btn-next {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    background: rgba(10, 49, 108, 0.6);
+    color: var(--pure-white);
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full); /* Circular buttons */
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition), transform var(--transition);
+    z-index: 10; /* Above the slide content */
+  }
+  .carousel-btn-prev { left: var(--space-4); }
+  .carousel-btn-next { right: var(--space-4); }
+  .carousel-btn-prev:hover,
+  .carousel-btn-next:hover {
+    background: var(--academic-blue);
+    transform: translateY(-50%) scale(1.1);
+  }
 
-.carousel-dots {
-  position: absolute;
-  bottom: var(--space-4);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: var(--space-2);
-  z-index: 10;
-}
-.carousel-dots button {
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius-full);
-  background: rgba(255,255,255,0.4);
-  border: none;
-  transition: background var(--transition), transform var(--transition);
-}
-.carousel-dots button.active {
-  background: var(--tech-cyan);
-  transform: scale(1.3);
-}
+  /* Dot indicators — small circles showing current slide */
+  .carousel-dots {
+    position: absolute;
+    bottom: var(--space-4);
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-2);
+    z-index: 10;
+  }
+  .carousel-dots button {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: rgba(255,255,255,0.4);
+    border: none;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .carousel-dots button.active {
+    background: var(--tech-cyan);
+    transform: scale(1.3); /* Active dot is slightly larger */
+  }
 
-/* ── Nav cards (index) ── */
-.home-nav-grid { grid-template-columns: repeat(2, 1fr); }
-.nav-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  transition: box-shadow var(--transition), transform var(--transition);
-  cursor: pointer;
-}
-.nav-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
-.card-link-hint {
-  margin-top: auto;
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--academic-blue);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
+  /* ── Nav cards (index) ──
+     The grid of navigation cards on the homepage
+  */
+  .home-nav-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    transition: box-shadow var(--transition), transform var(--transition);
+    cursor: pointer;
+  }
+  .nav-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+  .card-link-hint {
+    margin-top: auto; /* Push to bottom of card */
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--academic-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: color var(--transition), transform var(--transition);
+  }
+  .nav-card:hover .card-link-hint {
+    color: var(--tech-cyan);
+    transform: translateX(4px);
+  }
 
-/* ── Back to top ── */
-.back-to-top {
-  position: fixed;
-  bottom: var(--space-6);
-  right: var(--space-6);
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  background: var(--academic-blue);
-  color: var(--pure-white);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-md);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition), transform var(--transition);
-  z-index: 50;
-}
-.back-to-top.visible { opacity: 1; pointer-events: auto; }
-.back-to-top:hover { background: var(--blue-mid); transform: translateY(-2px); }
+  /* ── Back to top button ──
+     That floating button that appears after scrolling down
+     Saves users from the tedious journey back to the top
+  */
+  .back-to-top {
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: var(--academic-blue);
+    color: var(--pure-white);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-card);
+    opacity: 0; /* Hidden by default — JS adds .visible */
+    pointer-events: none; /* Can't click when hidden */
+    transition: opacity var(--transition), transform var(--transition),
+                background var(--transition);
+    z-index: 50; /* Above most content */
+  }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; } /* Shown by JS when scrolled */
+  .back-to-top:hover {
+    background: var(--blue-mid);
+    transform: translateY(-2px);
+  }
 
-/* ── Tabs ── */
-.skills-tabs-section { padding-block: var(--space-8) var(--space-12); }
-.skills-tabs-section h2 {
-  font-size: var(--text-h2);
-  font-weight: 700;
-  color: var(--academic-blue);
-  margin-bottom: var(--space-6);
-}
-.tabs-nav {
-  display: flex;
-  gap: var(--space-2);
-  border-bottom: 2px solid var(--border-subtle);
-  margin-bottom: var(--space-8);
-  flex-wrap: wrap;
-}
-.tab-btn {
-  padding: var(--space-3) var(--space-6);
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition: color var(--transition), border-color var(--transition), background var(--transition);
-}
-.tab-btn:hover { color: var(--academic-blue); background: var(--surface-light); }
-.tab-btn.active, .tab-btn[aria-selected="true"] {
-  color: var(--academic-blue);
-  border-bottom-color: var(--tech-cyan);
-  background: var(--pure-white);
-}
+  /* ── Tabs (skills page) ──
+     The tabbed interface for browsing skill categories
+  */
+  .skills-tabs-section { padding-block: var(--space-8) var(--space-12); }
+  .skills-tabs-section h2 {
+    font-size: var(--text-h2);
+    font-weight: 700;
+    color: var(--academic-blue);
+    margin-bottom: var(--space-6);
+  }
+  .tabs-nav {
+    display: flex;
+    gap: var(--space-2);
+    border-bottom: 2px solid var(--border-subtle);
+    margin-bottom: var(--space-8);
+    flex-wrap: wrap; /* Wrap tabs on narrow screens */
+  }
+  .tab-btn {
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0; /* Top rounded only */
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px; /* Overlaps the bottom border of the nav */
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+  }
+  .tab-btn:hover { color: var(--academic-blue); background: var(--surface-light); }
+  .tab-btn.active, .tab-btn[aria-selected="true"] {
+    color: var(--academic-blue);
+    border-bottom-color: var(--tech-cyan); /* Active tab has cyan underline */
+    background: var(--pure-white);
+  }
 
-/* ── Responsive additions ── */
-@media (max-width: 768px) {
-  .staff-grid, .team-grid, .home-nav-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .form-row { grid-template-columns: 1fr; }
-  .staff-member { flex-direction: column; align-items: center; text-align: center; }
-  .hero-slide { min-height: 360px; }
-  .slide-content { padding: var(--space-8) var(--space-6); }
-}
-@media (max-width: 480px) {
-  .stats-grid { grid-template-columns: 1fr 1fr; }
-  .tabs-nav { gap: var(--space-1); }
-  .tab-btn { padding: var(--space-2) var(--space-3); font-size: 0.75rem; }
-}
+  /* ── Keyboard hint (mobile) ──
+     Hide keyboard hints on small screens
+  */
+  .keyboard-hint {
+    display: none;
+  }
+
+  /* ── Responsive adjustments for smaller screens ── */
+  @media (max-width: 768px) {
+    /* These elements switch to single column on tablet and below */
+    .staff-grid, .team-grid, .home-nav-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); } /* 2x2 instead of 4x1 */
+    .form-row { grid-template-columns: 1fr; } /* Name fields stack */
+    .staff-member { flex-direction: column; align-items: center; text-align: center; }
+    .hero-slide { min-height: 360px; } /* Shorter on mobile */
+    .slide-content { padding: var(--space-8) var(--space-6); }
+  }
+  @media (max-width: 480px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; } /* 2x2 grid on mobile */
+    .tabs-nav { gap: var(--space-1); } /* Tighter tab spacing */
+    .tab-btn { padding: var(--space-2) var(--space-3); font-size: 0.75rem; } /* Smaller tabs */
+  }
 }
