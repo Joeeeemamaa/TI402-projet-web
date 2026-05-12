@@ -1,0 +1,162 @@
+{
+  "department": {
+    "name": "EFREI Computer Science Department",
+    "tagline": "Shape the Future of Technology",
+    "students": 500,
+    "industryPartners": 40,
+    "countries": 35,
+    "campuses": 5
+  },
+  "funFacts": [
+    { "label": "Did you know?", "text": "Our students have shipped over 200 production projects" },
+    { "label": "By the numbers", "text": "500+ students, 40+ industry partners, 5 campuses" },
+    { "label": "Alumni spotlight", "text": "Our graduates work at Google, Meta, Amazon, and CERN" },
+    { "label": "Research power", "text": "15+ active research collaborations with industry partners" },
+    { "label": "Global reach", "text": "Students from 35+ countries call EFREI home" },
+    { "label": "Innovation hub", "text": "3 spin-off startups launched from our labs last year" }
+  ],
+  "faculty": [
+    {
+      "name": "Prof. Martin Dupont",
+      "role": "Algorithms & Data Structures",
+      "bio": "Former senior engineer at a major French tech company who returned to academia to share what he learned building high-scale systems. His algorithms class is famous for its challenging problem sets that actually prepare you for technical interviews.",
+      "officeHours": {
+        "monday": "10:00 – 12:00",
+        "tuesday": "—",
+        "wednesday": "14:00 – 16:00",
+        "thursday": "—",
+        "friday": "10:00 – 11:00"
+      }
+    },
+    {
+      "name": "Dr. Sophie Laurent",
+      "role": "Artificial Intelligence & Machine Learning",
+      "bio": "PhD from a top French research university, followed by research stints at labs in London and Montreal. Now splits time between teaching and an active research program focused on ethical AI.",
+      "officeHours": {
+        "monday": "—",
+        "tuesday": "09:00 – 11:00",
+        "wednesday": "—",
+        "thursday": "13:00 – 15:00",
+        "friday": "—"
+      }
+    },
+    {
+      "name": "Dr. Karim Benali",
+      "role": "Networks & Cybersecurity",
+      "bio": "Spent five years at a European cybersecurity firm before joining academia. Brings real incident response experience into the classroom — his security lectures draw from actual case studies with permission.",
+      "officeHours": {
+        "monday": "14:00 – 16:00",
+        "tuesday": "—",
+        "wednesday": "10:00 – 12:00",
+        "thursday": "—",
+        "friday": "13:00 – 14:00"
+      }
+    },
+    {
+      "name": "Prof. Claire Moreau",
+      "role": "Web Development & Software Engineering",
+      "bio": "Built production web systems for a decade before realizing she missed teaching. Now runs our full-stack development sequence, where students build and deploy real applications.",
+      "officeHours": {
+        "monday": "—",
+        "tuesday": "13:00 – 15:00",
+        "wednesday": "—",
+        "thursday": "10:00 – 12:00",
+        "friday": "14:00 – 16:00"
+      }
+    }
+  ],
+  "courses": [
+    {
+      "title": "Core Programming & Development",
+      "description": "Master multiple programming paradigms from procedural to object-oriented to functional. Languages include Python, Java, C, and JavaScript.",
+      "year": "1-2"
+    },
+    {
+      "title": "Algorithms & Data Structures",
+      "description": "From basic sorting and searching to graph algorithms, dynamic programming, and complexity analysis.",
+      "year": "1-2"
+    },
+    {
+      "title": "Web & Cloud Technologies",
+      "description": "Full-stack web development covering frontend, backend, APIs, databases, and cloud deployment with AWS and Azure.",
+      "year": "3-4"
+    },
+    {
+      "title": "Artificial Intelligence & Machine Learning",
+      "description": "From neural network fundamentals to NLP and computer vision. Hands-on projects include building chatbots and classifiers.",
+      "year": "4-5"
+    },
+    {
+      "title": "Cybersecurity & Systems",
+      "description": "Network security, cryptography, vulnerability assessment, secure coding, and incident response in our dedicated security lab.",
+      "year": "3-5"
+    },
+    {
+      "title": "Professional Skills & Career Prep",
+      "description": "Technical communication, Agile methodologies, project management, and interview preparation with industry partners.",
+      "year": "all"
+    }
+  ],
+  "opportunities": [
+    {
+      "title": "Software Engineering",
+      "roles": ["Frontend / Backend Developer", "Full-Stack Engineer", "Mobile App Developer", "DevOps Engineer"]
+    },
+    {
+      "title": "Data & AI",
+      "roles": ["Machine Learning Engineer", "Data Scientist", "Data Engineer", "AI Research Engineer"]
+    },
+    {
+      "title": "Systems & Security",
+      "roles": ["Cybersecurity Analyst", "Network Engineer", "Cloud Architect", "Site Reliability Engineer"]
+    },
+    {
+      "title": "Leadership & Strategy",
+      "roles": ["Technical Lead / Architect", "Product Manager", "Engineering Manager", "CTO / Founder"]
+    }
+  ],
+  "skills": {
+    "technical": [
+      {
+        "title": "Programming & Development",
+        "description": "Python, Java, C, JavaScript mastery with professional testing, debugging, and version control practices."
+      },
+      {
+        "title": "Systems & Infrastructure",
+        "description": "Operating systems, networks, cloud infrastructure, containerization, and system design."
+      },
+      {
+        "title": "Web & Full-Stack Engineering",
+        "description": "Complete web development from frontend frameworks to RESTful APIs and deployment pipelines."
+      }
+    ],
+    "analytical": [
+      {
+        "title": "Mathematics & Logical Reasoning",
+        "description": "Discrete mathematics, linear algebra, formal logic, and algorithm complexity analysis."
+      },
+      {
+        "title": "Data & Information Management",
+        "description": "Database design, SQL mastery, data modeling, and informed database choice decisions."
+      },
+      {
+        "title": "Problem Decomposition",
+        "description": "Breaking complex problems into manageable pieces with the right level of abstraction."
+      }
+    ],
+    "professional": [
+      {
+        "title": "Technical Communication",
+        "description": "Clear technical documentation, presentations to non-technical audiences, and effective code reviews."
+      },
+      {
+        "title": "Teamwork & Project Management",
+        "description": "Agile methodologies, task estimation, sprint planning, and code collaboration workflows."
+      },
+      {
+        "title": "Ethics & Professional Responsibility",
+        "description": "Privacy, security, accessibility, and digital equity in technology decisions."
+      }
+    ]
+  }
+}

@@ -22,7 +22,7 @@
  * ═══════════════════════════════════════════════════════════
  * FEATURE 0: CONSOLE WELCOME MESSAGE — ASCII art easter egg
  * ═══════════════════════════════════════════════════════════
- * 
+ *
  * A fun ASCII art welcome message for developers who open
  * the browser console. Because debugging should be delightful.
  */
@@ -41,17 +41,103 @@
     ║                                                   ║
     ╚═══════════════════════════════════════════════════╝
 
-%c🎓 Welcome to the EFREI Computer Science Department website!
-🔍 Found a bug? We've already fixed it... in our dreams.
-💡 Pro tip: Press the ? key to discover keyboard shortcuts!
+%c> Welcome to the EFREI Computer Science Department website!
+> Found a bug? We've already fixed it... in our dreams.
+> Pro tip: Press the ? key to discover keyboard shortcuts!
 
-Built with ☕, determination, and just enough sleep deprivation.
+Built with coffee, determination, and just enough sleep deprivation.
   `,
     'color: #81ECEC; font-weight: bold; font-size: 14px;',
     'color: #FDCB6E; font-size: 12px;',
     'color: #81ECEC; font-size: 11px;'
   );
 })();
+
+
+/**
+ * ═══════════════════════════════════════════════════════════
+ * FEATURE 0B: DYNAMIC DATA LOADER — Load content from JSON
+ * ═══════════════════════════════════════════════════════════
+ */
+
+let siteData = null;
+
+async function loadSiteData() {
+  try {
+    const response = await fetch('../data/data.json');
+    if (!response.ok) throw new Error('Failed to load site data');
+    siteData = await response.json();
+    return siteData;
+  } catch (error) {
+    console.warn('Could not load site data from JSON, using defaults:', error.message);
+    return null;
+  }
+}
+
+/**
+ * Update stats with data from JSON
+ */
+async function updateStatsFromData() {
+  const data = siteData || await loadSiteData();
+  if (!data) return;
+
+  const statsSection = document.querySelector(".stats-section");
+  if (!statsSection) return;
+
+  const statNumbers = statsSection.querySelectorAll(".stat-number[data-target]");
+  const stats = [
+    data.department.students,
+    data.department.industryPartners,
+    data.department.countries,
+    data.department.campuses
+  ];
+
+  statNumbers.forEach((stat, index) => {
+    if (stats[index] !== undefined) {
+      stat.dataset.target = stats[index];
+    }
+  });
+}
+
+/**
+ * Initialize fun facts from JSON data
+ */
+async function initFunFactBanner() {
+  const data = siteData || await loadSiteData();
+  if (!data || !data.funFacts || !data.funFacts.length) return;
+
+  const banner = document.createElement("div");
+  banner.className = "fun-fact-banner";
+  banner.setAttribute("role", "region");
+  banner.setAttribute("aria-label", "Fun fact about the department");
+
+  let currentFactIndex = 0;
+
+  function updateBanner() {
+    const fact = data.funFacts[currentFactIndex];
+    banner.innerHTML = `
+      <div class="fun-fact-content">
+        <span class="fun-fact-icon" aria-hidden="true">&#9733;</span>
+        <span class="fun-fact-label">${fact.label}:</span>
+        <span class="fun-fact-text">${fact.text}</span>
+      </div>
+    `;
+  }
+
+  updateBanner();
+
+  const firstSection = document.querySelector("main > section:first-of-type");
+  if (firstSection) {
+    firstSection.parentNode.insertBefore(banner, firstSection.nextSibling);
+  } else {
+    document.querySelector("main")?.prepend(banner);
+  }
+
+  setInterval(() => {
+    currentFactIndex = (currentFactIndex + 1) % data.funFacts.length;
+    updateBanner();
+  }, 8000);
+}
 
 
 /**
@@ -231,15 +317,12 @@ Built with ☕, determination, and just enough sleep deprivation.
   function navigateToSlide(targetIndex) {
     // Remove active class from current slide
     allSlides[currentSlideIndex].classList.remove("active");
-    
-    // Wrap around using modulo (fancy math term: the cake is a lie)
+
+    // Wrap around using modulo
     currentSlideIndex = (targetIndex + allSlides.length) % allSlides.length;
-    
+
     // Activate the new slide
     allSlides[currentSlideIndex].classList.add("active");
-    
-    // Move the track to show the correct slide
-    trackElement.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
 
     // Update the dot indicators to match
     if (dotsContainer) {
@@ -249,7 +332,7 @@ Built with ☕, determination, and just enough sleep deprivation.
       });
     }
 
-    // Reset the auto-play timer — don't want to interrupt someone's viewing
+    // Reset the auto-play timer
     restartAutoPlay();
   }
 
@@ -265,6 +348,9 @@ Built with ☕, determination, and just enough sleep deprivation.
 
   // Initialize the first slide
   allSlides[0]?.classList.add("active");
+  console.log('[Carousel] Slides found:', allSlides.length);
+  console.log('[Carousel] First slide element:', allSlides[0]);
+  console.log('[Carousel] First slide has active class:', allSlides[0]?.classList.contains("active"));
 
   // Wire up the prev/next buttons
   if (previousButton) {
@@ -830,60 +916,45 @@ Built with ☕, determination, and just enough sleep deprivation.
 
 
 /**
- * ═══════════════════════════════════════════════════════════
- * FEATURE 13: FUN FACT ROTATING BANNER
- * ═══════════════════════════════════════════════════════════
- * 
- * A subtle banner that rotates through interesting facts
- * about the department. Keeps visitors engaged while
- * teaching them something useful.
+ * Initialize fun fact banner from JSON data
+ * (Overwrites hardcoded funFacts with JSON data when available)
  */
-
 (function initFunFactBanner() {
-  // Fun facts about the department
-  const funFacts = [
-    { label: "Did you know?", text: "Our students have shipped over 200 production projects" },
-    { label: "By the numbers", text: "500+ students, 40+ industry partners, 5 campuses" },
-    { label: "Alumni spotlight", text: "Our graduates work at Google, Meta, Amazon, and CERN" },
-    { label: "Research power", text: "15+ active research collaborations with industry partners" },
-    { label: "Global reach", text: "Students from 35+ countries call EFREI home" },
-    { label: "Innovation hub", text: "3 spin-off startups launched from our labs last year" }
-  ];
+  loadSiteData().then(data => {
+    if (!data || !data.funFacts || !data.funFacts.length) return;
 
-  // Create the banner
-  const banner = document.createElement("div");
-  banner.className = "fun-fact-banner";
-  banner.setAttribute("role", "region");
-  banner.setAttribute("aria-label", "Fun fact about the department");
-  
-  let currentFactIndex = 0;
-  
-  function updateBanner() {
-    const fact = funFacts[currentFactIndex];
-    banner.innerHTML = `
-      <div class="fun-fact-content">
-        <span class="fun-fact-icon" aria-hidden="true">&#9733;</span>
-        <span class="fun-fact-label">${fact.label}:</span>
-        <span class="fun-fact-text">${fact.text}</span>
-      </div>
-    `;
-  }
-  
-  updateBanner();
-  
-  // Insert after the first section or at the top of main
-  const firstSection = document.querySelector("main > section:first-of-type");
-  if (firstSection) {
-    firstSection.parentNode.insertBefore(banner, firstSection.nextSibling);
-  } else {
-    document.querySelector("main")?.prepend(banner);
-  }
+    const banner = document.createElement("div");
+    banner.className = "fun-fact-banner";
+    banner.setAttribute("role", "region");
+    banner.setAttribute("aria-label", "Fun fact about the department");
 
-  // Rotate facts every 8 seconds
-  setInterval(() => {
-    currentFactIndex = (currentFactIndex + 1) % funFacts.length;
+    let currentFactIndex = 0;
+
+    function updateBanner() {
+      const fact = data.funFacts[currentFactIndex];
+      banner.innerHTML = `
+        <div class="fun-fact-content">
+          <span class="fun-fact-icon" aria-hidden="true">&#9733;</span>
+          <span class="fun-fact-label">${fact.label}:</span>
+          <span class="fun-fact-text">${fact.text}</span>
+        </div>
+      `;
+    }
+
     updateBanner();
-  }, 8000);
+
+    const firstSection = document.querySelector("main > section:first-of-type");
+    if (firstSection) {
+      firstSection.parentNode.insertBefore(banner, firstSection.nextSibling);
+    } else {
+      document.querySelector("main")?.prepend(banner);
+    }
+
+    setInterval(() => {
+      currentFactIndex = (currentFactIndex + 1) % data.funFacts.length;
+      updateBanner();
+    }, 8000);
+  });
 })();
 
 
@@ -941,56 +1012,79 @@ Built with ☕, determination, and just enough sleep deprivation.
  * ═══════════════════════════════════════════════════════════
  * FEATURE 15: STATS COUNTER ANIMATION
  * ═══════════════════════════════════════════════════════════
- * 
+ *
  * Animates the stat numbers on the home page, counting up
  * from 0 to the target value when they become visible.
+ * Data loaded from JSON when available.
  */
 
 (function initStatsCounter() {
   const statNumbers = document.querySelectorAll(".stat-number[data-target]");
-  
+
   if (!statNumbers.length) return;
 
-  const animateCounter = (element) => {
-    const target = parseInt(element.dataset.target, 10);
-    const duration = 1500; // 1.5 seconds
-    const startTime = performance.now();
-    
-    function update(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing function for smooth animation
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      const currentValue = Math.floor(easeOutQuart * target);
-      
-      element.textContent = currentValue;
-      
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        element.textContent = target;
-      }
+  // Update targets from JSON data if available
+  loadSiteData().then(data => {
+    if (data && data.department) {
+      const stats = [
+        data.department.students,
+        data.department.industryPartners,
+        data.department.countries,
+        data.department.campuses
+      ];
+      statNumbers.forEach((stat, index) => {
+        if (stats[index] !== undefined) {
+          stat.dataset.target = stats[index];
+        }
+      });
     }
-    
-    requestAnimationFrame(update);
-  };
 
-  // Use IntersectionObserver to trigger when stats section is visible
-  const statsSection = document.querySelector(".stats-section");
-  if (!statsSection) return;
+    // Now animate with updated targets
+    animateStats();
+  });
 
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const statNumbersInView = entry.target.querySelectorAll(".stat-number[data-target]");
-        statNumbersInView.forEach(stat => animateCounter(stat));
-        statsObserver.unobserve(entry.target);
+  function animateStats() {
+    const statNumbers = document.querySelectorAll(".stat-number[data-target]");
+    if (!statNumbers.length) return;
+
+    const animateCounter = (element) => {
+      const target = parseInt(element.dataset.target, 10);
+      const duration = 1500;
+      const startTime = performance.now();
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentValue = Math.floor(easeOutQuart * target);
+
+        element.textContent = currentValue;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          element.textContent = target;
+        }
       }
-    });
-  }, { threshold: 0.3 });
 
-  statsObserver.observe(statsSection);
+      requestAnimationFrame(update);
+    };
+
+    const statsSection = document.querySelector(".stats-section");
+    if (!statsSection) return;
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const statNumbersInView = entry.target.querySelectorAll(".stat-number[data-target]");
+          statNumbersInView.forEach(stat => animateCounter(stat));
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    statsObserver.observe(statsSection);
+  }
 })();
 
 
@@ -1053,7 +1147,7 @@ Built with ☕, determination, and just enough sleep deprivation.
     if (clickCount >= 5) {
       clickCount = 0;
       logo.style.animation = "spin 0.5s ease-in-out";
-      showToast("🏆 Logo champion! You found the secret click easter egg!");
+      showToast("Logo champion! You found the secret click easter egg!");
       setTimeout(() => {
         logo.style.animation = "";
       }, 500);
@@ -1101,7 +1195,7 @@ Built with ☕, determination, and just enough sleep deprivation.
 
   function activateRainbowMode() {
     document.body.classList.add("rainbow-mode");
-    showToast("🌈🌈🌈 KONAMI CODE ACTIVATED! 🌈🌈🌈 Rainbow mode unlocked! You are a true gamer!");
+    showToast("KONAMI CODE ACTIVATED! Rainbow mode unlocked! You are a true gamer!");
     
     clearTimeout(rainbowTimeout);
     rainbowTimeout = setTimeout(() => {

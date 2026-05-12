@@ -1,422 +1,187 @@
 /**
  * ===========================================================
  * EFREI Computer Science Department — style.css
- * "Where design meets academic ambition"
  * ===========================================================
- * 
- * This stylesheet brings the EFREI graphic charter to life.
- * Think of it as our visual DNA — every color, spacing decision,
- * and animation has been crafted to make the department look
- * professional, modern, and trustworthy.
- * 
- * COLORS (our signature palette):
- *   - Academic Blue #0A316C   — The main event. Used for headers, backgrounds, trust.
- *   - Tech Cyan #81ECEC       — The accent that says "we're modern, we promise"
- *   - Electric Yellow #FDCB6E  — Calls to action that demand attention
- * 
- * TYPOGRAPHY:
- *   - Montserrat for headings (bold, confident, modern)
- *   - Open Sans for body (readable, friendly, approachable)
- * 
- * We use CSS custom properties (design tokens) for everything
- * so if the charter ever changes (heaven forbid), we only
- * need to update the values here. DRY as a desert.
+ *
+ * COLORS:
+ *   - Academic Blue #0A316C   — Primary brand
+ *   - Tech Cyan #81ECEC      — Accent
+ *   - Electric Yellow #FDCB6E — CTAs
+ *
+ * TYPOGRAPHY: Montserrat (headings), Open Sans (body)
  */
 
-/* ── Google Fonts ── */
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap');
 
-/* ── Design Tokens (our building blocks) ── */
+/* Design Tokens */
 :root {
-  /* ═══════════════════════════════════════════
-   * COLORS
-   * Each color has a purpose — no random hex codes here!
-   * ═══════════════════════════════════════════ */
-  
-  /* Primary brand colors — used everywhere */
-  --academic-blue:   #0A316C;  /* The big blue — trust, academia, stability */
-  --pure-white:      #FFFFFF;  /* Clean backgrounds, text on dark */
-  --tech-cyan:       #81ECEC; /* The accent that pops — modern, techy, alive */
-  --electric-yellow: #FDCB6E; /* CTAs and calls to action — "look at me!" */
-
-  /* Supporting blues — we needed variety, okay? */
-  --blue-dark:       #071f47;  /* Footer and dark areas — adds depth */
-  --blue-mid:        #0d3f85;  /* Hero images and hover states */
-
-  /* Neutral tones — for backgrounds and text that isn't important */
-  --surface-light:   #f4f6fb;  /* Section backgrounds — subtle, not distracting */
-  --text-dark:       #1a1a2e;  /* Main body text — easy on the eyes */
-  --text-muted:      #555e7a;  /* Secondary text — less important but still readable */
-  --border-subtle:   rgba(10, 49, 108, 0.12); /* Card borders — visible but not aggressive */
-
-  /* ═══════════════════════════════════════════
-   * TYPOGRAPHY
-   * We only load two fonts — keep it simple, keep it fast
-   * ═══════════════════════════════════════════ */
-  --font-heading: 'Montserrat', sans-serif;  /* Bold headlines that demand attention */
-  --font-body:    'Open Sans', sans-serif;   /* Long-form text that doesn't fatigue */
-
-  /* ═══════════════════════════════════════════
-   * TYPE SCALE (following a minor third ratio)
-   * Because sizing text randomly is a crime against humanity
-   * ═══════════════════════════════════════════ */
-  --text-h1:   2.5rem;   /* 40px — page titles, big moments */
-  --text-h2:   2rem;     /* 32px — section headers */
-  --text-h3:   1.25rem;  /* 20px — card titles, subsections */
-  --text-base: 1rem;     /* 16px — body text, the real workhorse */
-  --text-sm:   0.875rem; /* 14px — captions, labels, metadata */
-
-  /* ═══════════════════════════════════════════
-   * SPACING SYSTEM (4px base unit)
-   * Using multiples of 4 keeps everything aligned and rhythmic
-   * Like a well-behaved music score, if scores were made of padding
-   * ═══════════════════════════════════════════ */
-  --space-1:  0.25rem;  /* 4px  — tight spaces, icon padding */
-  --space-2:  0.5rem;   /* 8px  — small gaps, label margins */
-  --space-3:  0.75rem;  /* 12px — medium padding, compact areas */
-  --space-4:  1rem;     /* 16px — standard padding, our go-to */
-  --space-6:  1.5rem;   /* 24px — section padding, card padding */
-  --space-8:  2rem;     /* 32px — large gaps, section margins */
-  --space-10: 2.5rem;   /* 40px — big sections */
-  --space-12: 3rem;      /* 48px — hero areas, major spacing */
-  --space-16: 4rem;     /* 64px — between major page sections */
-
-  /* ═══════════════════════════════════════════
-   * LAYOUT
-   * These keep our containers consistent across pages
-   * ═══════════════════════════════════════════ */
-  --container-max: 1100px; /* Max width for content — keeps lines readable */
-  --header-height: 68px;   /* Fixed header height — used for scroll offsets */
-
-  /* ═══════════════════════════════════════════
-   * BORDER RADIUS
-   * Soft corners everywhere — nobody likes sharp edges
-   * (except maybe some mathematicians, but they're not our audience)
-   * ═══════════════════════════════════════════ */
-  --radius-sm: 0.375rem; /* 6px  — buttons, inputs, small elements */
-  --radius-md: 0.625rem; /* 10px — cards, containers, medium elements */
-  --radius-lg: 1rem;     /* 16px — large panels, hero elements */
-
-  /* ═══════════════════════════════════════════
-   * SHADOWS
-   * Layered shadows create depth without being heavy
-   * We use two levels: default for resting, hover for interaction
-   * ═══════════════════════════════════════════ */
-  --shadow-card: 0 2px 8px rgba(10, 49, 108, 0.10),  /* Subtle lift — the everyday shadow */
-                 0 6px 24px rgba(10, 49, 108, 0.06); /* Wider spread for larger elements */
-  --shadow-card-hover: 0 4px 16px rgba(10, 49, 108, 0.18),   /* Deeper lift on hover */
-                       0 12px 40px rgba(10, 49, 108, 0.10); /* More presence when interactive */
-
-  /* ═══════════════════════════════════════════
-   * TRANSITIONS
-   * Using a custom cubic-bezier for smooth, natural movement
-   * Feels responsive but not snappy — like a confident handshake
-   * ═══════════════════════════════════════════ */
+  --academic-blue:   #0A316C;
+  --pure-white:      #FFFFFF;
+  --tech-cyan:       #81ECEC;
+  --electric-yellow: #FDCB6E;
+  --blue-dark:       #071f47;
+  --blue-mid:        #0d3f85;
+  --surface-light:   #f4f6fb;
+  --text-dark:       #1a1a2e;
+  --text-muted:      #555e7a;
+  --border-subtle:   rgba(10, 49, 108, 0.12);
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body:    'Open Sans', sans-serif;
+  --text-h1:   2.5rem;
+  --text-h2:   2rem;
+  --text-h3:   1.25rem;
+  --text-base: 1rem;
+  --text-sm:   0.875rem;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --container-max: 1100px;
+  --header-height: 68px;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --shadow-card: 0 2px 8px rgba(10, 49, 108, 0.10), 0 6px 24px rgba(10, 49, 108, 0.06);
+  --shadow-card-hover: 0 4px 16px rgba(10, 49, 108, 0.18), 0 12px 40px rgba(10, 49, 108, 0.10);
   --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── Fun background for the homepage ──
-   The Tony Stark meme GIF — because why not bring personality to academia?
-   We use a pseudo-element overlay to tint the GIF with Academic Blue
-   so text remains readable. Nobody wants to read white text on a meme.
- */
+/* Background GIF with tint overlay */
 .page-bg-gif {
   position: fixed;
   inset: 0;
-  z-index: -1; /* Behind everything — content is king */
-  background-image: url('../images/tony-stark-meme.gif'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  z-index: -1;
+  background: var(--academic-blue) url('../images/tony-stark-meme.gif') center/cover no-repeat;
 }
 
-/* The blue tint overlay — sits on top of the GIF, not the content */
 .page-bg-gif::after {
   content: '';
   position: absolute;
   inset: 0;
-  /* Academic Blue at 75% opacity — keeps things readable while showing personality */
   background-color: rgba(24, 93, 197, 0.75);
 }
 
-/* Dark mode: darker overlay for better contrast */
 [data-theme="dark"] .page-bg-gif::after {
   background-color: rgba(10, 22, 40, 0.85);
 }
 
 
 /* ===========================================================
-   PAGE TRANSITIONS — Subtle fade-in when navigating
-   Makes the site feel more polished and less jarring
+   DARK MODE
    =========================================================== */
 
-@keyframes pageFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-main {
-  animation: pageFadeIn 300ms ease-out;
-}
-
-
-/* ===========================================================
-   DARK MODE — CSS Variables for theme switching
-   Respects prefers-color-scheme as default, stored in localStorage
-   =========================================================== */
-
-/* Dark mode color palette */
 [data-theme="dark"] {
   --academic-blue:   #1a4a8a;
   --pure-white:      #f0f2f5;
   --tech-cyan:       #6ee7f7;
   --electric-yellow: #fdd87a;
-
   --blue-dark:       #0a1628;
   --blue-mid:        #1d3d6b;
-
   --surface-light:   #1a2438;
   --text-dark:       #e8eaed;
   --text-muted:      #9aa0a8;
   --border-subtle:   rgba(255, 255, 255, 0.1);
-
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3),
-                 0 6px 24px rgba(0, 0, 0, 0.2);
-  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.4),
-                       0 12px 40px rgba(0, 0, 0, 0.25);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3), 0 6px 24px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.4), 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-/* ── Dark Mode: Body and Core ── */
-[data-theme="dark"] body {
-  background-color: #0f1520;
-  color: var(--text-dark);
-}
+[data-theme="dark"] body { background-color: #0f1520; color: var(--text-dark); }
 
-/* ── Dark Mode: Cards (program-card, staff, nav-card, area-group, career-item, intro-card) ── */
-[data-theme="dark"] .program-card,
-[data-theme="dark"] .staff-member,
-[data-theme="dark"] .nav-card,
-[data-theme="dark"] .area-group,
-[data-theme="dark"] .career-item,
-[data-theme="dark"] .intro-card,
+[data-theme="dark"] .program-card, [data-theme="dark"] .staff-member,
+[data-theme="dark"] .nav-card, [data-theme="dark"] .area-group,
+[data-theme="dark"] .career-item, [data-theme="dark"] .intro-card,
 [data-theme="dark"] .accordion-item {
   background: #1a2438;
   border-color: rgba(255, 255, 255, 0.1);
   color: var(--text-dark);
 }
 
-[data-theme="dark"] .program-card h3,
-[data-theme="dark"] .area-group h3,
-[data-theme="dark"] .career-item h3 {
-  color: var(--tech-cyan);
-}
+[data-theme="dark"] .program-card h3, [data-theme="dark"] .area-group h3,
+[data-theme="dark"] .career-item h3 { color: var(--tech-cyan); }
 
-[data-theme="dark"] .program-card p,
-[data-theme="dark"] .staff-bio,
-[data-theme="dark"] .area-group p,
-[data-theme="dark"] .career-item p {
-  color: var(--text-muted);
-}
+[data-theme="dark"] .program-card p, [data-theme="dark"] .staff-bio,
+[data-theme="dark"] .area-group p, [data-theme="dark"] .career-item p { color: var(--text-muted); }
 
-[data-theme="dark"] .card-number {
-  color: var(--tech-cyan);
-}
+[data-theme="dark"] .card-number, [data-theme="dark"] .card-link-hint { color: var(--tech-cyan); }
 
-[data-theme="dark"] .card-link-hint {
-  color: var(--tech-cyan);
-}
-
-/* ── Dark Mode: Form Elements ── */
-[data-theme="dark"] .form-group input,
-[data-theme="dark"] .form-group textarea,
+[data-theme="dark"] .form-group input, [data-theme="dark"] .form-group textarea,
 [data-theme="dark"] .form-group select {
   background: #1a2438;
   border-color: rgba(255, 255, 255, 0.15);
   color: var(--text-dark);
 }
 
-[data-theme="dark"] .form-group input:focus,
-[data-theme="dark"] .form-group textarea:focus,
+[data-theme="dark"] .form-group input:focus, [data-theme="dark"] .form-group textarea:focus,
 [data-theme="dark"] .form-group select:focus {
   border-color: var(--tech-cyan);
   box-shadow: 0 0 0 3px rgba(110, 231, 247, 0.25);
 }
 
-[data-theme="dark"] .form-group label {
-  color: var(--tech-cyan);
-}
+[data-theme="dark"] .form-group label { color: var(--tech-cyan); }
 
-[data-theme="dark"] .form-success {
-  background: #1a2438;
-  border-color: rgba(255, 255, 255, 0.1);
-}
+[data-theme="dark"] .form-success { background: #1a2438; border-color: rgba(255, 255, 255, 0.1); }
+[data-theme="dark"] .form-success h3 { color: var(--tech-cyan); }
 
-[data-theme="dark"] .form-success h3 {
-  color: var(--tech-cyan);
-}
+[data-theme="dark"] .efrei-table td { background: #1a2438; border-bottom-color: rgba(255, 255, 255, 0.08); color: var(--text-muted); }
+[data-theme="dark"] .efrei-table tbody tr:hover td { background: #232d42; }
+[data-theme="dark"] .table-wrapper { border-color: rgba(255, 255, 255, 0.1); }
 
-/* ── Dark Mode: Tables ── */
-[data-theme="dark"] .efrei-table td {
-  background: #1a2438;
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-  color: var(--text-muted);
-}
+[data-theme="dark"] .accordion-trigger { background: #1a2438; color: var(--tech-cyan); }
+[data-theme="dark"] .accordion-trigger:hover { background: #232d42; }
+[data-theme="dark"] .accordion-panel { color: var(--text-muted); }
 
-[data-theme="dark"] .efrei-table tbody tr:hover td {
-  background: #232d42;
-}
-
-[data-theme="dark"] .table-wrapper {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-/* ── Dark Mode: Accordion ── */
-[data-theme="dark"] .accordion-trigger {
-  background: #1a2438;
-  color: var(--tech-cyan);
-}
-
-[data-theme="dark"] .accordion-trigger:hover {
-  background: #232d42;
-}
-
-[data-theme="dark"] .accordion-panel {
-  color: var(--text-muted);
-}
-
-/* ── Dark Mode: Tabs ── */
-[data-theme="dark"] .tabs-nav {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .tab-btn {
-  color: var(--text-muted);
-}
-
-[data-theme="dark"] .tab-btn:hover {
-  color: var(--tech-cyan);
-  background: rgba(110, 231, 247, 0.1);
-}
-
-[data-theme="dark"] .tab-btn.active,
-[data-theme="dark"] .tab-btn[aria-selected="true"] {
+[data-theme="dark"] .tabs-nav { border-bottom-color: rgba(255, 255, 255, 0.1); }
+[data-theme="dark"] .tab-btn { color: var(--text-muted); }
+[data-theme="dark"] .tab-btn:hover { color: var(--tech-cyan); background: rgba(110, 231, 247, 0.1); }
+[data-theme="dark"] .tab-btn.active, [data-theme="dark"] .tab-btn[aria-selected="true"] {
   color: var(--tech-cyan);
   background: #1a2438;
   border-bottom-color: var(--tech-cyan);
 }
 
-/* ── Dark Mode: Status Badges ── */
-[data-theme="dark"] .status-done {
-  background: rgba(26, 102, 48, 0.4);
-  color: #6ee7a0;
-}
+[data-theme="dark"] .status-done { background: rgba(26, 102, 48, 0.4); color: #6ee7a0; }
+[data-theme="dark"] .status-progress { background: rgba(133, 100, 4, 0.4); color: #fdd87a; }
 
-[data-theme="dark"] .status-progress {
-  background: rgba(133, 100, 4, 0.4);
-  color: #fdd87a;
-}
+[data-theme="dark"] .stats-section { background: linear-gradient(135deg, #0a1628 0%, #1d3d6b 100%); }
+[data-theme="dark"] .stat-label { color: rgba(255, 255, 255, 0.6); }
 
-/* ── Dark Mode: Stats Section ── */
-[data-theme="dark"] .stats-section {
-  background: linear-gradient(135deg, #0a1628 0%, #1d3d6b 100%);
-}
+[data-theme="dark"] .overview-section h2 { color: var(--tech-cyan); }
+[data-theme="dark"] .section-subtitle { color: var(--text-muted); }
+[data-theme="dark"] .overview-section > .container > p:last-child { color: var(--text-muted); }
 
-[data-theme="dark"] .stat-label {
-  color: rgba(255, 255, 255, 0.6);
-}
+[data-theme="dark"] .program-cards-section { background-color: #0f1520; }
+[data-theme="dark"] .program-cards-section h2 { color: var(--tech-cyan); }
 
-/* ── Dark Mode: Overview Section ── */
-[data-theme="dark"] .overview-section h2 {
-  color: var(--tech-cyan);
-}
+[data-theme="dark"] .work-section { background-color: #0f1520; }
+[data-theme="dark"] .contact-section { background-color: #0f1520; display: block; }
 
-[data-theme="dark"] .section-subtitle {
-  color: var(--text-muted);
-}
-
-[data-theme="dark"] .overview-section > .container > p:last-child {
-  color: var(--text-muted);
-}
-
-/* ── Dark Mode: Navigation Cards Section ── */
-[data-theme="dark"] .program-cards-section {
-  background-color: #0f1520;
-}
-
-[data-theme="dark"] .program-cards-section h2 {
-  color: var(--tech-cyan);
-}
-
-/* ── Dark Mode: Buttons ── */
-[data-theme="dark"] .btn-secondary {
-  color: var(--tech-cyan);
-  border-color: var(--tech-cyan);
-}
-
-[data-theme="dark"] .btn-secondary:hover,
-[data-theme="dark"] .btn-secondary:focus-visible {
+[data-theme="dark"] .btn-secondary { color: var(--tech-cyan); border-color: var(--tech-cyan); }
+[data-theme="dark"] .btn-secondary:hover, [data-theme="dark"] .btn-secondary:focus-visible {
   background: var(--tech-cyan);
   color: #0a1628;
 }
 
-/* ── Dark Mode: Carousel ── */
-[data-theme="dark"] .carousel {
-  background: #0a1628;
-}
+[data-theme="dark"] .carousel { background: #0a1628; }
+[data-theme="dark"] .slide-content p { color: rgba(255, 255, 255, 0.7); }
 
-[data-theme="dark"] .slide-content p {
-  color: rgba(255, 255, 255, 0.7);
-}
+[data-theme="dark"] .shortcuts-modal { background: rgba(10, 22, 40, 0.9); }
+[data-theme="dark"] .shortcuts-modal-content { background: #1a2438; color: var(--text-dark); }
+[data-theme="dark"] .shortcuts-modal h2 { color: var(--tech-cyan); }
+[data-theme="dark"] .shortcuts-modal kbd { background: #0f1520; border-color: rgba(255, 255, 255, 0.15); color: var(--tech-cyan); }
 
-/* ── Dark Mode: Modal ── */
-[data-theme="dark"] .shortcuts-modal {
-  background: rgba(10, 22, 40, 0.9);
-}
+[data-theme="dark"] .toast { background: #1d3d6b; border-color: var(--tech-cyan); }
+[data-theme="dark"] .back-to-top { background: #1d3d6b; }
+[data-theme="dark"] .back-to-top:hover { background: #2a4d82; }
+[data-theme="dark"] .keyboard-hint { background: #0a1628; color: rgba(255, 255, 255, 0.5); }
 
-[data-theme="dark"] .shortcuts-modal-content {
-  background: #1a2438;
-  color: var(--text-dark);
-}
-
-[data-theme="dark"] .shortcuts-modal h2 {
-  color: var(--tech-cyan);
-}
-
-[data-theme="dark"] .shortcuts-modal kbd {
-  background: #0f1520;
-  border-color: rgba(255, 255, 255, 0.15);
-  color: var(--tech-cyan);
-}
-
-/* ── Dark Mode: Toast ── */
-[data-theme="dark"] .toast {
-  background: #1d3d6b;
-  border-color: var(--tech-cyan);
-}
-
-/* ── Dark Mode: Back to Top ── */
-[data-theme="dark"] .back-to-top {
-  background: #1d3d6b;
-}
-
-[data-theme="dark"] .back-to-top:hover {
-  background: #2a4d82;
-}
-
-/* ── Dark Mode: Keyboard Hint ── */
-[data-theme="dark"] .keyboard-hint {
-  background: #0a1628;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* Theme toggle button in header */
+/* Theme toggle button */
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -428,8 +193,7 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--pure-white);
   cursor: pointer;
-  transition: background var(--transition), transform var(--transition),
-              border-color var(--transition);
+  transition: background var(--transition), transform var(--transition), border-color var(--transition);
   flex-shrink: 0;
 }
 
@@ -444,44 +208,21 @@ main {
   outline-offset: 2px;
 }
 
-/* Sun icon SVG */
-.theme-toggle .icon-sun {
-  display: none;
-}
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
 
-/* Moon icon SVG */
-.theme-toggle .icon-moon {
-  display: block;
-}
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
-/* Show sun icon when dark mode is active */
-[data-theme="dark"] .theme-toggle .icon-sun {
-  display: block;
+/* Smooth theme transitions */
+body, .site-header, .site-footer, .program-card, .accordion-item,
+.staff-member, .career-item, .area-group {
+  transition: background-color var(--transition-slow), color var(--transition-slow),
+              border-color var(--transition-slow), box-shadow var(--transition-slow);
 }
-
-[data-theme="dark"] .theme-toggle .icon-moon {
-  display: none;
-}
-
-/* Smooth transition for theme changes */
-body,
-.site-header,
-.site-footer,
-.program-card,
-.accordion-item,
-.staff-member,
-.career-item,
-.area-group {
-  transition: background-color var(--transition-slow),
-              color var(--transition-slow),
-              border-color var(--transition-slow),
-              box-shadow var(--transition-slow);
-}
-
 
 /* ===========================================================
-   RAINBOW MODE — Easter egg activated by Konami code
-   Cycling hues on various elements for 10 seconds
+   RAINBOW MODE — Konami code easter egg
    =========================================================== */
 
 @keyframes rainbowHue {
@@ -489,14 +230,8 @@ body,
   100% { filter: hue-rotate(360deg); }
 }
 
-.rainbow-mode {
-  animation: rainbowHue 2s linear infinite;
-}
-
-.rainbow-mode .site-header,
-.rainbow-mode .back-to-top {
-  animation: rainbowHue 2s linear infinite;
-}
+.rainbow-mode { animation: rainbowHue 2s linear infinite; }
+.rainbow-mode .site-header, .rainbow-mode .back-to-top { animation: rainbowHue 2s linear infinite; }
 
 
 /* ===========================================================
@@ -983,8 +718,8 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
    =========================================================== */
 
 .intro-block {
-  padding-block: var(--space-10); /* Vertical padding — breathes easy */
-  background-color: var(--surface-light);
+  padding-block: var(--space-10);
+  background-color: var(--pure-white);
 }
 
 .intro-card {
@@ -992,8 +727,10 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-8);
-  box-shadow: var(--shadow-card); /* Subtle lift from the page */
+  box-shadow: var(--shadow-card);
   transition: box-shadow var(--transition), transform var(--transition);
+  max-width: 900px;
+  margin-inline: auto;
 }
 
 .intro-card:hover {
@@ -1003,9 +740,12 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
 
 .intro-card p {
   font-size: var(--text-base);
-  line-height: 1.7; /* More generous for intro text */
-  color: var(--text-muted);
-  max-width: 80ch; /* Slightly longer lines for this context */
+  line-height: 1.8;
+  color: var(--text-dark);
+  max-width: none;
+  font-weight: 400;
+  margin: 0;
+  text-wrap: balance;
 }
 
 
@@ -1022,7 +762,7 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
 .overview-section h2 {
   font-size: var(--text-h2);
   font-weight: 700;
-  color: var(--academic-blue);
+  color: var(--text-dark);
   margin-bottom: var(--space-2);
 }
 
@@ -1036,11 +776,12 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
   margin-bottom: var(--space-6);
 }
 
-/* The paragraph after section headers — left-aligned within centered container */
-.overview-section > .container > p:last-child {
-  margin-inline: auto; /* Center it like the heading, but left-aligned text */
-  color: var(--text-muted);
-  line-height: 1.7;
+/* The paragraph after section headers */
+.overview-section p:not(.section-subtitle) {
+  margin-inline: auto;
+  color: var(--text-dark);
+  line-height: 1.8;
+  max-width: 700px;
 }
 
 /* The decorative underline beneath section titles
@@ -1062,15 +803,54 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
    =========================================================== */
 
 .program-cards-section {
-  padding-block: var(--space-8) var(--space-12); /* Extra space at bottom for breathing room */
-  background-color: var(--surface-light);
+  padding-block: var(--space-8) var(--space-12);
+  background-color: var(--pure-white);
 }
 
 .program-cards-section h2 {
   font-size: var(--text-h2);
   font-weight: 700;
-  color: var(--academic-blue);
+  color: var(--text-dark);
   margin-bottom: var(--space-8);
+}
+
+.work-section {
+  padding-block: var(--space-8) var(--space-12);
+  background-color: var(--surface-light);
+}
+
+.contact-section {
+  padding-block: var(--space-8) var(--space-12);
+  background-color: var(--pure-white);
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.contact-section .efrei-form,
+.contact-section .contact-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--space-6) !important;
+  max-width: 680px !important;
+  margin-top: var(--space-8) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.contact-section .form-group {
+  display: flex !important;
+  flex-direction: column !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.contact-section .form-group label,
+.contact-section .form-group input,
+.contact-section .form-group textarea,
+.contact-section .form-group select {
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* The grid that holds our cards — 2 columns by default
@@ -1131,7 +911,7 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
 .program-card h3 {
   font-size: var(--text-h3);
   font-weight: 700;
-  color: var(--academic-blue);
+  color: var(--text-dark);
 }
 
 /* The cyan underline accent on the card header
@@ -1212,11 +992,19 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
    The flex-shrink: 0 keeps the bullet from getting squished */
 .efrei-list li::before {
   content: '▶';
-  font-size: 0.6em; /* Smaller than the text — decorative, not dominant */
+  font-size: 0.6em;
   color: var(--pure-white);
   flex-shrink: 0;
-  margin-top: 0.2em; /* Aligns better with uppercase text */
+  margin-top: 0.2em;
 }
+
+/* Light background variant for efrei-list */
+.efrei-list.light li { color: var(--text-dark); }
+.efrei-list.light li::before { color: var(--academic-blue); }
+
+/* Spaced variant */
+.efrei-list.spaced { gap: var(--space-4); }
+.efrei-list.spaced li { text-transform: none; letter-spacing: 0; font-weight: 400; }
 
 
 /* ===========================================================
@@ -1229,20 +1017,40 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2); /* Space between icon and text */
+  gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
   font-family: var(--font-heading);
   font-size: var(--text-sm);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em; /* Slightly increased for that authoritative feel */
+  letter-spacing: 0.08em;
   border-radius: var(--radius-sm);
   border: 2px solid transparent;
   transition: background var(--transition), color var(--transition),
               border-color var(--transition), transform var(--transition),
               box-shadow var(--transition);
-  white-space: nowrap; /* Buttons don't wrap text */
-  cursor: pointer; /* Changes to pointer on hover — universal sign for "clickable" */
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn:active::before {
+  width: 200px;
+  height: 200px;
 }
 
 /* PRIMARY BUTTON — Electric Yellow on Blue
@@ -1307,35 +1115,8 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
   border-top-color: transparent;
 }
 
-/* Ripple effect on button click */
-.btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.4s ease, height 0.4s ease;
-}
-
-.btn:active::before {
-  width: 200px;
-  height: 200px;
-}
-
-
 /* ===========================================================
    BOTTOM PAGE NAVIGATION
-   The 3-button row at the bottom of inner pages
-   Helps users navigate to adjacent sections without going back to top
    =========================================================== */
 
 .page-bottom-nav {
@@ -1444,7 +1225,7 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--academic-blue);
+  color: var(--text-dark);
   transition: color var(--transition);
 }
 
@@ -1601,6 +1382,23 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
    TABLES (used for faculty / timetable / work breakdown)
    Charter: professional, readable, with light header row
    =========================================================== */
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: var(--space-6);
+  visibility: visible;
+  opacity: 1;
+}
+
+.office-hours-section {
+  padding-block: var(--space-8) var(--space-12);
+  background-color: var(--pure-white);
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+[data-theme="dark"] .office-hours-section { background-color: #0f1520; }
 
 .efrei-table {
   width: 100%;
@@ -1905,6 +1703,159 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
   .bottom-nav-btn:last-child { border-bottom: none; }
 }
 
+/* ── Carousel (index) ──
+   The hero slider that showcases different aspects of the department
+   Base styles - apply to all screen sizes
+*/
+.carousel {
+  position: relative;
+  overflow: hidden;
+  background: var(--academic-blue);
+  height: 520px;
+  width: 100%;
+}
+.carousel-track-wrapper {
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  position: relative;
+}
+.carousel-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.carousel-slide.hero-slide {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 500ms ease, visibility 500ms ease;
+  z-index: 0 !important;
+  background-size: cover;
+  background-position: center;
+  display: block !important;
+}
+.carousel-slide.hero-slide.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 1 !important;
+}
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 49, 108, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+.slide-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--space-8);
+  max-width: 600px;
+}
+.slide-label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--tech-cyan);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+.slide-content h1,
+.slide-content h2 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: var(--pure-white);
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+}
+.slide-content p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+}
+.slide-content .btn {
+  padding: var(--space-3) var(--space-6);
+}
+
+/* Carousel prev/next buttons — semi-transparent until hover */
+.carousel-btn-prev,
+.carousel-btn-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 49, 108, 0.6);
+  color: var(--pure-white);
+  border: 1px solid rgba(255,255,255,0.2);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), transform var(--transition);
+  z-index: 10;
+}
+.carousel-btn-prev { left: var(--space-4); }
+.carousel-btn-next { right: var(--space-4); }
+.carousel-btn-prev:hover,
+.carousel-btn-next:hover {
+  background: var(--academic-blue);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Dot indicators — small circles showing current slide */
+.carousel-dots {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-2);
+  z-index: 10;
+}
+.carousel-dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.4);
+  border: none;
+  transition: background var(--transition), transform var(--transition);
+}
+.carousel-dots button.active {
+  background: var(--tech-cyan);
+  transform: scale(1.3);
+}
+
+/* Contact form — top level definitions */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+.contact-form,
+.efrei-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 680px;
+  margin-top: var(--space-8);
+}
+.form-actions { display: flex; justify-content: flex-start; }
+
 /* ── MOBILE SMALL (480px) ──
    Even smaller screens need even more adjustments
 */
@@ -1936,23 +1887,6 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
   }
   .status-done     { background: #d4edda; color: #1a6630; } /* Green — done! */
   .status-progress { background: #fff3cd; color: #856404; } /* Yellow — in progress */
-
-  /* ── Contact Form layout ──
-     Name fields side by side on desktop, stacked on mobile
-  */
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: var(--space-4);
-  }
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-    max-width: 680px;
-    margin-top: var(--space-8);
-  }
-  .form-actions { display: flex; justify-content: flex-start; }
 
   /* ── Staff grid ──
      The faculty cards on the about page — 2 columns on desktop, stacked on mobile
@@ -2045,7 +1979,7 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
   }
   .area-group h3, .career-item h3 {
     font-size: var(--text-h3);
-    color: var(--academic-blue);
+    color: var(--text-dark);
     margin-bottom: var(--space-4);
   }
 
@@ -2098,113 +2032,13 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
     font-weight: 300;
   }
 
-  /* ── Carousel (index) ──
-     The hero slider that showcases different aspects of the department
-  */
-  .carousel {
-    position: relative;
-    overflow: hidden; /* Hide slides that are off-screen */
-    background: var(--academic-blue);
-  }
-  .carousel-track-wrapper { overflow: hidden; }
-  .carousel-track {
-    display: flex;
-    /* The track slides horizontally — CSS transform handles the movement */
-    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1); /* Smooth, slightly bouncy */
-  }
-  .hero-slide {
-    min-width: 100%; /* Each slide takes full width */
-    min-height: 520px;
-    background-size: cover;
-    background-position: center;
-    position: relative; /* Allows overlay to be positioned absolutely */
-    flex-shrink: 0; /* Don't let slides shrink */
-  }
-  .slide-overlay {
-    position: absolute;
-    inset: 0; /* Cover the whole slide */
-    /* Gradient from dark blue on left (text area) to transparent on right (image area) */
-    background: linear-gradient(to right,
-      rgba(10,49,108,0.92) 0%,
-      rgba(10,49,108,0.6) 55%,
-      rgba(10,49,108,0.1) 100%);
-    display: flex;
-    align-items: center; /* Vertically center content */
-  }
-  .slide-content {
-    max-width: 560px;
-    padding: var(--space-12) var(--space-10);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-  .slide-label {
-    font-family: var(--font-heading);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--tech-cyan);
-    font-weight: 500;
-  }
-  .slide-content h1,
-  .slide-content h2 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 700;
-    color: var(--pure-white);
-  }
-  .slide-content p { color: rgba(255,255,255,0.85); font-weight: 300; }
-
-  /* Carousel prev/next buttons — semi-transparent until hover */
-  .carousel-btn-prev,
-  .carousel-btn-next {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%);
-    background: rgba(10, 49, 108, 0.6);
-    color: var(--pure-white);
-    border: 1px solid rgba(255,255,255,0.2);
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-full); /* Circular buttons */
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background var(--transition), transform var(--transition);
-    z-index: 10; /* Above the slide content */
-  }
-  .carousel-btn-prev { left: var(--space-4); }
-  .carousel-btn-next { right: var(--space-4); }
-  .carousel-btn-prev:hover,
-  .carousel-btn-next:hover {
-    background: var(--academic-blue);
-    transform: translateY(-50%) scale(1.1);
-  }
-
-  /* Dot indicators — small circles showing current slide */
-  .carousel-dots {
-    position: absolute;
-    bottom: var(--space-4);
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%);
-    display: flex;
-    gap: var(--space-2);
-    z-index: 10;
-  }
-  .carousel-dots button {
-    width: 8px;
-    height: 8px;
-    border-radius: var(--radius-full);
-    background: rgba(255,255,255,0.4);
-    border: none;
-    transition: background var(--transition), transform var(--transition);
-  }
-  .carousel-dots button.active {
-    background: var(--tech-cyan);
-    transform: scale(1.3); /* Active dot is slightly larger */
-  }
-
   /* ── Nav cards (index) ──
+   Even smaller screens need even more adjustments
+*/
+@media (max-width: 480px) {
+  .container {
+    padding-inline: var(--space-4); /* Tighter padding on small screens */
+  }
      The grid of navigation cards on the homepage
   */
   .home-nav-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2312,12 +2146,542 @@ p { max-width: 72ch; text-wrap: pretty; } /* 72 characters per line = optimal re
     .stats-grid { grid-template-columns: repeat(2, 1fr); } /* 2x2 instead of 4x1 */
     .form-row { grid-template-columns: 1fr; } /* Name fields stack */
     .staff-member { flex-direction: column; align-items: center; text-align: center; }
-    .hero-slide { min-height: 360px; } /* Shorter on mobile */
+    .carousel { height: 400px; }
+    .carousel-track-wrapper { height: 400px; }
+    .hero-slide { min-height: 400px; }
     .slide-content { padding: var(--space-8) var(--space-6); }
   }
-  @media (max-width: 480px) {
-    .stats-grid { grid-template-columns: 1fr 1fr; } /* 2x2 grid on mobile */
-    .tabs-nav { gap: var(--space-1); } /* Tighter tab spacing */
-    .tab-btn { padding: var(--space-2) var(--space-3); font-size: 0.75rem; } /* Smaller tabs */
+
+
+/* ===========================================================
+   FACULTY PAGE ENHANCEMENTS
+   Visual upgrades for the faculty page while preserving structure
+   =========================================================== */
+
+/* ── Enhanced Hero Section ── */
+.faculty-page .page-hero {
+  background: linear-gradient(135deg, var(--academic-blue) 0%, var(--blue-mid) 50%, var(--blue-dark) 100%);
+}
+
+.faculty-page .page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(129, 236, 236, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(253, 203, 110, 0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.faculty-page .hero-text h1 {
+  position: relative;
+}
+
+.faculty-page .hero-text h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--tech-cyan), var(--electric-yellow));
+  margin-top: var(--space-4);
+  border-radius: 2px;
+  animation: expandWidth 800ms ease-out 300ms backwards;
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to { width: 80px; }
+}
+
+/* ── Decorative floating shapes in hero ── */
+.faculty-page .page-hero .hero-image::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 60px;
+  height: 60px;
+  border: 3px solid var(--tech-cyan);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.faculty-page .page-hero .hero-image::after {
+  content: '';
+  position: absolute;
+  bottom: 25%;
+  right: 25%;
+  width: 40px;
+  height: 40px;
+  background: var(--electric-yellow);
+  opacity: 0.15;
+  transform: rotate(45deg);
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* ── Enhanced Intro Card ── */
+.faculty-page .intro-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.faculty-page .intro-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: Georgia, serif;
+  font-size: 8rem;
+  color: var(--tech-cyan);
+  opacity: 0.1;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.faculty-page .intro-card p {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Enhanced Section Headers ── */
+.faculty-page .overview-section h2,
+.faculty-page .staff-section h2,
+.faculty-page .research-section h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.faculty-page .overview-section h2::before,
+.faculty-page .staff-section h2::before,
+.faculty-page .research-section h2::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: linear-gradient(to bottom, var(--tech-cyan), transparent);
+  border-radius: 2px;
+}
+
+/* ── Staff Section Enhancements ── */
+.faculty-page .staff-section {
+  background: linear-gradient(180deg, var(--pure-white) 0%, var(--surface-light) 100%);
+  position: relative;
+}
+
+.faculty-page .staff-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--academic-blue), var(--tech-cyan), var(--electric-yellow), var(--academic-blue));
+  background-size: 300% 100%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ── Staff Grid Layout ── */
+.faculty-page .staff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+@media (max-width: 900px) {
+  .faculty-page .staff-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* ── Enhanced Staff Member Cards ── */
+.faculty-page .staff-member {
+  display: flex;
+  gap: var(--space-6);
+  background: var(--pure-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.faculty-page .staff-member::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--tech-cyan), var(--academic-blue));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-slow);
+}
+
+.faculty-page .staff-member:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+  border-color: rgba(129, 236, 236, 0.3);
+}
+
+.faculty-page .staff-member:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── Staff Avatar Enhancements ── */
+.faculty-page .staff-avatar {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.faculty-page .staff-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(135deg, var(--tech-cyan), var(--academic-blue));
+  border-radius: var(--radius-md);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.faculty-page .staff-member:hover .staff-avatar::before {
+  opacity: 1;
+}
+
+.faculty-page .staff-avatar img {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  border: none;
+  transition: transform var(--transition), filter var(--transition);
+}
+
+.faculty-page .staff-member:hover .staff-avatar img {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+/* ── Staff Info Enhancements ── */
+.faculty-page .staff-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.faculty-page .staff-info h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: var(--space-1);
+  transition: color var(--transition);
+}
+
+.faculty-page .staff-member:hover .staff-info h3 {
+  color: var(--academic-blue);
+}
+
+.faculty-page .staff-role {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--tech-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  display: inline-block;
+  padding-left: var(--space-4);
+}
+
+.faculty-page .staff-role::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 2px;
+  background: var(--tech-cyan);
+}
+
+.faculty-page .staff-bio {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: -webkit-line-clamp var(--transition);
+}
+
+.faculty-page .staff-member:hover .staff-bio {
+  -webkit-line-clamp: unset;
+}
+
+/* ── Research Section Enhancements ── */
+.faculty-page .research-section {
+  background: var(--surface-light);
+  position: relative;
+}
+
+.faculty-page .research-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 90%, rgba(129, 236, 236, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(253, 203, 110, 0.05) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+/* ── Program Cards Section Enhancements ── */
+.faculty-page .program-cards-section {
+  background: var(--pure-white);
+  position: relative;
+}
+
+.faculty-page .program-cards-section .cards-grid {
+  position: relative;
+}
+
+/* Card icon animations */
+.faculty-page .program-card .card-number {
+  font-size: 1.5rem;
+  transition: transform var(--transition);
+}
+
+.faculty-page .program-card:hover .card-number {
+  transform: translateX(5px);
+}
+
+/* ── Enhanced Office Hours Table ── */
+.faculty-page .office-hours-table {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.faculty-page .office-hours-table th {
+  position: relative;
+  overflow: hidden;
+}
+
+.faculty-page .office-hours-table th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--tech-cyan);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+}
+
+.faculty-page .office-hours-table th:hover::after {
+  transform: scaleX(1);
+}
+
+.faculty-page .office-hours-table tbody tr {
+  position: relative;
+}
+
+.faculty-page .office-hours-table tbody tr::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, rgba(129, 236, 236, 0.1), transparent);
+  transition: width var(--transition);
+}
+
+.faculty-page .office-hours-table tbody tr:hover::before {
+  width: 100%;
+}
+
+.faculty-page .office-hours-table tbody tr:hover td {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* ── Bottom Navigation Enhancement ── */
+.faculty-page .page-bottom-nav {
+  position: relative;
+  overflow: hidden;
+}
+
+.faculty-page .page-bottom-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--tech-cyan), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; transform: scaleX(0.5); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+.faculty-page .bottom-nav-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.faculty-page .bottom-nav-btn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--electric-yellow);
+  border-radius: 2px 2px 0 0;
+  transition: width var(--transition);
+}
+
+.faculty-page .bottom-nav-btn:hover::before {
+  width: 60%;
+}
+
+/* ── Section Transition Decorations ── */
+.faculty-page .section-divider {
+  position: relative;
+}
+
+.faculty-page .section-divider::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(129, 236, 236, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Enhanced Animations for Faculty Page ── */
+.faculty-page .staff-member {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow),
+              box-shadow var(--transition), border-color var(--transition);
+}
+
+.faculty-page .staff-member.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faculty-page .staff-member.visible:nth-child(1) { transition-delay: 0ms; }
+.faculty-page .staff-member.visible:nth-child(2) { transition-delay: 100ms; }
+.faculty-page .staff-member.visible:nth-child(3) { transition-delay: 200ms; }
+.faculty-page .staff-member.visible:nth-child(4) { transition-delay: 300ms; }
+
+/* ── Card Hover Glow Effect ── */
+.faculty-page .program-card {
+  position: relative;
+}
+
+.faculty-page .program-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 0 0 rgba(129, 236, 236, 0);
+  transition: box-shadow var(--transition);
+  pointer-events: none;
+}
+
+.faculty-page .program-card:hover::after {
+  box-shadow: 0 0 0 2px rgba(129, 236, 236, 0.3);
+}
+
+/* ── Responsive Faculty Page Adjustments ── */
+@media (max-width: 768px) {
+  .faculty-page .hero-text h1::after {
+    width: 60px;
+  }
+  
+  .faculty-page .staff-member {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .faculty-page .staff-avatar img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .faculty-page .staff-role {
+    padding-left: 0;
+    padding-top: var(--space-3);
+  }
+  
+  .faculty-page .staff-role::before {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+  }
+  
+  .faculty-page .overview-section h2::before,
+  .faculty-page .staff-section h2::before,
+  .faculty-page .research-section h2::before {
+    display: none;
+  }
+  
+  .faculty-page .page-bottom-nav {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .faculty-page .staff-avatar img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .faculty-page .hero-text h1::after {
+    margin-left: auto;
+    margin-right: auto;
+
+  .stats-grid { grid-template-columns: 1fr 1fr; } /* 2x2 grid on mobile */
+  .tabs-nav { gap: var(--space-1); } /* Tighter tab spacing */
+  .tab-btn { padding: var(--space-2) var(--space-3); font-size: 0.75rem; } /* Smaller tabs */
   }
 }
